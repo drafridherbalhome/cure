@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - DR AFRID Herbal Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+        body{overflow-x:hidden;color:#333;background:#fff;min-width:320px;}
+        a{text-decoration:none;color:inherit;}
+        ul{list-style:none;}
+        .container{width:90%;max-width:1200px;margin:0 auto;}
+
+        /* Top Bar */
+        .top-bar{background:#2d5a1b;color:white;padding:7px 0;font-size:13px;}
+        .top-bar-content{display:flex;justify-content:space-between;align-items:center;width:90%;margin:0 auto;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+        .top-bar-content::-webkit-scrollbar{display:none;}
+        .contact-info-topbar{display:flex;gap:16px;flex-wrap:nowrap;}
+        .contact-info-item{display:flex;align-items:center;gap:6px;}
+        .contact-info-item i{font-size:12px;color:#a8d96c;}
+        .top-bar-social{display:flex;gap:10px;}
+        .top-bar-social a{color:white;font-size:13px;transition:color .3s;}
+        .top-bar-social a:hover{color:#a8d96c;}
+
+        /* Header */
+        header{background:#162520;padding:14px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.2);}
+        .header-container{display:flex;align-items:center;justify-content:space-between;width:90%;margin:0 auto;}
+        .logo img{height:44px;width:auto;object-fit:contain;}
+        .nav-links{display:flex;gap:28px;list-style:none;}
+        .nav-links a{color:rgba(255,255,255,.9);font-weight:500;font-size:14.5px;padding:5px 0;transition:color .3s;position:relative;}
+        .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:#8bc34a;transition:width .3s;}
+        .nav-links a:hover::after,.nav-links li:nth-child(5) a::after{width:100%;}
+        .nav-links a:hover,.nav-links li:nth-child(5) a{color:#8bc34a;}
+        .nav-order-btn{background:#8bc34a;color:white!important;padding:8px 20px!important;border-radius:4px;font-weight:600!important;}
+        .nav-order-btn::after{display:none!important;}
+        .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1100;}
+        .menu-toggle span{display:block;width:26px;height:3px;background:white;border-radius:3px;transition:all .35s;transform-origin:center;}
+        .menu-toggle.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+        .menu-toggle.open span:nth-child(2){opacity:0;}
+        .menu-toggle.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+        .mobile-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1050;opacity:0;transition:opacity .3s;}
+        .mobile-nav-overlay.open{opacity:1;}
+        .mobile-nav-drawer{position:fixed;top:0;right:0;height:100%;width:min(80vw,300px);background:#162520;z-index:1100;padding:70px 28px 28px;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;}
+        .mobile-nav-drawer.open{transform:translateX(0);}
+        .mobile-nav-links{display:flex;flex-direction:column;}
+        .mobile-nav-links li{border-bottom:1px solid rgba(255,255,255,.07);}
+        .mobile-nav-links a{display:block;color:white;font-size:15px;font-weight:500;padding:13px 0;transition:color .3s,padding-left .3s;}
+        .mobile-nav-links a:hover{color:#8bc34a;padding-left:6px;}
+        .mobile-nav-links li:nth-child(5) a{color:#8bc34a;}
+
+        /* Hero */
+        .hero{height:230px;background:linear-gradient(135deg,rgba(22,37,32,.78) 0%,rgba(45,90,27,.6) 100%),url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1920&q=80') no-repeat center center/cover;display:flex;align-items:center;justify-content:center;text-align:center;}
+        /* HERO BG: Replace background-image URL above */
+        .hero-content{width:90%;color:white;}
+        .hero h1{font-size:clamp(26px,4vw,50px);margin-bottom:10px;font-weight:700;}
+        .breadcrumb{display:flex;align-items:center;gap:8px;color:#a8d96c;font-size:14px;justify-content:center;}
+        .breadcrumb a{color:rgba(255,255,255,.8);transition:color .3s;}
+        .breadcrumb a:hover,.breadcrumb span{color:#8bc34a;}
+        .breadcrumb i{font-size:10px;color:rgba(255,255,255,.5);}
+
+        /* Section Labels */
+        .section-label{color:#8bc34a;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;display:block;}
+        .section-title{font-size:clamp(22px,2.8vw,34px);color:#162520;margin-bottom:14px;font-weight:700;line-height:1.25;}
+        .section-title span{color:#8bc34a;}
+        .section-divider{width:48px;height:3px;background:#8bc34a;margin:0 0 22px;border-radius:2px;}
+
+        /* Quick Contact Cards */
+        .quick-contact{background:#f5f7f3;padding:50px 0;}
+        .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:10px;}
+        .quick-card{background:white;border-radius:8px;padding:24px 20px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.07);border-bottom:3px solid #8bc34a;transition:transform .3s,box-shadow .3s;}
+        .quick-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.1);}
+        .quick-icon{width:56px;height:56px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:white;font-size:22px;}
+        .quick-label{font-size:12px;font-weight:600;color:#999;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+        .quick-value{font-size:clamp(13px,1.2vw,15px);color:#162520;font-weight:600;line-height:1.5;}
+        .quick-value a{color:#162520;transition:color .3s;}
+        .quick-value a:hover{color:#8bc34a;}
+
+        /* Main Contact Section */
+        .contact-section{padding:60px 0;}
+        .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start;}
+        .contact-info-col{}
+        .hours-title{font-size:clamp(18px,2vw,24px);font-weight:700;color:#162520;margin-bottom:16px;}
+        .hours-list{margin-bottom:28px;}
+        .hours-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f0f0f0;font-size:13.5px;}
+        .hours-day{font-weight:600;color:#333;}
+        .hours-time{color:#8bc34a;font-weight:500;}
+        .hours-closed{color:#e74c3c;}
+        .info-links{display:flex;flex-direction:column;gap:12px;margin-top:10px;}
+        .info-link{display:flex;align-items:center;gap:14px;font-size:14px;color:#555;transition:color .3s;}
+        .info-link:hover{color:#8bc34a;}
+        .info-link-icon{width:40px;height:40px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:16px;flex-shrink:0;}
+        .social-row{display:flex;gap:10px;margin-top:20px;}
+        .social-btn{width:40px;height:40px;background:rgba(139,195,74,.1);border:1.5px solid #8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#8bc34a;font-size:16px;transition:all .3s;}
+        .social-btn:hover{background:#8bc34a;color:white;}
+
+        /* Contact Form */
+        .contact-form-col{background:#f5f7f3;border-radius:8px;padding:32px;position:relative;overflow:hidden;}
+        .contact-form-col::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:rgba(139,195,74,.15);border-radius:50%;}
+        .form-title{font-size:clamp(18px,2vw,24px);font-weight:700;color:#162520;margin-bottom:6px;}
+        .form-subtitle{font-size:13.5px;color:#777;margin-bottom:24px;}
+        .alert-msg{padding:12px 16px;border-radius:4px;font-size:13.5px;margin-bottom:16px;display:none;}
+        .alert-msg.success{background:#d4edda;color:#155724;border:1px solid #c3e6cb;display:block;}
+        .alert-msg.error{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;display:block;}
+        .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+        .form-group{display:flex;flex-direction:column;gap:5px;}
+        .form-group.full{grid-column:span 2;}
+        .form-label{font-size:12.5px;color:#8bc34a;font-weight:600;}
+        .form-label .req{color:#8bc34a;}
+        .form-control{padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:4px;font-size:13.5px;font-family:'Poppins',sans-serif;outline:none;transition:border-color .3s;background:white;}
+        .form-control:focus{border-color:#8bc34a;}
+        .form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8.825L1.175 4 2.05 3.125 6 7.075 9.95 3.125 10.825 4z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer;}
+        .radio-group{display:flex;gap:18px;margin-top:6px;}
+        .radio-label{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13.5px;color:#555;}
+        .form-buttons{grid-column:span 2;display:flex;gap:10px;justify-content:flex-end;margin-top:6px;}
+        .btn-reset{padding:11px 24px;background:white;border:1.5px solid #ddd;border-radius:4px;cursor:pointer;font-weight:500;font-size:13.5px;font-family:'Poppins',sans-serif;transition:all .3s;}
+        .btn-reset:hover{background:#f0f0f0;}
+        .btn-submit{padding:11px 28px;background:#8bc34a;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:600;font-size:13.5px;font-family:'Poppins',sans-serif;transition:all .3s;display:inline-flex;align-items:center;gap:8px;}
+        .btn-submit:hover{background:#7ab33d;}
+
+        /* Map Section */
+        .map-section{padding:0 0 60px;}
+        .map-embed{width:100%;height:350px;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);}
+        .map-embed iframe{width:100%;height:100%;border:none;}
+
+        /* WhatsApp CTA */
+        .whatsapp-cta{background:#25D366;padding:50px 0;text-align:center;}
+        .whatsapp-cta h2{font-size:clamp(20px,3vw,32px);color:white;font-weight:700;margin-bottom:10px;}
+        .whatsapp-cta p{color:rgba(255,255,255,.9);font-size:15px;margin-bottom:24px;}
+        .wa-btn{display:inline-flex;align-items:center;gap:10px;background:white;color:#25D366;padding:14px 34px;border-radius:4px;font-weight:700;font-size:16px;transition:all .3s;}
+        .wa-btn:hover{background:#162520;color:white;}
+
+        /* WhatsApp Float */
+        .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .3s;}
+        .whatsapp-float:hover{transform:scale(1.1);}
+
+        /* Footer */
+        .main-footer{text-align:center;padding:40px 0 0;background:#f5f7f3;}
+        .order-btn-large{display:inline-flex;align-items:center;gap:10px;background:#8bc34a;color:white;padding:15px 34px;border-radius:4px;font-weight:700;font-size:17px;transition:all .3s;}
+        .order-btn-large:hover{background:#7ab33d;}
+        .footer-dark{background:#162520;color:white;padding:55px 0 20px;}
+        .footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px;margin-bottom:40px;}
+        .footer-brand img{height:44px;width:auto;margin-bottom:12px;}
+        .footer-brand h3{color:#8bc34a;font-size:18px;font-weight:700;margin-bottom:8px;}
+        .footer-brand p{color:#999;font-size:13px;line-height:1.7;margin-bottom:16px;}
+        .footer-socials{display:flex;gap:8px;}
+        .footer-socials a{width:34px;height:34px;background:rgba(139,195,74,.12);border:1px solid rgba(139,195,74,.25);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#8bc34a;font-size:14px;transition:all .3s;}
+        .footer-socials a:hover{background:#8bc34a;color:white;}
+        .footer-col h4{color:#8bc34a;font-size:14px;font-weight:600;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(139,195,74,.18);}
+        .footer-col ul li{margin-bottom:8px;}
+        .footer-col ul li a{color:#999;font-size:13px;transition:all .3s;display:flex;align-items:center;gap:6px;}
+        .footer-col ul li a i{font-size:10px;color:#8bc34a;}
+        .footer-col ul li a:hover{color:#8bc34a;padding-left:4px;}
+        .footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;color:#999;font-size:13px;line-height:1.6;}
+        .footer-contact-item i{color:#8bc34a;font-size:14px;margin-top:2px;flex-shrink:0;}
+        .footer-contact-item a{color:#999;transition:color .3s;}
+        .footer-contact-item a:hover{color:#8bc34a;}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;justify-content:space-between;align-items:center;color:#666;font-size:12.5px;flex-wrap:wrap;gap:8px;}
+        .footer-bottom a{color:#8bc34a;}
+
+        @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr;}.quick-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:768px){
+            nav{display:none;}.menu-toggle{display:flex;}.mobile-nav-overlay{display:block;}
+            .contact-grid{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}.form-group.full{grid-column:span 1;}.form-buttons{grid-column:span 1;}
+            .footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}
+        }
+        @media(max-width:480px){.quick-grid{grid-template-columns:1fr 1fr;}.top-bar-content{flex-direction:column;align-items:flex-start;gap:6px;}}
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="top-bar-content">
+        <div class="contact-info-topbar">
+            <div class="contact-info-item"><i class="fas fa-phone-alt"></i><span>09153512788</span></div>
+            <div class="contact-info-item"><i class="fas fa-envelope"></i><span>drafridherbalhome@gmail.com</span></div>
+            <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><span>No 1, Ubia Road, Uromi Edo State</span></div>
+        </div>
+        <div class="top-bar-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/2349153512788"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <!-- LOGO: Replace src with your actual logo URL -->
+            <img src="https://placehold.co/160x44/8bc34a/ffffff?text=DR+AFRID" alt="DR AFRID Herbal Home Logo">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="nav-order-btn">Order Now</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<div class="mobile-nav-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" style="color:#8bc34a;font-weight:700;">Order Now</a></li>
+    </ul>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Contact Us</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Contact</span>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Contact Cards -->
+<section class="quick-contact">
+    <div class="container">
+        <div class="quick-grid">
+            <div class="quick-card">
+                <div class="quick-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="quick-label">Our Address</div>
+                <div class="quick-value">No 1, Ubia Road,<br>Uromi, Edo State, Nigeria</div>
+            </div>
+            <div class="quick-card">
+                <div class="quick-icon"><i class="fas fa-phone-alt"></i></div>
+                <div class="quick-label">Phone / WhatsApp</div>
+                <div class="quick-value"><a href="tel:09153512788">09153512788</a></div>
+            </div>
+            <div class="quick-card">
+                <div class="quick-icon"><i class="fas fa-envelope"></i></div>
+                <div class="quick-label">Email Address</div>
+                <div class="quick-value"><a href="mailto:drafridherbalhome@gmail.com">drafridherbalhome@gmail.com</a></div>
+            </div>
+            <div class="quick-card">
+                <div class="quick-icon"><i class="fas fa-clock"></i></div>
+                <div class="quick-label">Working Hours</div>
+                <div class="quick-value">Mon – Sat: 8AM – 8PM<br>Sunday: 10AM – 6PM</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Contact Section -->
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Info Column -->
+            <div class="contact-info-col">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">We're Here to <span>Help You Heal</span></h2>
+                <div class="section-divider"></div>
+                <p style="color:#666;font-size:14px;line-height:1.85;margin-bottom:28px;">Contact DR AFRID Herbal Home for a free consultation with Dr. Afrid. Whether you prefer to call, WhatsApp, email, or visit us in person at our Uromi office, we are always ready to help you find the right herbal solution for your health needs.</p>
+
+                <div class="hours-title">Opening Hours</div>
+                <div class="hours-list">
+                    <div class="hours-item"><span class="hours-day">Monday</span><span class="hours-time">8:00 AM – 8:00 PM</span></div>
+                    <div class="hours-item"><span class="hours-day">Tuesday</span><span class="hours-time">8:00 AM – 8:00 PM</span></div>
+                    <div class="hours-item"><span class="hours-day">Wednesday</span><span class="hours-time">8:00 AM – 8:00 PM</span></div>
+                    <div class="hours-item"><span class="hours-day">Thursday</span><span class="hours-time">8:00 AM – 8:00 PM</span></div>
+                    <div class="hours-item"><span class="hours-day">Friday</span><span class="hours-time">8:00 AM – 8:00 PM</span></div>
+                    <div class="hours-item"><span class="hours-day">Saturday</span><span class="hours-time">8:00 AM – 8:00 PM</span></div>
+                    <div class="hours-item"><span class="hours-day">Sunday</span><span class="hours-time">10:00 AM – 6:00 PM</span></div>
+                </div>
+
+                <div class="info-links">
+                    <a href="tel:09153512788" class="info-link">
+                        <div class="info-link-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div><strong>Call Us</strong><br><span style="font-size:13px;">09153512788</span></div>
+                    </a>
+                    <a href="https://wa.me/2349153512788" class="info-link" target="_blank">
+                        <div class="info-link-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div><strong>WhatsApp</strong><br><span style="font-size:13px;">Chat with Dr. Afrid directly</span></div>
+                    </a>
+                    <a href="mailto:drafridherbalhome@gmail.com" class="info-link">
+                        <div class="info-link-icon"><i class="fas fa-envelope"></i></div>
+                        <div><strong>Email Us</strong><br><span style="font-size:13px;">drafridherbalhome@gmail.com</span></div>
+                    </a>
+                    <div class="info-link" style="cursor:default;">
+                        <div class="info-link-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div><strong>Visit Us</strong><br><span style="font-size:13px;">No 1, Ubia Road, Uromi, Edo State</span></div>
+                    </div>
+                </div>
+
+                <div class="social-row">
+                    <a href="#" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/2349153512788" class="social-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Form Column -->
+            <div class="contact-form-col">
+                <div class="form-title">Send Us a Message</div>
+                <div class="form-subtitle">Fill in the form below and we'll get back to you as soon as possible.</div>
+                <div class="alert-msg" id="alertMsg"></div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">First Name <span class="req">*</span></label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Your first name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name <span class="req">*</span></label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Your last name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number <span class="req">*</span></label>
+                        <input type="tel" class="form-control" id="phone" placeholder="e.g. 09012345678">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Your email">
+                    </div>
+                    <div class="form-group full">
+                        <label class="form-label">Health Condition / Product of Interest</label>
+                        <select class="form-control form-select" id="condition">
+                            <option value="">-- Select condition --</option>
+                            <option>Diabetes</option>
+                            <option>Hypertension</option>
+                            <option>Fibroid</option>
+                            <option>Kidney Problems</option>
+                            <option>Liver Disease</option>
+                            <option>Infertility (Male/Female)</option>
+                            <option>Prostate Problems</option>
+                            <option>Arthritis &amp; Joint Pain</option>
+                            <option>STIs &amp; STDs</option>
+                            <option>Sickle Cell</option>
+                            <option>Ulcer</option>
+                            <option>Pile</option>
+                            <option>Asthma</option>
+                            <option>Stroke Recovery</option>
+                            <option>Skin Diseases</option>
+                            <option>Weight Loss</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label class="form-label">How do you want to be contacted?</label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="contact_pref" value="phone" checked> Phone Call</label>
+                            <label class="radio-label"><input type="radio" name="contact_pref" value="whatsapp"> WhatsApp</label>
+                            <label class="radio-label"><input type="radio" name="contact_pref" value="email"> Email</label>
+                        </div>
+                    </div>
+                    <div class="form-group full">
+                        <label class="form-label">Message / Additional Details</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Tell us more about your health concern or what you'd like to order..."></textarea>
+                    </div>
+                    <div class="form-buttons">
+                        <button class="btn-reset" type="button" onclick="resetForm()">Clear Form</button>
+                        <button class="btn-submit" type="button" onclick="submitForm()"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section">
+    <div class="container">
+        <div class="map-embed">
+            <!-- GOOGLE MAP: Replace this iframe src with your actual Google Maps embed URL for "No 1, Ubia Road, Uromi, Edo State" -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63302.88!2d6.3273!3d6.7238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10473e3df!2sUromi%2C+Edo+State%2C+Nigeria!5e0!3m2!1sen!2sng!4v1"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- WhatsApp CTA -->
+<section class="whatsapp-cta">
+    <div class="container">
+        <h2><i class="fab fa-whatsapp"></i> Prefer to Chat on WhatsApp?</h2>
+        <p>Message Dr. Afrid directly for a fast, personal consultation about your health needs and available remedies.</p>
+        <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20am%20interested%20in%20your%20herbal%20treatments.%20Please%20help%20me." class="wa-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Chat with Dr. Afrid Now
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<div class="main-footer">
+    <a href="contact.html" class="order-btn-large"><i class="fas fa-shopping-cart"></i>&nbsp; Order Your Herbal Remedy Now</a>
+</div>
+<footer class="footer-dark">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://placehold.co/160x44/8bc34a/ffffff?text=DR+AFRID" alt="DR AFRID Logo">
+                <h3>DR AFRID Herbal Home</h3>
+                <p>Your trusted partner for natural herbal healing. Restoring health through the power of nature.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/2349153512788"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Our Products</a></li>
+                    <li><a href="reviews.html"><i class="fas fa-chevron-right"></i> Reviews</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Conditions Treated</h4>
+                <ul>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Diabetes</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Hypertension</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Fibroid</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Kidney Problems</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Infertility</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>No 1, Ubia Road, Uromi, Edo State</span></div>
+                <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:09153512788">09153512788</a></div>
+                <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:drafridherbalhome@gmail.com">drafridherbalhome@gmail.com</a></div>
+                <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/2349153512788">Chat on WhatsApp</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DR AFRID Herbal Home. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color:#8bc34a;"></i> for natural healing</p>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/2349153512788" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+    const menuToggle=document.getElementById('menuToggle'),mobileDrawer=document.getElementById('mobileDrawer'),mobileOverlay=document.getElementById('mobileOverlay');
+    menuToggle.addEventListener('click',()=>{const o=mobileDrawer.classList.contains('open');menuToggle.classList.toggle('open',!o);mobileDrawer.classList.toggle('open',!o);mobileOverlay.classList.toggle('open',!o);});
+    mobileOverlay.addEventListener('click',()=>{menuToggle.classList.remove('open');mobileDrawer.classList.remove('open');mobileOverlay.classList.remove('open');});
+
+    function submitForm(){
+        const fn=document.getElementById('firstName').value.trim();
+        const ln=document.getElementById('lastName').value.trim();
+        const ph=document.getElementById('phone').value.trim();
+        const msg=document.getElementById('alertMsg');
+        if(!fn||!ln||!ph){
+            msg.className='alert-msg error';
+            msg.textContent='Please fill in all required fields (First Name, Last Name, Phone Number).';
+            msg.style.display='block';
+            return;
+        }
+        msg.className='alert-msg success';
+        msg.textContent='Thank you! Your message has been received. Dr. Afrid will contact you shortly.';
+        msg.style.display='block';
+        setTimeout(()=>{msg.style.display='none';resetForm();},5000);
+    }
+
+    function resetForm(){
+        ['firstName','lastName','phone','email','condition','message'].forEach(id=>{
+            const el=document.getElementById(id);
+            if(el)el.value='';
+        });
+        document.getElementById('alertMsg').style.display='none';
+    }
+</script>
+</body>
+</html>

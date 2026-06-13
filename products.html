@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - DR AFRID Herbal Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+        body{overflow-x:hidden;color:#333;background:#f5f7f3;min-width:320px;}
+        a{text-decoration:none;color:inherit;}
+        ul{list-style:none;}
+        .container{width:90%;max-width:1200px;margin:0 auto;}
+
+        /* Top Bar */
+        .top-bar{background:#2d5a1b;color:white;padding:7px 0;font-size:13px;}
+        .top-bar-content{display:flex;justify-content:space-between;align-items:center;width:90%;margin:0 auto;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+        .top-bar-content::-webkit-scrollbar{display:none;}
+        .contact-info-topbar{display:flex;gap:16px;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+        .contact-info-topbar::-webkit-scrollbar{display:none;}
+        .contact-info-item{display:flex;align-items:center;gap:6px;}
+        .contact-info-item i{font-size:12px;color:#a8d96c;}
+        .top-bar-social{display:flex;gap:10px;}
+        .top-bar-social a{color:white;font-size:13px;transition:color .3s;}
+        .top-bar-social a:hover{color:#a8d96c;}
+
+        /* Header */
+        header{background:#162520;padding:14px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.2);}
+        .header-container{display:flex;align-items:center;justify-content:space-between;width:90%;margin:0 auto;}
+        .logo img{height:44px;width:auto;object-fit:contain;}
+        .nav-links{display:flex;gap:28px;list-style:none;}
+        .nav-links a{color:rgba(255,255,255,.9);font-weight:500;font-size:14.5px;padding:5px 0;transition:color .3s;position:relative;}
+        .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:#8bc34a;transition:width .3s;}
+        .nav-links a:hover::after,.nav-links li:nth-child(3) a::after{width:100%;}
+        .nav-links a:hover,.nav-links li:nth-child(3) a{color:#8bc34a;}
+        .nav-order-btn{background:#8bc34a;color:white!important;padding:8px 20px!important;border-radius:4px;font-weight:600!important;}
+        .nav-order-btn::after{display:none!important;}
+        .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1100;}
+        .menu-toggle span{display:block;width:26px;height:3px;background:white;border-radius:3px;transition:all .35s;transform-origin:center;}
+        .menu-toggle.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+        .menu-toggle.open span:nth-child(2){opacity:0;}
+        .menu-toggle.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+        .mobile-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1050;opacity:0;transition:opacity .3s;}
+        .mobile-nav-overlay.open{opacity:1;}
+        .mobile-nav-drawer{position:fixed;top:0;right:0;height:100%;width:min(80vw,300px);background:#162520;z-index:1100;padding:70px 28px 28px;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;}
+        .mobile-nav-drawer.open{transform:translateX(0);}
+        .mobile-nav-links{display:flex;flex-direction:column;}
+        .mobile-nav-links li{border-bottom:1px solid rgba(255,255,255,.07);}
+        .mobile-nav-links a{display:block;color:white;font-size:15px;font-weight:500;padding:13px 0;transition:color .3s,padding-left .3s;}
+        .mobile-nav-links a:hover{color:#8bc34a;padding-left:6px;}
+        .mobile-nav-links li:nth-child(3) a{color:#8bc34a;}
+
+        /* Hero */
+        .hero{height:230px;background:linear-gradient(135deg,rgba(22,37,32,.78) 0%,rgba(45,90,27,.6) 100%),url('https://images.unsplash.com/photo-1542841791-1925b02a2bbb?w=1920&q=80') no-repeat center center/cover;display:flex;align-items:center;justify-content:center;text-align:center;}
+        /* HERO BG: Replace the background-image URL above */
+        .hero-content{width:90%;color:white;}
+        .hero h1{font-size:clamp(26px,4vw,50px);margin-bottom:10px;font-weight:700;}
+        .breadcrumb{display:flex;align-items:center;gap:8px;color:#a8d96c;font-size:14px;justify-content:center;}
+        .breadcrumb a{color:rgba(255,255,255,.8);transition:color .3s;}
+        .breadcrumb a:hover,.breadcrumb span{color:#8bc34a;}
+        .breadcrumb i{font-size:10px;color:rgba(255,255,255,.5);}
+
+        /* Products Layout */
+        .products-section{padding:45px 0 60px;}
+        .products-container{display:flex;width:90%;max-width:1200px;margin:0 auto;gap:24px;flex-wrap:wrap;}
+
+        /* Sidebar */
+        .sidebar{width:240px;flex-shrink:0;}
+        .sidebar-widget{background:white;border-radius:8px;padding:20px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+        .search-wrap{position:relative;}
+        .search-input{width:100%;padding:10px 40px 10px 14px;border:1.5px solid #e0e0e0;border-radius:4px;font-size:13.5px;font-family:'Poppins',sans-serif;outline:none;transition:border-color .3s;}
+        .search-input:focus{border-color:#8bc34a;}
+        .search-btn{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:#8bc34a;cursor:pointer;font-size:14px;}
+        .widget-title{font-size:14px;font-weight:600;color:#162520;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #8bc34a;}
+        .category-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0;cursor:pointer;font-size:13.5px;color:#555;transition:color .3s;}
+        .category-item:hover,.category-item.active{color:#8bc34a;}
+        .category-item .count{background:#f5f7f3;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;color:#8bc34a;}
+        .category-item.active .count{background:#8bc34a;color:white;}
+        .tag-cloud{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
+        .tag{font-size:12px;padding:5px 10px;border-radius:4px;background:#f5f7f3;color:#555;cursor:pointer;transition:all .3s;border:1px solid #e8e8e8;}
+        .tag:hover,.tag.active{background:#8bc34a;color:white;border-color:#8bc34a;}
+
+        /* Products Grid */
+        .products-main{flex:1;min-width:280px;}
+        .results-bar{background:white;padding:12px 16px;border-radius:4px;margin-bottom:16px;font-size:13px;color:#777;box-shadow:0 1px 6px rgba(0,0,0,.06);display:flex;justify-content:space-between;align-items:center;}
+        .results-bar strong{color:#162520;}
+        .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
+        .product-card{background:white;border-radius:8px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s;cursor:pointer;display:none;}
+        .product-card.visible{display:block;}
+        .product-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.12);}
+        .product-img-wrap{position:relative;overflow:hidden;}
+        .product-img{width:100%;height:175px;object-fit:cover;display:block;transition:transform .4s;}
+        .product-card:hover .product-img{transform:scale(1.05);}
+        .product-badge{position:absolute;top:10px;left:10px;background:#8bc34a;color:white;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;}
+        .product-body{padding:14px;}
+        .product-rating{color:#f4b942;font-size:12px;margin-bottom:5px;}
+        .product-name{font-size:14px;font-weight:600;color:#162520;margin-bottom:5px;line-height:1.3;}
+        .product-cat{font-size:11.5px;color:#8bc34a;font-weight:500;}
+        .no-products{text-align:center;padding:50px 20px;color:#999;font-size:16px;display:none;background:white;border-radius:8px;}
+        .no-products.visible{display:block;}
+
+        /* Product Modal */
+        .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;padding:20px;overflow-y:auto;}
+        .modal-overlay.active{display:flex;align-items:flex-start;justify-content:center;padding-top:40px;}
+        .modal{background:white;border-radius:10px;max-width:780px;width:100%;position:relative;animation:modalIn .3s ease;}
+        @keyframes modalIn{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+        .modal-close{position:absolute;top:14px;right:14px;width:34px;height:34px;background:#8bc34a;color:white;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;z-index:5;}
+        .modal-close:hover{background:#162520;transform:rotate(90deg);}
+        .modal-body{display:grid;grid-template-columns:1fr 1.2fr;gap:0;}
+        .modal-img{width:100%;height:280px;object-fit:cover;border-radius:10px 0 0 10px;}
+        /* MODAL IMAGE: Dynamically set via JS */
+        .modal-info{padding:28px;}
+        .modal-cat{color:#8bc34a;font-size:11.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+        .modal-title{font-size:clamp(18px,2.5vw,26px);font-weight:700;color:#162520;margin-bottom:10px;line-height:1.2;}
+        .modal-rating{color:#f4b942;font-size:13px;margin-bottom:14px;}
+        .modal-desc{color:#666;font-size:13.5px;line-height:1.75;margin-bottom:18px;}
+        .modal-features{margin-bottom:20px;}
+        .modal-features li{font-size:13px;color:#555;padding:5px 0;display:flex;align-items:center;gap:8px;border-bottom:1px dashed #eee;}
+        .modal-features li i{color:#8bc34a;font-size:12px;}
+        .modal-cta{display:inline-flex;align-items:center;gap:8px;background:#8bc34a;color:white;padding:12px 24px;border-radius:4px;font-weight:600;font-size:14px;transition:all .3s;}
+        .modal-cta:hover{background:#7ab33d;}
+        .modal-cta2{display:inline-flex;align-items:center;gap:8px;background:#162520;color:white;padding:12px 18px;border-radius:4px;font-weight:600;font-size:14px;transition:all .3s;margin-left:8px;}
+        .modal-cta2:hover{background:#0f1a16;}
+
+        /* WhatsApp Float */
+        .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .3s;}
+        .whatsapp-float:hover{transform:scale(1.1);}
+
+        /* Footer */
+        .main-footer{text-align:center;padding:40px 0 0;background:#f5f7f3;}
+        .order-btn-large{display:inline-flex;align-items:center;gap:10px;background:#8bc34a;color:white;padding:15px 34px;border-radius:4px;font-weight:700;font-size:17px;transition:all .3s;}
+        .order-btn-large:hover{background:#7ab33d;}
+        .footer-dark{background:#162520;color:white;padding:55px 0 20px;}
+        .footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px;margin-bottom:40px;}
+        .footer-brand img{height:44px;width:auto;margin-bottom:12px;}
+        .footer-brand h3{color:#8bc34a;font-size:18px;font-weight:700;margin-bottom:8px;}
+        .footer-brand p{color:#999;font-size:13px;line-height:1.7;margin-bottom:16px;}
+        .footer-socials{display:flex;gap:8px;}
+        .footer-socials a{width:34px;height:34px;background:rgba(139,195,74,.12);border:1px solid rgba(139,195,74,.25);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#8bc34a;font-size:14px;transition:all .3s;}
+        .footer-socials a:hover{background:#8bc34a;color:white;}
+        .footer-col h4{color:#8bc34a;font-size:14px;font-weight:600;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(139,195,74,.18);}
+        .footer-col ul li{margin-bottom:8px;}
+        .footer-col ul li a{color:#999;font-size:13px;transition:all .3s;display:flex;align-items:center;gap:6px;}
+        .footer-col ul li a i{font-size:10px;color:#8bc34a;}
+        .footer-col ul li a:hover{color:#8bc34a;padding-left:4px;}
+        .footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;color:#999;font-size:13px;line-height:1.6;}
+        .footer-contact-item i{color:#8bc34a;font-size:14px;margin-top:2px;flex-shrink:0;}
+        .footer-contact-item a{color:#999;transition:color .3s;}
+        .footer-contact-item a:hover{color:#8bc34a;}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;justify-content:space-between;align-items:center;color:#666;font-size:12.5px;flex-wrap:wrap;gap:8px;}
+        .footer-bottom a{color:#8bc34a;}
+
+        @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr;}}
+        @media(max-width:900px){.sidebar{width:100%;}.products-container{flex-direction:column;}.modal-body{grid-template-columns:1fr;}.modal-img{height:220px;border-radius:10px 10px 0 0;}}
+        @media(max-width:768px){nav{display:none;}.menu-toggle{display:flex;}.mobile-nav-overlay{display:block;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}}
+        @media(max-width:480px){.products-grid{grid-template-columns:1fr 1fr;}}
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="top-bar-content">
+        <div class="contact-info-topbar">
+            <div class="contact-info-item"><i class="fas fa-phone-alt"></i><span>09153512788</span></div>
+            <div class="contact-info-item"><i class="fas fa-envelope"></i><span>drafridherbalhome@gmail.com</span></div>
+            <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><span>No 1, Ubia Road, Uromi Edo State</span></div>
+        </div>
+        <div class="top-bar-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/2349153512788"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <!-- LOGO: Replace src with your actual logo URL -->
+            <img src="https://placehold.co/160x44/8bc34a/ffffff?text=DR+AFRID" alt="DR AFRID Herbal Home Logo">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="nav-order-btn">Order Now</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<div class="mobile-nav-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" style="color:#8bc34a;font-weight:700;">Order Now</a></li>
+    </ul>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Our Products</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Products</span>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<section class="products-section">
+    <div class="products-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <div class="search-wrap">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search products...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="sidebar-widget">
+                <div class="widget-title">Categories</div>
+                <div class="category-item active" data-cat="all">All Products <span class="count">20</span></div>
+                <div class="category-item" data-cat="blood">Blood &amp; Sugar <span class="count">4</span></div>
+                <div class="category-item" data-cat="reproductive">Reproductive Health <span class="count">4</span></div>
+                <div class="category-item" data-cat="organ">Organ Health <span class="count">4</span></div>
+                <div class="category-item" data-cat="immunity">Immunity &amp; Vitality <span class="count">4</span></div>
+                <div class="category-item" data-cat="pain">Pain &amp; Joints <span class="count">4</span></div>
+            </div>
+            <div class="sidebar-widget">
+                <div class="widget-title">Quick Tags</div>
+                <div class="tag-cloud">
+                    <span class="tag active" data-tag="all">All</span>
+                    <span class="tag" data-tag="diabetes">Diabetes</span>
+                    <span class="tag" data-tag="fibroid">Fibroid</span>
+                    <span class="tag" data-tag="kidney">Kidney</span>
+                    <span class="tag" data-tag="fertility">Fertility</span>
+                    <span class="tag" data-tag="prostate">Prostate</span>
+                    <span class="tag" data-tag="ulcer">Ulcer</span>
+                    <span class="tag" data-tag="arthritis">Arthritis</span>
+                </div>
+            </div>
+            <div class="sidebar-widget" style="background:#162520;color:white;">
+                <p style="font-size:13px;color:#a8d96c;font-weight:600;margin-bottom:8px;"><i class="fas fa-phone-alt"></i> Need Help?</p>
+                <p style="font-size:13px;color:#ccc;line-height:1.6;">Call or WhatsApp Dr. Afrid directly for a free consultation on which product is right for you.</p>
+                <a href="https://wa.me/2349153512788" style="display:inline-flex;align-items:center;gap:6px;background:#8bc34a;color:white;padding:9px 16px;border-radius:4px;font-size:13px;font-weight:600;margin-top:12px;transition:all .3s;">
+                    <i class="fab fa-whatsapp"></i> Chat Now
+                </a>
+            </div>
+        </aside>
+
+        <!-- Products Grid -->
+        <div class="products-main">
+            <div class="results-bar">
+                <span>Showing <strong id="resultCount">20</strong> products</span>
+                <span style="font-size:12px;color:#8bc34a;"><i class="fas fa-leaf"></i> 100% Natural</span>
+            </div>
+            <div class="products-grid" id="productsGrid">
+
+                <!-- PRODUCT CARDS -->
+                <!-- Each product-img src: Replace with your actual product image URL -->
+
+                <div class="product-card visible" data-cat="blood" data-tags="diabetes blood sugar"
+                    data-img="https://placehold.co/400x280/2d5a1b/ffffff?text=Diabetes+Control"
+                    data-name="Diabetes Control Blend"
+                    data-desc="Our signature herbal formula carefully combines powerful herbs that help regulate blood sugar levels, improve insulin sensitivity, and support pancreatic health. Proven effective for both Type 1 and Type 2 diabetes management."
+                    data-features="Regulates blood sugar|Supports insulin function|No harmful chemicals|Nationwide delivery available"
+                    data-cat-label="Blood &amp; Sugar">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/2d5a1b/ffffff?text=Diabetes+Control" alt="Diabetes Control Blend" class="product-img">
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Diabetes Control Blend</div>
+                        <div class="product-cat">Blood &amp; Sugar</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="blood" data-tags="hypertension blood pressure"
+                    data-img="https://placehold.co/400x280/8bc34a/ffffff?text=Hypertension+Relief"
+                    data-name="Hypertension Relief Formula"
+                    data-desc="A powerful blend of herbs specifically selected to lower blood pressure naturally. Works to relax blood vessels, reduce stress hormones, and support cardiovascular health without the side effects of conventional drugs."
+                    data-features="Lowers blood pressure naturally|Supports heart health|Reduces stress hormones|Safe for long-term use"
+                    data-cat-label="Blood &amp; Sugar">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/8bc34a/ffffff?text=Hypertension+Relief" alt="Hypertension Relief" class="product-img">
+                        <span class="product-badge">Best Seller</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Hypertension Relief Formula</div>
+                        <div class="product-cat">Blood &amp; Sugar</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="blood" data-tags="sickle cell blood"
+                    data-img="https://placehold.co/400x280/5d8a3c/ffffff?text=Sickle+Cell+Tonic"
+                    data-name="Sickle Cell Management Tonic"
+                    data-desc="Specially formulated herbal tonic designed to manage sickle cell disease symptoms, reduce pain crises, and improve quality of life for sickle cell patients of all ages."
+                    data-features="Reduces sickle cell crises|Boosts red blood cell production|Anti-inflammatory herbs|Suitable for all ages"
+                    data-cat-label="Blood &amp; Sugar">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/5d8a3c/ffffff?text=Sickle+Cell+Tonic" alt="Sickle Cell Tonic" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Sickle Cell Management Tonic</div>
+                        <div class="product-cat">Blood &amp; Sugar</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="blood" data-tags="cholesterol blood"
+                    data-img="https://placehold.co/400x280/162520/ffffff?text=Cholesterol+Buster"
+                    data-name="Cholesterol Buster Herb"
+                    data-desc="Natural herbal remedy to reduce bad cholesterol (LDL), increase good cholesterol (HDL), and protect the arteries from plaque buildup. Works in harmony with your body's natural processes."
+                    data-features="Reduces LDL cholesterol|Increases HDL levels|Protects arteries|Supports liver function"
+                    data-cat-label="Blood &amp; Sugar">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/162520/ffffff?text=Cholesterol+Buster" alt="Cholesterol Buster" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Cholesterol Buster Herb</div>
+                        <div class="product-cat">Blood &amp; Sugar</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="reproductive" data-tags="fibroid reproductive female"
+                    data-img="https://placehold.co/400x280/3d6b1e/ffffff?text=Fibroid+Shrink"
+                    data-name="Fibroid Shrink Formula"
+                    data-desc="Our most sought-after remedy for women suffering from uterine fibroids. This powerful herbal blend has helped hundreds of women shrink and eliminate fibroids without surgery."
+                    data-features="Shrinks uterine fibroids|Regulates menstrual cycle|No surgery needed|Safe for all women"
+                    data-cat-label="Reproductive Health">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/3d6b1e/ffffff?text=Fibroid+Shrink" alt="Fibroid Shrink" class="product-img">
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Fibroid Shrink Formula</div>
+                        <div class="product-cat">Reproductive Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="reproductive" data-tags="fertility infertility reproductive"
+                    data-img="https://placehold.co/400x280/4a7a2d/ffffff?text=Fertility+Booster"
+                    data-name="Fertility Booster (Male &amp; Female)"
+                    data-desc="A comprehensive herbal fertility formula suitable for both men and women. Improves sperm quality and motility in men, and enhances egg quality and hormonal balance in women."
+                    data-features="Boosts male and female fertility|Improves sperm count and motility|Balances reproductive hormones|Increases chances of conception"
+                    data-cat-label="Reproductive Health">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/4a7a2d/ffffff?text=Fertility+Booster" alt="Fertility Booster" class="product-img">
+                        <span class="product-badge">Best Seller</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Fertility Booster (M/F)</div>
+                        <div class="product-cat">Reproductive Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="reproductive" data-tags="prostate reproductive male"
+                    data-img="https://placehold.co/400x280/5d8a3c/ffffff?text=Prostate+Care"
+                    data-name="Prostate Care Herb"
+                    data-desc="Targeted herbal remedy for men suffering from enlarged prostate (BPH), prostate cancer, and related urinary problems. Reduces inflammation, shrinks the prostate, and restores normal urinary flow."
+                    data-features="Shrinks enlarged prostate|Improves urinary flow|Reduces prostate inflammation|Supports male sexual health"
+                    data-cat-label="Reproductive Health">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/5d8a3c/ffffff?text=Prostate+Care" alt="Prostate Care" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Prostate Care Herb</div>
+                        <div class="product-cat">Reproductive Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="reproductive" data-tags="weak erection reproductive male sexual"
+                    data-img="https://placehold.co/400x280/2d5a1b/ffffff?text=Manhood+Power"
+                    data-name="Manhood Power Formula"
+                    data-desc="A potent herbal blend for men dealing with weak erection, premature ejaculation, and low libido. Restores confidence and sexual performance through 100% natural ingredients."
+                    data-features="Treats weak erection|Stops premature ejaculation|Boosts libido naturally|Safe with no side effects"
+                    data-cat-label="Reproductive Health">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/2d5a1b/ffffff?text=Manhood+Power" alt="Manhood Power" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Manhood Power Formula</div>
+                        <div class="product-cat">Reproductive Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="organ" data-tags="kidney organ"
+                    data-img="https://placehold.co/400x280/8bc34a/ffffff?text=Kidney+Cleanse"
+                    data-name="Kidney Cleanse &amp; Repair"
+                    data-desc="A deeply cleansing herbal formula that flushes toxins from the kidneys, repairs damaged kidney tissue, and restores optimal kidney function. Effective for chronic kidney disease, kidney stones, and kidney infections."
+                    data-features="Cleanses and repairs kidneys|Dissolves kidney stones|Reduces creatinine levels|Restores kidney function"
+                    data-cat-label="Organ Health">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/8bc34a/ffffff?text=Kidney+Cleanse" alt="Kidney Cleanse" class="product-img">
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Kidney Cleanse &amp; Repair</div>
+                        <div class="product-cat">Organ Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="organ" data-tags="liver organ"
+                    data-img="https://placehold.co/400x280/162520/ffffff?text=Liver+Detox"
+                    data-name="Liver Detox &amp; Repair Herb"
+                    data-desc="A comprehensive herbal remedy for liver disease, hepatitis, fatty liver, and liver damage. Works to detoxify, regenerate, and protect liver cells for long-lasting liver health."
+                    data-features="Repairs liver cells|Treats hepatitis naturally|Reduces liver enzymes|Supports bile production"
+                    data-cat-label="Organ Health">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/162520/ffffff?text=Liver+Detox" alt="Liver Detox" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Liver Detox &amp; Repair Herb</div>
+                        <div class="product-cat">Organ Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="organ" data-tags="ulcer stomach organ"
+                    data-img="https://placehold.co/400x280/3d6b1e/ffffff?text=Ulcer+Cure"
+                    data-name="Ulcer Cure Formula"
+                    data-desc="Powerful herbal remedy specifically formulated to heal stomach ulcers, duodenal ulcers, and gastritis. Soothes the stomach lining, eliminates H. pylori bacteria, and prevents recurrence."
+                    data-features="Heals stomach ulcers fast|Kills H. pylori bacteria|Soothes stomach lining|Prevents ulcer recurrence"
+                    data-cat-label="Organ Health">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/3d6b1e/ffffff?text=Ulcer+Cure" alt="Ulcer Cure" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Ulcer Cure Formula</div>
+                        <div class="product-cat">Organ Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="organ" data-tags="pile hemorrhoids organ"
+                    data-img="https://placehold.co/400x280/4a7a2d/ffffff?text=Pile+Treatment"
+                    data-name="Pile &amp; Hemorrhoid Treatment"
+                    data-desc="Effective herbal remedy for internal and external hemorrhoids (piles). Reduces swelling, stops bleeding, relieves pain, and shrinks hemorrhoids naturally without surgery."
+                    data-features="Treats internal and external piles|Stops rectal bleeding|Reduces inflammation|Prevents recurrence"
+                    data-cat-label="Organ Health">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/4a7a2d/ffffff?text=Pile+Treatment" alt="Pile Treatment" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Pile &amp; Hemorrhoid Treatment</div>
+                        <div class="product-cat">Organ Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="immunity" data-tags="immunity general health"
+                    data-img="https://placehold.co/400x280/8bc34a/ffffff?text=Immunity+Booster"
+                    data-name="Immunity Booster Pack"
+                    data-desc="A synergistic blend of immune-strengthening herbs that fortify your body's natural defenses. Ideal for those who fall sick frequently or want to maintain peak health year-round."
+                    data-features="Strengthens immune system|Fights infections naturally|Boosts energy and vitality|Suitable for all ages"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/8bc34a/ffffff?text=Immunity+Booster" alt="Immunity Booster" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Immunity Booster Pack</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="immunity" data-tags="asthma immunity lungs"
+                    data-img="https://placehold.co/400x280/2d5a1b/ffffff?text=Asthma+Relief"
+                    data-name="Asthma &amp; Breathing Relief"
+                    data-desc="A soothing herbal remedy that opens up the airways, reduces bronchial inflammation, and relieves asthma symptoms. Works for both childhood and adult asthma with no harmful steroids."
+                    data-features="Opens airways naturally|Reduces bronchial inflammation|Relieves asthma attacks|No harmful steroids"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/2d5a1b/ffffff?text=Asthma+Relief" alt="Asthma Relief" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Asthma &amp; Breathing Relief</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="immunity" data-tags="typhoid immunity fever"
+                    data-img="https://placehold.co/400x280/5d8a3c/ffffff?text=Typhoid+Fighter"
+                    data-name="Typhoid Fever Fighter"
+                    data-desc="Potent herbal formula that attacks the Salmonella typhi bacteria responsible for typhoid fever. Fast-acting and effective, with none of the antibiotic resistance risks of conventional treatment."
+                    data-features="Kills typhoid bacteria|Reduces fever fast|Boosts recovery speed|No antibiotic resistance"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/5d8a3c/ffffff?text=Typhoid+Fighter" alt="Typhoid Fighter" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Typhoid Fever Fighter</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="immunity" data-tags="skin immunity"
+                    data-img="https://placehold.co/400x280/3d6b1e/ffffff?text=Skin+Clear"
+                    data-name="Skin Clear &amp; Glow Herb"
+                    data-desc="A purifying herbal blend that treats skin conditions from the inside out. Effective for eczema, psoriasis, acne, ringworm, and general skin diseases. Leaves skin clear, smooth, and glowing."
+                    data-features="Treats eczema and psoriasis|Clears acne naturally|Brightens skin tone|Anti-fungal properties"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/3d6b1e/ffffff?text=Skin+Clear" alt="Skin Clear" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Skin Clear &amp; Glow Herb</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="pain" data-tags="arthritis pain joints"
+                    data-img="https://placehold.co/400x280/8bc34a/ffffff?text=Arthritis+Relief"
+                    data-name="Arthritis &amp; Joint Relief"
+                    data-desc="Powerful anti-inflammatory herbal blend that reduces joint pain, swelling, and stiffness associated with arthritis, rheumatism, and gout. Restores mobility and comfort naturally."
+                    data-features="Reduces joint inflammation|Relieves arthritis pain|Improves joint mobility|Anti-rheumatic herbs"
+                    data-cat-label="Pain &amp; Joints">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/8bc34a/ffffff?text=Arthritis+Relief" alt="Arthritis Relief" class="product-img">
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Arthritis &amp; Joint Relief</div>
+                        <div class="product-cat">Pain &amp; Joints</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="pain" data-tags="back pain spine"
+                    data-img="https://placehold.co/400x280/162520/ffffff?text=Back+Pain+Relief"
+                    data-name="Back Pain Relief Herb"
+                    data-desc="Targeted herbal remedy for chronic back pain, sciatica, and spinal problems. Works to reduce nerve inflammation, relax back muscles, and rebuild spinal disc health."
+                    data-features="Relieves chronic back pain|Treats sciatica|Reduces nerve inflammation|Muscle relaxant herbs"
+                    data-cat-label="Pain &amp; Joints">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/162520/ffffff?text=Back+Pain+Relief" alt="Back Pain Relief" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Back Pain Relief Herb</div>
+                        <div class="product-cat">Pain &amp; Joints</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="pain" data-tags="stroke brain"
+                    data-img="https://placehold.co/400x280/4a7a2d/ffffff?text=Stroke+Recovery"
+                    data-name="Stroke Recovery Tonic"
+                    data-desc="A specialized herbal formula designed to support stroke recovery. Improves blood flow to the brain, repairs nerve cells, and helps restore physical and cognitive function after a stroke."
+                    data-features="Improves brain blood flow|Supports nerve repair|Aids physical recovery|Boosts cognitive function"
+                    data-cat-label="Pain &amp; Joints">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/4a7a2d/ffffff?text=Stroke+Recovery" alt="Stroke Recovery" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Stroke Recovery Tonic</div>
+                        <div class="product-cat">Pain &amp; Joints</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="pain" data-tags="obesity weight loss"
+                    data-img="https://placehold.co/400x280/2d5a1b/ffffff?text=Weight+Loss"
+                    data-name="Weight Loss Herbal Pack"
+                    data-desc="A safe, natural herbal weight management formula that boosts metabolism, burns fat, suppresses appetite, and supports healthy, sustainable weight loss without crash dieting."
+                    data-features="Boosts metabolism naturally|Burns body fat effectively|Suppresses appetite safely|No harmful stimulants"
+                    data-cat-label="Pain &amp; Joints">
+                    <div class="product-img-wrap">
+                        <img src="https://placehold.co/300x175/2d5a1b/ffffff?text=Weight+Loss" alt="Weight Loss" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Weight Loss Herbal Pack</div>
+                        <div class="product-cat">Pain &amp; Joints</div>
+                    </div>
+                </div>
+
+            </div><!-- /.products-grid -->
+            <div class="no-products" id="noProducts">No products found. Please try a different search or filter.</div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Modal -->
+<div class="modal-overlay" id="productModal">
+    <div class="modal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div class="modal-body">
+            <!-- MODAL IMAGE: Set dynamically via JS from data-img attribute -->
+            <img src="" alt="" class="modal-img" id="modalImg">
+            <div class="modal-info">
+                <div class="modal-cat" id="modalCat"></div>
+                <div class="modal-title" id="modalTitle"></div>
+                <div class="modal-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="modal-desc" id="modalDesc"></p>
+                <ul class="modal-features" id="modalFeatures"></ul>
+                <a href="https://wa.me/2349153512788" class="modal-cta" target="_blank"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                <a href="contact.html" class="modal-cta2"><i class="fas fa-phone-alt"></i> Call Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="main-footer">
+    <a href="contact.html" class="order-btn-large"><i class="fas fa-shopping-cart"></i>&nbsp; Order Your Herbal Remedy Now</a>
+</div>
+<footer class="footer-dark">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://placehold.co/160x44/8bc34a/ffffff?text=DR+AFRID" alt="DR AFRID Logo">
+                <h3>DR AFRID Herbal Home</h3>
+                <p>Your trusted partner for natural herbal healing. Restoring health through the power of nature.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/2349153512788"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Our Products</a></li>
+                    <li><a href="reviews.html"><i class="fas fa-chevron-right"></i> Reviews</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Conditions Treated</h4>
+                <ul>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Diabetes</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Hypertension</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Fibroid</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Kidney Problems</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Infertility</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>No 1, Ubia Road, Uromi, Edo State</span></div>
+                <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:09153512788">09153512788</a></div>
+                <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:drafridherbalhome@gmail.com">drafridherbalhome@gmail.com</a></div>
+                <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/2349153512788">Chat on WhatsApp</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DR AFRID Herbal Home. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color:#8bc34a;"></i> for natural healing</p>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/2349153512788" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+    // Mobile nav
+    const menuToggle=document.getElementById('menuToggle'),mobileDrawer=document.getElementById('mobileDrawer'),mobileOverlay=document.getElementById('mobileOverlay');
+    menuToggle.addEventListener('click',()=>{const o=mobileDrawer.classList.contains('open');menuToggle.classList.toggle('open',!o);mobileDrawer.classList.toggle('open',!o);mobileOverlay.classList.toggle('open',!o);});
+    mobileOverlay.addEventListener('click',()=>{menuToggle.classList.remove('open');mobileDrawer.classList.remove('open');mobileOverlay.classList.remove('open');});
+
+    // Filter by category
+    document.querySelectorAll('.category-item').forEach(item=>{
+        item.addEventListener('click',function(){
+            document.querySelectorAll('.category-item').forEach(i=>i.classList.remove('active'));
+            this.classList.add('active');
+            filterProducts(this.dataset.cat,'all');
+        });
+    });
+
+    // Filter by tag
+    document.querySelectorAll('.tag').forEach(tag=>{
+        tag.addEventListener('click',function(){
+            document.querySelectorAll('.tag').forEach(t=>t.classList.remove('active'));
+            this.classList.add('active');
+            filterProducts('all',this.dataset.tag==='all'?'all':this.dataset.tag);
+        });
+    });
+
+    // Search
+    document.getElementById('searchInput').addEventListener('input',function(){
+        const q=this.value.toLowerCase();
+        let count=0;
+        document.querySelectorAll('.product-card').forEach(card=>{
+            const n=card.dataset.name.toLowerCase();
+            const t=card.dataset.tags.toLowerCase();
+            const show=!q||n.includes(q)||t.includes(q);
+            card.classList.toggle('visible',show);
+            if(show)count++;
+        });
+        document.getElementById('resultCount').textContent=count;
+        document.getElementById('noProducts').classList.toggle('visible',count===0);
+    });
+
+    function filterProducts(cat,tag){
+        let count=0;
+        document.querySelectorAll('.product-card').forEach(card=>{
+            const catMatch=cat==='all'||card.dataset.cat===cat;
+            const tagMatch=tag==='all'||card.dataset.tags.includes(tag);
+            const show=catMatch&&tagMatch;
+            card.classList.toggle('visible',show);
+            if(show)count++;
+        });
+        document.getElementById('resultCount').textContent=count;
+        document.getElementById('noProducts').classList.toggle('visible',count===0);
+    }
+
+    // Modal
+    const modal=document.getElementById('productModal');
+    document.querySelectorAll('.product-card').forEach(card=>{
+        card.addEventListener('click',function(){
+            document.getElementById('modalImg').src=this.dataset.img;
+            document.getElementById('modalImg').alt=this.dataset.name;
+            document.getElementById('modalTitle').textContent=this.dataset.name;
+            document.getElementById('modalCat').innerHTML=this.dataset.catLabel||'';
+            document.getElementById('modalDesc').textContent=this.dataset.desc;
+            const features=this.dataset.features.split('|');
+            const ul=document.getElementById('modalFeatures');
+            ul.innerHTML='';
+            features.forEach(f=>{const li=document.createElement('li');li.innerHTML=`<i class="fas fa-check-circle"></i> ${f}`;ul.appendChild(li);});
+            modal.classList.add('active');
+            document.body.style.overflow='hidden';
+        });
+    });
+    function closeModal(){modal.classList.remove('active');document.body.style.overflow='';}
+    document.getElementById('modalClose').addEventListener('click',closeModal);
+    modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+</script>
+</body>
+</html>

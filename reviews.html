@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - DR AFRID Herbal Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+        body{overflow-x:hidden;color:#333;background:#f5f7f3;min-width:320px;}
+        a{text-decoration:none;color:inherit;}
+        ul{list-style:none;}
+        .container{width:90%;max-width:1200px;margin:0 auto;}
+
+        /* Top Bar */
+        .top-bar{background:#2d5a1b;color:white;padding:7px 0;font-size:13px;}
+        .top-bar-content{display:flex;justify-content:space-between;align-items:center;width:90%;margin:0 auto;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+        .top-bar-content::-webkit-scrollbar{display:none;}
+        .contact-info-topbar{display:flex;gap:16px;flex-wrap:nowrap;}
+        .contact-info-item{display:flex;align-items:center;gap:6px;}
+        .contact-info-item i{font-size:12px;color:#a8d96c;}
+        .top-bar-social{display:flex;gap:10px;}
+        .top-bar-social a{color:white;font-size:13px;transition:color .3s;}
+        .top-bar-social a:hover{color:#a8d96c;}
+
+        /* Header */
+        header{background:#162520;padding:14px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.2);}
+        .header-container{display:flex;align-items:center;justify-content:space-between;width:90%;margin:0 auto;}
+        .logo img{height:44px;width:auto;object-fit:contain;}
+        .nav-links{display:flex;gap:28px;list-style:none;}
+        .nav-links a{color:rgba(255,255,255,.9);font-weight:500;font-size:14.5px;padding:5px 0;transition:color .3s;position:relative;}
+        .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:#8bc34a;transition:width .3s;}
+        .nav-links a:hover::after,.nav-links li:nth-child(4) a::after{width:100%;}
+        .nav-links a:hover,.nav-links li:nth-child(4) a{color:#8bc34a;}
+        .nav-order-btn{background:#8bc34a;color:white!important;padding:8px 20px!important;border-radius:4px;font-weight:600!important;}
+        .nav-order-btn::after{display:none!important;}
+        .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1100;}
+        .menu-toggle span{display:block;width:26px;height:3px;background:white;border-radius:3px;transition:all .35s;transform-origin:center;}
+        .menu-toggle.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+        .menu-toggle.open span:nth-child(2){opacity:0;}
+        .menu-toggle.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+        .mobile-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1050;opacity:0;transition:opacity .3s;}
+        .mobile-nav-overlay.open{opacity:1;}
+        .mobile-nav-drawer{position:fixed;top:0;right:0;height:100%;width:min(80vw,300px);background:#162520;z-index:1100;padding:70px 28px 28px;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;}
+        .mobile-nav-drawer.open{transform:translateX(0);}
+        .mobile-nav-links{display:flex;flex-direction:column;}
+        .mobile-nav-links li{border-bottom:1px solid rgba(255,255,255,.07);}
+        .mobile-nav-links a{display:block;color:white;font-size:15px;font-weight:500;padding:13px 0;transition:color .3s,padding-left .3s;}
+        .mobile-nav-links a:hover{color:#8bc34a;padding-left:6px;}
+        .mobile-nav-links li:nth-child(4) a{color:#8bc34a;}
+
+        /* Hero */
+        .hero{height:230px;background:linear-gradient(135deg,rgba(22,37,32,.78) 0%,rgba(45,90,27,.6) 100%),url('https://images.unsplash.com/photo-1556742393-d75f468bfcb0?w=1920&q=80') no-repeat center center/cover;display:flex;align-items:center;justify-content:center;text-align:center;}
+        /* HERO BG: Replace background-image URL above */
+        .hero-content{width:90%;color:white;}
+        .hero h1{font-size:clamp(26px,4vw,50px);margin-bottom:10px;font-weight:700;}
+        .breadcrumb{display:flex;align-items:center;gap:8px;color:#a8d96c;font-size:14px;justify-content:center;}
+        .breadcrumb a{color:rgba(255,255,255,.8);transition:color .3s;}
+        .breadcrumb a:hover,.breadcrumb span{color:#8bc34a;}
+        .breadcrumb i{font-size:10px;color:rgba(255,255,255,.5);}
+
+        /* Section Styles */
+        .section-label{color:#8bc34a;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;display:block;}
+        .section-title{font-size:clamp(22px,2.8vw,34px);color:#162520;margin-bottom:14px;font-weight:700;line-height:1.25;}
+        .section-title span{color:#8bc34a;}
+        .section-divider{width:48px;height:3px;background:#8bc34a;margin:0 0 22px;border-radius:2px;}
+        .section-divider.center{margin:0 auto 22px;}
+
+        /* Stats */
+        .stats-strip{background:#162520;padding:45px 0;}
+        .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+        .stat-item .num{font-size:clamp(30px,4vw,46px);font-weight:800;color:#8bc34a;line-height:1;}
+        .stat-item .label{font-size:13px;color:rgba(255,255,255,.7);margin-top:6px;}
+
+        /* Featured Reviews */
+        .featured-reviews{padding:60px 0;}
+        .featured-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin-top:38px;}
+        .featured-card{background:white;border-radius:8px;padding:26px;box-shadow:0 3px 16px rgba(0,0,0,.08);border-left:4px solid #8bc34a;transition:transform .3s,box-shadow .3s;}
+        .featured-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.12);}
+        .featured-quote{color:#8bc34a;font-size:32px;margin-bottom:12px;line-height:1;}
+        .featured-text{color:#555;font-style:italic;font-size:14px;line-height:1.8;margin-bottom:18px;}
+        .featured-author{display:flex;align-items:center;gap:12px;}
+        .author-avatar{width:44px;height:44px;border-radius:50%;background:#8bc34a;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;flex-shrink:0;}
+        .author-name{font-weight:600;color:#162520;font-size:14px;}
+        .author-detail{font-size:12px;color:#999;margin-top:2px;}
+        .author-stars{color:#f4b942;font-size:12px;margin-top:2px;}
+
+        /* All Reviews Grid */
+        .all-reviews{padding:0 0 60px;}
+        .reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
+        .review-card{background:white;border-radius:8px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.06);transition:transform .3s;}
+        .review-card:hover{transform:translateY(-3px);}
+        .review-name{color:#8bc34a;font-size:15px;font-weight:600;text-align:center;margin-bottom:10px;}
+        .review-stars{color:#f4b942;font-size:12px;text-align:center;margin-bottom:10px;}
+        .review-text{color:#555;font-style:italic;font-size:13px;line-height:1.7;text-align:justify;margin-bottom:10px;}
+        .review-footer{text-align:center;color:#8bc34a;font-size:28px;opacity:.4;}
+
+        /* Rating Summary */
+        .rating-summary{background:white;border-radius:8px;padding:30px;margin-bottom:30px;box-shadow:0 2px 10px rgba(0,0,0,.06);display:grid;grid-template-columns:200px 1fr;gap:30px;align-items:center;}
+        .rating-overall{text-align:center;}
+        .rating-big{font-size:64px;font-weight:800;color:#162520;line-height:1;}
+        .rating-stars-big{color:#f4b942;font-size:22px;margin:8px 0;}
+        .rating-total{font-size:13px;color:#999;}
+        .rating-bars{display:flex;flex-direction:column;gap:8px;}
+        .rating-bar-row{display:flex;align-items:center;gap:10px;font-size:13px;}
+        .rating-bar-label{width:30px;text-align:right;color:#555;font-weight:500;}
+        .rating-bar-track{flex:1;height:8px;background:#f0f0f0;border-radius:4px;overflow:hidden;}
+        .rating-bar-fill{height:100%;background:#8bc34a;border-radius:4px;}
+        .rating-bar-count{width:30px;color:#999;font-size:12px;}
+
+        /* Submit Review */
+        .submit-review{padding:60px 0;background:#162520;}
+        .submit-review .section-label{color:#a8d96c;}
+        .submit-review .section-title{color:white;}
+        .review-form{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:32px;margin-top:30px;}
+        .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+        .form-group{display:flex;flex-direction:column;gap:6px;}
+        .form-group.full{grid-column:span 2;}
+        .form-label{font-size:13px;color:#a8d96c;font-weight:500;}
+        .form-control{padding:11px 14px;border:1.5px solid rgba(255,255,255,.15);border-radius:4px;background:rgba(255,255,255,.08);color:white;font-size:14px;font-family:'Poppins',sans-serif;outline:none;transition:border-color .3s;}
+        .form-control::placeholder{color:rgba(255,255,255,.4);}
+        .form-control:focus{border-color:#8bc34a;}
+        .star-select{display:flex;gap:6px;margin-top:4px;}
+        .star-select i{font-size:24px;color:rgba(255,255,255,.3);cursor:pointer;transition:color .2s;}
+        .star-select i.active{color:#f4b942;}
+        .submit-btn{display:inline-flex;align-items:center;gap:8px;background:#8bc34a;color:white;padding:13px 32px;border:none;border-radius:4px;font-weight:600;font-size:14px;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .3s;margin-top:8px;}
+        .submit-btn:hover{background:#7ab33d;}
+
+        /* Newsletter */
+        .newsletter{background:#8bc34a;padding:50px 0;}
+        .newsletter-inner{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;}
+        .newsletter-text h3{font-size:clamp(18px,2.4vw,26px);color:white;font-weight:700;margin-bottom:6px;}
+        .newsletter-text p{color:rgba(255,255,255,.85);font-size:13.5px;}
+        .newsletter-form{display:flex;gap:0;max-width:420px;width:100%;}
+        .newsletter-input{flex:1;padding:13px 18px;border:none;border-radius:4px 0 0 4px;font-size:14px;font-family:'Poppins',sans-serif;outline:none;}
+        .newsletter-btn{padding:13px 22px;background:#162520;color:white;border:none;border-radius:0 4px 4px 0;font-weight:600;font-size:13.5px;cursor:pointer;font-family:'Poppins',sans-serif;transition:background .3s;white-space:nowrap;}
+        .newsletter-btn:hover{background:#0f1a16;}
+
+        /* WhatsApp Float */
+        .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .3s;}
+        .whatsapp-float:hover{transform:scale(1.1);}
+
+        /* Footer */
+        .main-footer{text-align:center;padding:40px 0 0;background:#f5f7f3;}
+        .order-btn-large{display:inline-flex;align-items:center;gap:10px;background:#8bc34a;color:white;padding:15px 34px;border-radius:4px;font-weight:700;font-size:17px;transition:all .3s;}
+        .order-btn-large:hover{background:#7ab33d;}
+        .footer-dark{background:#162520;color:white;padding:55px 0 20px;}
+        .footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px;margin-bottom:40px;}
+        .footer-brand img{height:44px;width:auto;margin-bottom:12px;}
+        .footer-brand h3{color:#8bc34a;font-size:18px;font-weight:700;margin-bottom:8px;}
+        .footer-brand p{color:#999;font-size:13px;line-height:1.7;margin-bottom:16px;}
+        .footer-socials{display:flex;gap:8px;}
+        .footer-socials a{width:34px;height:34px;background:rgba(139,195,74,.12);border:1px solid rgba(139,195,74,.25);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#8bc34a;font-size:14px;transition:all .3s;}
+        .footer-socials a:hover{background:#8bc34a;color:white;}
+        .footer-col h4{color:#8bc34a;font-size:14px;font-weight:600;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(139,195,74,.18);}
+        .footer-col ul li{margin-bottom:8px;}
+        .footer-col ul li a{color:#999;font-size:13px;transition:all .3s;display:flex;align-items:center;gap:6px;}
+        .footer-col ul li a i{font-size:10px;color:#8bc34a;}
+        .footer-col ul li a:hover{color:#8bc34a;padding-left:4px;}
+        .footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;color:#999;font-size:13px;line-height:1.6;}
+        .footer-contact-item i{color:#8bc34a;font-size:14px;margin-top:2px;flex-shrink:0;}
+        .footer-contact-item a{color:#999;transition:color .3s;}
+        .footer-contact-item a:hover{color:#8bc34a;}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;justify-content:space-between;align-items:center;color:#666;font-size:12.5px;flex-wrap:wrap;gap:8px;}
+        .footer-bottom a{color:#8bc34a;}
+
+        @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr;}.rating-summary{grid-template-columns:1fr;}}
+        @media(max-width:992px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:768px){nav{display:none;}.menu-toggle{display:flex;}.mobile-nav-overlay{display:block;}.form-grid{grid-template-columns:1fr;}.form-group.full{grid-column:span 1;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}.newsletter-inner{flex-direction:column;text-align:center;}.newsletter-form{width:100%;max-width:100%;}}
+        @media(max-width:480px){.top-bar-content{flex-direction:column;align-items:flex-start;gap:6px;}}
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="top-bar-content">
+        <div class="contact-info-topbar">
+            <div class="contact-info-item"><i class="fas fa-phone-alt"></i><span>09153512788</span></div>
+            <div class="contact-info-item"><i class="fas fa-envelope"></i><span>drafridherbalhome@gmail.com</span></div>
+            <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><span>No 1, Ubia Road, Uromi Edo State</span></div>
+        </div>
+        <div class="top-bar-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/2349153512788"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <!-- LOGO: Replace src with your actual logo URL -->
+            <img src="https://placehold.co/160x44/8bc34a/ffffff?text=DR+AFRID" alt="DR AFRID Herbal Home Logo">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="nav-order-btn">Order Now</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<div class="mobile-nav-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" style="color:#8bc34a;font-weight:700;">Order Now</a></li>
+    </ul>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Patient Reviews</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Reviews</span>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-strip">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item"><div class="num">500+</div><div class="label">Happy Patients</div></div>
+            <div class="stat-item"><div class="num">4.9</div><div class="label">Average Rating</div></div>
+            <div class="stat-item"><div class="num">98%</div><div class="label">Success Rate</div></div>
+            <div class="stat-item"><div class="num">36</div><div class="label">States Served</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Reviews -->
+<section class="featured-reviews">
+    <div class="container">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What Our <span>Patients Say</span></h2>
+        <div class="section-divider"></div>
+
+        <!-- Rating Summary -->
+        <div class="rating-summary">
+            <div class="rating-overall">
+                <div class="rating-big">4.9</div>
+                <div class="rating-stars-big"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <div class="rating-total">Based on 500+ reviews</div>
+            </div>
+            <div class="rating-bars">
+                <div class="rating-bar-row"><span class="rating-bar-label">5 ★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:88%"></div></div><span class="rating-bar-count">440</span></div>
+                <div class="rating-bar-row"><span class="rating-bar-label">4 ★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:8%"></div></div><span class="rating-bar-count">40</span></div>
+                <div class="rating-bar-row"><span class="rating-bar-label">3 ★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:3%"></div></div><span class="rating-bar-count">15</span></div>
+                <div class="rating-bar-row"><span class="rating-bar-label">2 ★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:1%"></div></div><span class="rating-bar-count">5</span></div>
+                <div class="rating-bar-row"><span class="rating-bar-label">1 ★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div><span class="rating-bar-count">0</span></div>
+            </div>
+        </div>
+
+        <div class="featured-grid">
+            <div class="featured-card">
+                <div class="featured-quote"><i class="fas fa-quote-left"></i></div>
+                <p class="featured-text">I had been battling diabetes for 7 years with no real improvement from hospital medicine. After just 3 months using DR AFRID's herbal treatment, my blood sugar normalized. My doctor was shocked! God bless you Dr. Afrid!</p>
+                <div class="featured-author">
+                    <div class="author-avatar">A</div>
+                    <div><div class="author-name">Adaeze M.</div><div class="author-detail">Enugu State</div><div class="author-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                </div>
+            </div>
+            <div class="featured-card">
+                <div class="featured-quote"><i class="fas fa-quote-left"></i></div>
+                <p class="featured-text">My wife had fibroid for 5 years. Doctors wanted to operate. We tried DR AFRID's remedy and within 2 months the fibroid was completely gone. No surgery. We are now expecting our second child. Miracle worker!</p>
+                <div class="featured-author">
+                    <div class="author-avatar">E</div>
+                    <div><div class="author-name">Emmanuel O.</div><div class="author-detail">Lagos State</div><div class="author-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                </div>
+            </div>
+            <div class="featured-card">
+                <div class="featured-quote"><i class="fas fa-quote-left"></i></div>
+                <p class="featured-text">I was told my kidney was permanently damaged and I needed dialysis. After 4 months of Dr. Afrid's kidney cleanse treatment, my creatinine levels returned to normal. My nephrologist couldn't believe it!</p>
+                <div class="featured-author">
+                    <div class="author-avatar">F</div>
+                    <div><div class="author-name">Fatima K.</div><div class="author-detail">Abuja FCT</div><div class="author-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- All Reviews -->
+<section class="all-reviews">
+    <div class="container">
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-name">Blessing C.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I suffered from hypertension for years. Started DR AFRID's herbal remedy and within 6 weeks my blood pressure dropped from 180/110 to a perfect 120/80. I am forever grateful!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Ibrahim A.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My prostate was so enlarged I couldn't urinate properly. After DR AFRID's prostate treatment, everything is normal again. No surgery, no hospital bills. Just pure herbal healing.</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Chiamaka N.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">Had ovarian cyst for 3 years. Doctors kept telling me I needed surgery. Tried DR AFRID's remedy and in 3 months the cyst dissolved on its own. Now I am pregnant! Thank you Dr. Afrid!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Osagie B.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I am from Benin City, very close to Uromi. I visited Dr. Afrid in person for my arthritis and left with his herbal remedy. Within 2 months, the joint pain that tormented me for 10 years is completely gone!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Grace T.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My son had sickle cell and was always in pain. Started DR AFRID's tonic and the crises have reduced from monthly to zero in 8 months! He can now play like a normal child. I can't stop praising God!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Musa D.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <p class="review-text">Ordered DR AFRID's ulcer formula from Kano. Received it in 3 days. After 4 weeks of treatment, my stomach ulcer is completely healed. I can now eat anything without pain. Wonderful product!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Oluwaseun A.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">Stroke left my father paralyzed on the right side. After 6 months using DR AFRID's stroke recovery tonic, he can now walk with a cane. We are overwhelmed with joy. God bless DR AFRID!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Nkechi O.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I tried everything for my skin condition — eczema that spread all over my body. DR AFRID's skin herb cleared my skin in just 6 weeks. It has never come back. I tell everyone about this man!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Chukwuemeka L.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My low sperm count was destroying my marriage. Two years of hospital treatment with no result. One month of DR AFRID's fertility booster changed everything. We are now expecting our first child!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Aisha M.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">DR AFRID's herbal packs are affordable, delivered fast, and they work! I recommend him to everyone in my family and community. True healing through nature. Keep it up, Dr. Afrid!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Sunday P.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I ordered the weight loss herbal pack from Port Harcourt. In 2 months I lost 18kg without any extreme dieting. I feel lighter, healthier, and happier. Best purchase I have ever made!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Yewande F.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">After years of failed IVF, we turned to DR AFRID. His fertility herbs balanced my hormones and regulated my cycle. 4 months later I conceived naturally. I am now a mother of a healthy baby girl!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- HIV Reviews -->
+            <div class="review-card">
+                <div class="review-name">Kingsley A.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I was diagnosed HIV positive in 2021 and kept it secret due to the stigma. A friend referred me to DR AFRID. After 6 months of consistent use of his herbal treatment, my viral load dropped to undetectable and my last two tests came back negative. I am healed! DR AFRID is truly a gift from God.</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Precious U.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My husband and I were both HIV positive. We cried every night. We contacted DR AFRID after seeing a testimony online. He sent us his herbs and guided us through the treatment. Within 5 months both of our results turned negative. Our doctor could not explain it. We are now living normal, healthy lives!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Taiwo B.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">Living with HIV for 4 years destroyed my confidence and my relationships. I heard about DR AFRID through a family member and decided to try. After 7 months of treatment I tested negative three consecutive times. I have my life back. I tell everyone who needs help to contact DR AFRID immediately!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- Herpes Reviews -->
+            <div class="review-card">
+                <div class="review-name">Amaka C.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I contracted genital herpes and was told there is no cure. I suffered in silence for 2 years, refusing to date anyone. DR AFRID's herbal remedy completely cleared all outbreaks in 8 weeks. I have had zero recurrence in over a year. My test result is now clean. Thank you DR AFRID — you gave me back my dignity!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Chidi N.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I had oral and genital herpes HSV-2. Doctors said I would manage it for life. DR AFRID's herbal formula stopped all outbreaks within 6 weeks. After 4 months of treatment my antigen test came back negative. I am completely free from herpes. This man's knowledge is beyond ordinary medicine!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- OCD Reviews -->
+            <div class="review-card">
+                <div class="review-name">Seun A.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I suffered severe OCD for 6 years — constant intrusive thoughts, repetitive rituals, and crippling anxiety. Psychiatrists put me on drugs that made me a zombie. DR AFRID's herbal brain and nerve treatment calmed my mind completely within 3 months. I am now living a normal, peaceful life. Truly life-changing!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Ngozi E.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My teenage daughter had severe OCD and social anxiety that made schooling impossible. Western medicines had terrible side effects. DR AFRID's natural herbal formula gradually calmed her obsessive thoughts. Within 4 months she returned to school and is now happy and thriving. I recommend DR AFRID to every parent facing this!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- Multiple Sclerosis Reviews -->
+            <div class="review-card">
+                <div class="review-name">Emeka R.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I was diagnosed with Multiple Sclerosis at age 34. I could barely walk and my vision was deteriorating. After 6 months of DR AFRID's herbal nerve repair treatment, my walking improved dramatically, vision cleared, and my neurologist confirmed reduced lesion activity. I now walk without a cane. DR AFRID is a miracle worker!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Tunde F.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">MS had confined my mother to a wheelchair for 3 years. We tried everything. A neighbour suggested DR AFRID. After 8 months of consistent herbal treatment she is now walking short distances independently. Her tremors have reduced by 80%. Her doctors are amazed. We will continue the treatment. God bless DR AFRID!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- Cancer Reviews -->
+            <div class="review-card">
+                <div class="review-name">Nneka O.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My father had stage 3 prostate cancer. After chemotherapy failed to stop the spread, we turned to DR AFRID. His anti-cancer herbal pack shrunk the tumour over 5 months. The oncologist confirmed reduction in tumour size by over 60%. Father is now eating well, gaining strength, and full of hope. Thank you DR AFRID!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Halima S.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I was diagnosed with cervical cancer stage 2. I was terrified and refused surgery. My cousin told me about DR AFRID. After 6 months of his herbal cancer treatment, my latest scan showed no evidence of malignancy. My gynaecologist could not believe it. I am completely healed. DR AFRID, you saved my life!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- Lupus / Autoimmune Reviews -->
+            <div class="review-card">
+                <div class="review-name">Chisom A.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I was diagnosed with lupus at 28. The joint pain, rashes, and fatigue were destroying my life. Steroids had terrible side effects. DR AFRID's herbal immune-balancing treatment stopped the flares within 10 weeks. One year later I have been in full remission with zero symptoms. Best decision of my life!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Bola K.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My rheumatoid arthritis was so severe I could not open a bottle or hold a pen. After 4 months on DR AFRID's anti-inflammatory herbal blend, the swelling and stiffness reduced by 90%. I am back at work, driving, and living fully again. Herbal medicine is real — DR AFRID proved it to me!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- Parkinson's / Alzheimer's Reviews -->
+            <div class="review-card">
+                <div class="review-name">Rotimi L.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My father's Parkinson's tremors were so bad he could not feed himself. Neurologists said nothing more could be done. DR AFRID's brain and nerve herbal formula reduced his tremors significantly within 3 months. He now feeds himself and speaks more clearly. Our family is overjoyed. DR AFRID, thank you from our hearts!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Adunola M.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My grandmother had severe Alzheimer's and could no longer recognise us. We began DR AFRID's memory restoration herbal treatment. After 5 months she began recognising family members, holding conversations, and recalling old memories. Her improvement has been nothing short of miraculous. We will continue indefinitely!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- Hepatitis B Reviews -->
+            <div class="review-card">
+                <div class="review-name">Victor O.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I had chronic Hepatitis B for 8 years. Doctors told me I would carry it forever. After 5 months on DR AFRID's liver and hepatitis herbal formula, my HBsAg test came back negative. My liver enzymes normalised and my doctor confirmed the infection is fully cleared. Impossible? Not with DR AFRID!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- Epilepsy Reviews -->
+            <div class="review-card">
+                <div class="review-name">Patience D.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My son had epileptic seizures almost every week since age 10. Anti-seizure medications made him drowsy and slow in school. DR AFRID's herbal nerve treatment reduced seizures from weekly to zero in 4 months. He has been seizure-free for over 1 year now and is top of his class. DR AFRID truly heals!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- Autism / Cerebral Palsy -->
+            <div class="review-card">
+                <div class="review-name">Josephine T.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My 7-year-old was diagnosed with autism and had no speech at all. After 8 months of DR AFRID's herbal brain development treatment, he began speaking full sentences. His teachers are amazed at his progress. I was told there was no cure — DR AFRID proved that nature has an answer for everything!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- Spiritual Help: Ex Back -->
+            <div class="review-card" style="border-top:3px solid #8bc34a;">
+                <div class="review-name" style="color:#162520;">Blessing I. <span style="font-size:11px;background:#8bc34a;color:white;padding:2px 8px;border-radius:10px;margin-left:6px;">Spiritual</span></div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My husband left me for another woman after 11 years of marriage. I was broken and desperate. A friend told me DR AFRID also helps with spiritual matters. Within 3 days of his spiritual cleansing and reconciliation herbs, my husband called me crying and came back home. He cut off the other woman completely. Our home is restored!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card" style="border-top:3px solid #8bc34a;">
+                <div class="review-name" style="color:#162520;">Uche W. <span style="font-size:11px;background:#8bc34a;color:white;padding:2px 8px;border-radius:10px;margin-left:6px;">Spiritual</span></div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My boyfriend of 4 years left suddenly and blocked me everywhere. I was devastated. DR AFRID's spiritual cleansing and love-binding herbs worked within 7 days — he unblocked me, apologised, and returned more loving than ever. We are now engaged! DR AFRID is not just a herbalist, he is a spiritual master!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card" style="border-top:3px solid #8bc34a;">
+                <div class="review-name" style="color:#162520;">Fatima L. <span style="font-size:11px;background:#8bc34a;color:white;padding:2px 8px;border-radius:10px;margin-left:6px;">Spiritual</span></div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My husband was under the influence of a woman who had used juju on him. He abandoned our children and I for 2 years. DR AFRID performed a powerful spiritual cleansing and sent herbal protection packs. Within 2 weeks my husband woke up and came back home confused about why he had left. Our family is whole again. Praise God and DR AFRID!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card" style="border-top:3px solid #8bc34a;">
+                <div class="review-name" style="color:#162520;">Damilola P. <span style="font-size:11px;background:#8bc34a;color:white;padding:2px 8px;border-radius:10px;margin-left:6px;">Spiritual</span></div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I had bad luck following me everywhere — businesses failing, relationships ending, job rejections. DR AFRID diagnosed a spiritual blockage and performed a full spiritual cleanse. Within a month, I got a new job offer, my business started growing, and I met my current loving partner. My life transformed completely!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card" style="border-top:3px solid #8bc34a;">
+                <div class="review-name" style="color:#162520;">Adaobi N. <span style="font-size:11px;background:#8bc34a;color:white;padding:2px 8px;border-radius:10px;margin-left:6px;">Spiritual</span></div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I contacted DR AFRID for help attracting a good life partner after years of failed relationships. He sent me his attraction and love herbs and performed a spiritual consultation. Within 6 weeks I met the man of my dreams and we are now happily married. My heart is full. DR AFRID truly has the gift!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card" style="border-top:3px solid #8bc34a;">
+                <div class="review-name" style="color:#162520;">Eze K. <span style="font-size:11px;background:#8bc34a;color:white;padding:2px 8px;border-radius:10px;margin-left:6px;">Spiritual</span></div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My business was destroyed by enemies using dark spiritual forces. Customers disappeared, money dried up, and my staff left. DR AFRID's spiritual protection and business breakthrough herbs reversed everything. Within 3 weeks customers started returning and new contracts came. I now protect my business with DR AFRID's herbs every year!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card" style="border-top:3px solid #8bc34a;">
+                <div class="review-name" style="color:#162520;">Miriam C. <span style="font-size:11px;background:#8bc34a;color:white;padding:2px 8px;border-radius:10px;margin-left:6px;">Spiritual</span></div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I was barren for 9 years and visited many pastors and hospitals with no result. DR AFRID told me there was both a physical and spiritual cause. He combined his fertility herbs with a spiritual cleansing ritual. I became pregnant 2 months later. I now have a beautiful son. DR AFRID addressed what others could not see!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+
+            <!-- More Incurable Disease Reviews -->
+            <div class="review-card">
+                <div class="review-name">Olumide B.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I had severe chronic kidney disease at stage 4 — doctors said I would need transplant soon. DR AFRID's kidney restoration herbs brought my GFR from 18 back up to 52 over 7 months. I avoided dialysis and transplant completely. I am now living normally with healthy kidney function. This man has a rare gift!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Chidinma A.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My husband had type 2 diabetes with serious nerve damage (neuropathy) — burning feet and numbness for years. DR AFRID's herbal neuropathy and diabetes pack resolved both the blood sugar and the nerve pain completely within 5 months. My husband cried with joy the day he felt his feet again. DR AFRID is extraordinary!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Kemi A.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I had stage 2 glaucoma with rapidly worsening vision. Ophthalmologists told me I would go blind. After 4 months of DR AFRID's eye restoration herbal treatment, my intraocular pressure normalised and my vision stabilised. 6 months later my vision actually improved. I can now read without glasses. DR AFRID saved my sight!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">James N.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I had severe psoriasis covering 70% of my body. Dermatologists tried every treatment for 5 years with no lasting result. DR AFRID's blood-purifying herbal formula cleared my skin completely in 3 months. Not a single patch remains. People who knew me before cannot believe the transformation. DR AFRID is the real deal!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Amina H.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">My teenage son had severe vitiligo spreading across his face and hands. He was too ashamed to go to school. After 5 months of DR AFRID's melanin restoration herbs, the white patches reduced by over 80% and skin colour is returning. His confidence is back and he is happy again. DR AFRID heals what others cannot!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="review-card">
+                <div class="review-name">Biodun O.</div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">I was depressed and suicidal after years of mental health struggles that medication could not fix. DR AFRID's herbal mental health and spiritual balance treatment transformed me completely in 3 months. I now wake up joyful, motivated, and full of purpose. If you are struggling mentally, call DR AFRID — nature heals the mind too!</p>
+                <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Submit Review -->
+<section class="submit-review">
+    <div class="container">
+        <span class="section-label">Share Your Story</span>
+        <h2 class="section-title">Leave Your <span style="color:#8bc34a;">Review</span></h2>
+        <div class="review-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">Your Name *</label>
+                    <input type="text" class="form-control" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone / WhatsApp</label>
+                    <input type="tel" class="form-control" placeholder="e.g. 08012345678">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Condition Treated</label>
+                    <input type="text" class="form-control" placeholder="e.g. Diabetes, Fibroid...">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Your State</label>
+                    <input type="text" class="form-control" placeholder="e.g. Lagos, Abuja...">
+                </div>
+                <div class="form-group full">
+                    <label class="form-label">Your Rating</label>
+                    <div class="star-select" id="starSelect">
+                        <i class="fas fa-star" data-val="1"></i>
+                        <i class="fas fa-star" data-val="2"></i>
+                        <i class="fas fa-star" data-val="3"></i>
+                        <i class="fas fa-star" data-val="4"></i>
+                        <i class="fas fa-star" data-val="5"></i>
+                    </div>
+                </div>
+                <div class="form-group full">
+                    <label class="form-label">Your Review *</label>
+                    <textarea class="form-control" rows="5" placeholder="Tell us about your experience with DR AFRID Herbal Home..."></textarea>
+                </div>
+                <div class="form-group full">
+                    <button class="submit-btn"><i class="fas fa-paper-plane"></i> Submit Your Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+    <div class="container">
+        <div class="newsletter-inner">
+            <div class="newsletter-text">
+                <h3>Get Free Health Tips &amp; Updates</h3>
+                <p>Subscribe for herbal health tips and special offers</p>
+            </div>
+            <div class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address">
+                <button class="newsletter-btn">Subscribe <i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<div class="main-footer">
+    <a href="contact.html" class="order-btn-large"><i class="fas fa-shopping-cart"></i>&nbsp; Order Your Herbal Remedy Now</a>
+</div>
+<footer class="footer-dark">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://placehold.co/160x44/8bc34a/ffffff?text=DR+AFRID" alt="DR AFRID Logo">
+                <h3>DR AFRID Herbal Home</h3>
+                <p>Your trusted partner for natural herbal healing. Restoring health through the power of nature.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/2349153512788"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Our Products</a></li>
+                    <li><a href="reviews.html"><i class="fas fa-chevron-right"></i> Reviews</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Conditions Treated</h4>
+                <ul>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Diabetes</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Hypertension</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Fibroid</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Kidney Problems</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Infertility</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>No 1, Ubia Road, Uromi, Edo State</span></div>
+                <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:09153512788">09153512788</a></div>
+                <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:drafridherbalhome@gmail.com">drafridherbalhome@gmail.com</a></div>
+                <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/2349153512788">Chat on WhatsApp</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DR AFRID Herbal Home. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color:#8bc34a;"></i> for natural healing</p>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/2349153512788" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+    const menuToggle=document.getElementById('menuToggle'),mobileDrawer=document.getElementById('mobileDrawer'),mobileOverlay=document.getElementById('mobileOverlay');
+    menuToggle.addEventListener('click',()=>{const o=mobileDrawer.classList.contains('open');menuToggle.classList.toggle('open',!o);mobileDrawer.classList.toggle('open',!o);mobileOverlay.classList.toggle('open',!o);});
+    mobileOverlay.addEventListener('click',()=>{menuToggle.classList.remove('open');mobileDrawer.classList.remove('open');mobileOverlay.classList.remove('open');});
+
+    // Star rating
+    const stars=document.querySelectorAll('#starSelect i');
+    let selectedRating=0;
+    stars.forEach((star,i)=>{
+        star.addEventListener('mouseover',()=>stars.forEach((s,j)=>s.classList.toggle('active',j<=i)));
+        star.addEventListener('mouseleave',()=>stars.forEach((s,j)=>s.classList.toggle('active',j<selectedRating)));
+        star.addEventListener('click',()=>{selectedRating=i+1;stars.forEach((s,j)=>s.classList.toggle('active',j<selectedRating));});
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR AFRID Herbal Home - Natural Herbal Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+        body{overflow-x:hidden;color:#333;min-width:320px;}
+        a{text-decoration:none;color:inherit;}
+        ul{list-style:none;}
+        img{max-width:100%;display:block;}
+        .container{width:90%;max-width:1200px;margin:0 auto;}
+
+        /* ── Top Bar ── */
+        .top-bar{background:#2d5a1b;color:white;padding:7px 0;font-size:12px;}
+        .top-bar-inner{display:flex;justify-content:space-between;align-items:center;width:90%;margin:0 auto;gap:6px;}
+        .tb-contacts{display:flex;gap:14px;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+        .tb-contacts::-webkit-scrollbar{display:none;}
+        .tb-item{display:flex;align-items:center;gap:5px;white-space:nowrap;}
+        .tb-item i{color:#a8d96c;font-size:11px;flex-shrink:0;}
+        .tb-item .tb-hide{display:inline;}
+        .tb-social{display:flex;gap:10px;flex-shrink:0;}
+        .tb-social a{color:white;font-size:13px;transition:color .3s;}
+        .tb-social a:hover{color:#a8d96c;}
+
+        /* ── Header ── */
+        header{position:absolute;width:100%;z-index:1000;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15);transition:background .3s,padding .3s;}
+        header.scrolled{position:fixed;background:#162520;border-bottom:none;box-shadow:0 2px 20px rgba(0,0,0,.3);padding:10px 0;}
+        .hdr{display:flex;align-items:center;justify-content:space-between;width:90%;margin:0 auto;}
+        .logo img{height:42px;width:auto;object-fit:contain;}
+        .nav-links{display:flex;gap:26px;list-style:none;}
+        .nav-links a{color:rgba(255,255,255,.9);font-weight:500;font-size:14px;padding:5px 0;transition:color .3s;position:relative;}
+        .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:#8bc34a;transition:width .3s;}
+        .nav-links a:hover::after,.nav-links li:first-child a::after{width:100%;}
+        .nav-links a:hover,.nav-links li:first-child a{color:#8bc34a;}
+        .nav-order-btn{background:#8bc34a!important;color:white!important;padding:8px 18px!important;border-radius:4px;font-weight:600!important;}
+        .nav-order-btn::after{display:none!important;}
+        .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1100;}
+        .menu-toggle span{display:block;width:25px;height:3px;background:white;border-radius:3px;transition:all .35s;transform-origin:center;}
+        .menu-toggle.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+        .menu-toggle.open span:nth-child(2){opacity:0;}
+        .menu-toggle.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+        .mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1050;opacity:0;transition:opacity .3s;}
+        .mob-overlay.open{opacity:1;}
+        .mob-drawer{position:fixed;top:0;right:0;height:100%;width:min(80vw,290px);background:#162520;z-index:1100;padding:68px 26px 26px;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;}
+        .mob-drawer.open{transform:translateX(0);}
+        .mob-links li{border-bottom:1px solid rgba(255,255,255,.07);}
+        .mob-links a{display:block;color:white;font-size:15px;font-weight:500;padding:13px 0;transition:color .3s;}
+        .mob-links a:hover{color:#8bc34a;}
+        .mob-links li:first-child a{color:#8bc34a;}
+
+        /* ── Hero ── */
+        /* HERO BG: Replace URL below with your own hero image */
+        .hero{min-height:100vh;background:linear-gradient(160deg,rgba(22,37,32,.85) 0%,rgba(22,37,32,.5) 100%),url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1920&q=80') no-repeat center/cover;display:flex;align-items:center;position:relative;overflow:hidden;}
+        .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(transparent,white);z-index:1;}
+        .hero-body{text-align:center;color:white;max-width:860px;margin:0 auto;padding:clamp(110px,20vw,150px) 20px 70px;position:relative;z-index:2;width:100%;}
+        .hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(139,195,74,.18);border:1px solid rgba(139,195,74,.4);color:#a8d96c;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:18px;}
+        .hero h1{font-size:clamp(22px,4vw,48px);margin-bottom:6px;line-height:1.15;font-weight:700;}
+        .hero h1.ht{color:#8bc34a;font-size:clamp(26px,5.5vw,60px);font-weight:800;margin-bottom:16px;}
+        .hero p{font-size:clamp(13px,1.5vw,16px);line-height:1.85;margin:0 auto 30px;max-width:720px;opacity:.9;}
+        .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+        .btn-p{display:inline-flex;align-items:center;gap:8px;background:#8bc34a;color:white;padding:12px 28px;border-radius:4px;font-weight:600;font-size:14px;transition:all .3s;border:2px solid #8bc34a;}
+        .btn-p:hover{background:transparent;color:#8bc34a;}
+        .btn-o{display:inline-flex;align-items:center;gap:8px;background:transparent;color:white;padding:12px 28px;border-radius:4px;font-weight:600;font-size:14px;transition:all .3s;border:2px solid rgba(255,255,255,.5);}
+        .btn-o:hover{border-color:white;background:rgba(255,255,255,.1);}
+        .hleaf{position:absolute;opacity:.08;z-index:1;color:white;}
+        .hl1{top:16%;left:6%;font-size:clamp(36px,5vw,68px);}
+        .hl2{bottom:22%;left:3%;font-size:clamp(28px,4vw,50px);}
+        .hl3{top:18%;right:6%;font-size:clamp(36px,5vw,68px);}
+        .hl4{bottom:20%;right:10%;font-size:clamp(28px,4vw,50px);}
+
+        /* ── Services Strip ── */
+        .svc-strip{position:relative;z-index:10;margin-top:-55px;}
+        .svc-row{display:grid;grid-template-columns:repeat(3,1fr);border-radius:8px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.12);}
+        .svc-box{padding:22px 18px;display:flex;align-items:center;gap:13px;}
+        .svc-box:nth-child(1){background:#f5f7f3;}
+        .svc-box:nth-child(2){background:#162520;color:white;}
+        .svc-box:nth-child(3){background:#8bc34a;color:white;}
+        .svc-ic{font-size:20px;flex-shrink:0;width:46px;height:46px;border-radius:8px;display:flex;align-items:center;justify-content:center;}
+        .svc-box:nth-child(1) .svc-ic{background:rgba(139,195,74,.12);color:#8bc34a;}
+        .svc-box:nth-child(2) .svc-ic{background:rgba(139,195,74,.15);color:#8bc34a;}
+        .svc-box:nth-child(3) .svc-ic{background:rgba(255,255,255,.2);color:white;}
+        .svc-box h3{font-size:clamp(13px,1.4vw,16px);font-weight:600;margin-bottom:3px;}
+        .svc-box p{font-size:12px;opacity:.75;line-height:1.4;}
+
+        /* ── Common Section Labels ── */
+        .slbl{color:#8bc34a;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:9px;display:block;}
+        .stit{font-size:clamp(20px,2.8vw,34px);color:#162520;margin-bottom:13px;font-weight:700;line-height:1.25;}
+        .stit span{color:#8bc34a;}
+        .sdiv{width:46px;height:3px;background:#8bc34a;margin:0 0 18px;border-radius:2px;}
+        .sdiv.c{margin:0 auto 18px;}
+
+        /* ── About Section (two-column with image) ── */
+        .about-sec{padding:80px 0;}
+        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
+        .about-img-wrap{position:relative;}
+        /* ABOUT IMAGE: Replace src with your actual about/hero image */
+        .about-img{width:100%;height:clamp(280px,38vw,440px);object-fit:cover;border-radius:8px;}
+        .about-badge{position:absolute;bottom:-16px;right:-16px;background:#8bc34a;color:white;padding:14px 18px;border-radius:8px;text-align:center;box-shadow:0 8px 24px rgba(139,195,74,.35);}
+        .about-badge .abnum{font-size:28px;font-weight:800;line-height:1;display:block;}
+        .about-badge .ablbl{font-size:11px;font-weight:500;}
+        .about-right .sbody{color:#666;font-size:14px;line-height:1.85;margin-bottom:13px;text-align:justify;}
+        .about-hl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 22px;}
+        .ahl{display:flex;align-items:center;gap:9px;font-size:13px;color:#444;font-weight:500;}
+        .ahl i{color:#8bc34a;font-size:15px;flex-shrink:0;}
+        .read-btn{display:inline-flex;align-items:center;gap:8px;background:#162520;color:white;padding:11px 26px;border-radius:4px;font-weight:600;font-size:13.5px;transition:all .3s;}
+        .read-btn:hover{background:#8bc34a;}
+
+        /* ── Why Choose Us (image grid strip) ── */
+        .why-sec{padding:0 0 80px;}
+        .why-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:40px;text-align:center;}
+        .why-card{padding:20px 10px 16px;background:white;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-bottom:3px solid #8bc34a;transition:transform .3s,box-shadow .3s;}
+        .why-card:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(0,0,0,.1);}
+        .why-icon{width:clamp(58px,7vw,82px);height:clamp(58px,7vw,82px);background:#8bc34a;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 11px;color:white;font-size:30px;overflow:hidden;}
+        /* FEATURE ICON IMAGE: Replace <i> with <img src="YOUR_URL" style="width:60%;height:60%;object-fit:contain;"> if desired */
+        .why-icon img{width:60%;height:60%;object-fit:contain;}
+        .why-title{font-size:clamp(11px,1.1vw,14px);font-weight:600;color:#162520;margin-bottom:5px;}
+        .why-txt{font-size:11.5px;color:#777;line-height:1.45;}
+
+        /* ── Conditions Section (split: image + tag grid) ── */
+        .cond-sec{padding:80px 0;background:#f5f7f3;}
+        .cond-inner{display:grid;grid-template-columns:1fr 1.8fr;gap:40px;align-items:start;}
+        /* CONDITIONS IMAGE: Replace src with your preferred image */
+        .cond-img{width:100%;height:clamp(260px,32vw,400px);object-fit:cover;border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,.1);}
+        .cond-right{}
+        .cond-tags{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px;}
+        .ctag{background:white;border:1px solid #e0ead8;border-left:3px solid #8bc34a;padding:8px 12px;border-radius:4px;font-size:12.5px;color:#444;font-weight:500;transition:all .25s;cursor:default;}
+        .ctag:hover{background:#8bc34a;color:white;border-color:#8bc34a;}
+
+        /* ── Products Preview ── */
+        .prod-sec{padding:80px 0;}
+        .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px;}
+        .prod-card{background:white;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);transition:transform .3s,box-shadow .3s;}
+        .prod-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.12);}
+        /* PRODUCT IMAGE n: Replace src with your actual product image URL */
+        .prod-card img{width:100%;height:185px;object-fit:cover;display:block;}
+        .prod-body{padding:14px;}
+        .prod-stars{color:#f4b942;font-size:11px;margin-bottom:5px;}
+        .prod-name{font-size:14px;font-weight:600;color:#162520;margin-bottom:5px;}
+        .prod-desc{font-size:12px;color:#777;line-height:1.5;}
+
+        /* ── Doctor Strip (image + quote) ── */
+        .doc-strip{background:#162520;padding:60px 0;}
+        .doc-inner{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:center;}
+        /* DOCTOR PHOTO: Replace src with Dr. Afrid's actual photo */
+        .doc-img{width:100%;height:260px;object-fit:cover;object-position:top;border-radius:8px;border:4px solid rgba(139,195,74,.3);}
+        .doc-quote-icon{color:#8bc34a;font-size:40px;margin-bottom:14px;opacity:.55;}
+        .doc-quote{color:rgba(255,255,255,.85);font-size:clamp(14px,1.8vw,18px);font-style:italic;line-height:1.75;margin-bottom:18px;}
+        .doc-name{color:#8bc34a;font-size:15px;font-weight:700;}
+        .doc-role{color:rgba(255,255,255,.55);font-size:13px;}
+        .doc-cta{display:inline-flex;align-items:center;gap:8px;background:#8bc34a;color:white;padding:11px 24px;border-radius:4px;font-weight:600;font-size:13.5px;transition:all .3s;margin-top:18px;}
+        .doc-cta:hover{background:#7ab33d;}
+
+        /* ── Testimonials ── */
+        .testi-sec{padding:80px 0;}
+        .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
+        .tcard{background:white;border-radius:8px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,.07);transition:transform .3s,box-shadow .3s;}
+        .tcard:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(0,0,0,.1);}
+        /* TESTIMONIAL IMAGE n: Replace src with a real patient photo or keep as placeholder */
+        .tcard-img{width:100%;height:180px;object-fit:cover;object-position:top;}
+        .tcard-body{padding:18px;}
+        .tcard-quote{color:#8bc34a;font-size:26px;margin-bottom:10px;line-height:1;}
+        .tcard-text{color:#555;font-style:italic;font-size:13px;line-height:1.75;margin-bottom:14px;}
+        .tcard-author{display:flex;align-items:center;gap:10px;}
+        .tcard-name{font-weight:600;color:#162520;font-size:13.5px;}
+        .tcard-loc{font-size:12px;color:#999;}
+        .tcard-stars{color:#f4b942;font-size:11px;}
+
+        /* ── Gallery Strip ── */
+        .gallery-strip{padding:0 0 80px;}
+        .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:0;}
+        .gallery-item{overflow:hidden;border-radius:6px;height:clamp(110px,14vw,170px);}
+        /* GALLERY IMAGE n: Replace src with your actual gallery/herb photos */
+        .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+        .gallery-item:hover img{transform:scale(1.06);}
+
+        /* ── Newsletter ── */
+        .newsletter{background:#8bc34a;padding:52px 0;}
+        .nl-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;}
+        .nl-text h3{font-size:clamp(17px,2.2vw,25px);color:white;font-weight:700;margin-bottom:5px;}
+        .nl-text p{color:rgba(255,255,255,.85);font-size:13px;}
+        .nl-form{display:flex;max-width:400px;width:100%;}
+        .nl-input{flex:1;padding:12px 16px;border:none;border-radius:4px 0 0 4px;font-size:13.5px;font-family:'Poppins',sans-serif;outline:none;}
+        .nl-btn{padding:12px 20px;background:#162520;color:white;border:none;border-radius:0 4px 4px 0;font-weight:600;font-size:13px;cursor:pointer;font-family:'Poppins',sans-serif;transition:background .3s;white-space:nowrap;}
+        .nl-btn:hover{background:#0f1a16;}
+
+        /* ── WhatsApp Float ── */
+        .wa-float{position:fixed;bottom:22px;right:22px;z-index:999;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:23px;box-shadow:0 4px 18px rgba(37,211,102,.4);transition:transform .3s;}
+        .wa-float:hover{transform:scale(1.1);}
+
+        /* ── Footer ── */
+        .order-bar{background:#f5f7f3;text-align:center;padding:36px 0;}
+        .order-big{display:inline-flex;align-items:center;gap:9px;background:#8bc34a;color:white;padding:14px 32px;border-radius:4px;font-weight:700;font-size:16px;transition:all .3s;}
+        .order-big:hover{background:#7ab33d;}
+        .ftr{background:#162520;color:white;padding:50px 0 18px;}
+        .ftr-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:36px;margin-bottom:36px;}
+        .fb img{height:40px;width:auto;margin-bottom:11px;}
+        .fb h3{color:#8bc34a;font-size:17px;font-weight:700;margin-bottom:7px;}
+        .fb p{color:#999;font-size:12.5px;line-height:1.7;margin-bottom:14px;}
+        .fsoc{display:flex;gap:7px;}
+        .fsoc a{width:32px;height:32px;background:rgba(139,195,74,.12);border:1px solid rgba(139,195,74,.25);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#8bc34a;font-size:13px;transition:all .3s;}
+        .fsoc a:hover{background:#8bc34a;color:white;}
+        .fc h4{color:#8bc34a;font-size:13.5px;font-weight:600;margin-bottom:13px;padding-bottom:7px;border-bottom:1px solid rgba(139,195,74,.18);}
+        .fc ul li{margin-bottom:7px;}
+        .fc ul li a{color:#999;font-size:12.5px;display:flex;align-items:center;gap:5px;transition:all .3s;}
+        .fc ul li a i{font-size:9px;color:#8bc34a;}
+        .fc ul li a:hover{color:#8bc34a;padding-left:3px;}
+        .fci{display:flex;align-items:flex-start;gap:9px;margin-bottom:9px;color:#999;font-size:12.5px;line-height:1.6;}
+        .fci i{color:#8bc34a;font-size:13px;margin-top:2px;flex-shrink:0;}
+        .fci a{color:#999;transition:color .3s;}
+        .fci a:hover{color:#8bc34a;}
+        .ftr-bot{border-top:1px solid rgba(255,255,255,.07);padding-top:18px;display:flex;justify-content:space-between;align-items:center;color:#666;font-size:12px;flex-wrap:wrap;gap:7px;}
+        .ftr-bot a{color:#8bc34a;}
+
+        /* ─── RESPONSIVE ─── */
+        @media(max-width:1100px){
+            .ftr-grid{grid-template-columns:1fr 1fr;}
+            .prod-grid{grid-template-columns:repeat(2,1fr);}
+        }
+        @media(max-width:992px){
+            .why-grid{grid-template-columns:repeat(3,1fr);}
+            .cond-inner{grid-template-columns:1fr;}
+            .cond-img{height:220px;}
+            .cond-tags{grid-template-columns:repeat(3,1fr);}
+            .svc-row{grid-template-columns:1fr;}
+            .svc-strip{margin-top:0;}
+            .testi-grid{grid-template-columns:repeat(2,1fr);}
+            .gallery-grid{grid-template-columns:repeat(4,1fr);}
+        }
+        @media(max-width:768px){
+            nav{display:none;}
+            .menu-toggle{display:flex;}
+            .mob-overlay{display:block;}
+            .about-grid{grid-template-columns:1fr;}
+            .about-badge{right:10px;bottom:-10px;}
+            .doc-inner{grid-template-columns:1fr;}
+            .doc-img{height:200px;width:200px;margin:0 auto;}
+            .testi-grid{grid-template-columns:1fr;}
+            .why-grid{grid-template-columns:repeat(3,1fr);}
+            .ftr-grid{grid-template-columns:1fr;}
+            .ftr-bot{flex-direction:column;text-align:center;}
+            .nl-inner{flex-direction:column;text-align:center;}
+            .nl-form{width:100%;max-width:100%;}
+            .prod-grid{grid-template-columns:repeat(2,1fr);}
+            .gallery-grid{grid-template-columns:repeat(2,1fr);}
+            .cond-tags{grid-template-columns:repeat(2,1fr);}
+        }
+        @media(max-width:480px){
+            .tb-item.tb-hide-xs{display:none;}
+            .why-grid{grid-template-columns:repeat(2,1fr);}
+            .prod-grid{grid-template-columns:repeat(2,1fr);}
+            .cond-tags{grid-template-columns:repeat(2,1fr);}
+            .about-hl{grid-template-columns:1fr;}
+            .hero-btns{flex-direction:column;align-items:center;}
+            .hero-btns .btn-p,.hero-btns .btn-o{width:100%;max-width:280px;justify-content:center;}
+        }
+        @media(max-width:360px){
+            .why-grid{grid-template-columns:1fr 1fr;}
+            .prod-grid{grid-template-columns:1fr;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Top Bar ── -->
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div class="tb-contacts">
+            <div class="tb-item"><i class="fas fa-phone-alt"></i><span>09153512788</span></div>
+            <div class="tb-item tb-hide-xs"><i class="fas fa-envelope"></i><span>drafridherbalhome@gmail.com</span></div>
+            <div class="tb-item tb-hide-xs"><i class="fas fa-map-marker-alt"></i><span>No 1, Ubia Road, Uromi Edo State</span></div>
+        </div>
+        <div class="tb-social">
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/2349153512788" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- ── Header ── -->
+<header id="mainHeader">
+    <div class="hdr">
+        <div class="logo">
+            <!-- LOGO: Replace src with your actual logo URL -->
+            <img src="https://placehold.co/155x42/8bc34a/ffffff?text=DR+AFRID" alt="DR AFRID Herbal Home">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="nav-order-btn">Order Now</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- ── Mobile Nav ── -->
+<div class="mob-overlay" id="mobOverlay"></div>
+<div class="mob-drawer" id="mobDrawer">
+    <ul class="mob-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" style="color:#8bc34a;font-weight:700;">Order Now &rarr;</a></li>
+    </ul>
+</div>
+
+<!-- ── Hero ── -->
+<!-- HERO BG: change the URL in .hero background CSS to your own image -->
+<section class="hero">
+    <div class="hleaf hl1"><i class="fas fa-leaf"></i></div>
+    <div class="hleaf hl2"><i class="fas fa-seedling"></i></div>
+    <div class="hleaf hl3"><i class="fas fa-leaf" style="transform:scaleX(-1)"></i></div>
+    <div class="hleaf hl4"><i class="fas fa-seedling"></i></div>
+    <div class="hero-body">
+        <div class="hero-badge"><i class="fas fa-leaf"></i>&nbsp; 100% Natural Herbal Remedies</div>
+        <h1>Welcome to DR AFRID</h1>
+        <h1 class="ht">Herbal Home</h1>
+        <p>Experience the healing power of nature's finest herbs. We provide effective, all-natural solutions for lasting wellness — drawing on generations of traditional knowledge combined with compassionate care.</p>
+        <div class="hero-btns">
+            <a href="products.html" class="btn-p"><i class="fas fa-leaf"></i> Our Products</a>
+            <a href="https://wa.me/2349153512788" class="btn-o" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── Services Strip ── -->
+<div class="container svc-strip">
+    <div class="svc-row">
+        <div class="svc-box">
+            <div class="svc-ic"><i class="fas fa-mortar-pestle"></i></div>
+            <div><h3>100% Natural</h3><p>Pure herbal formulas, zero side effects</p></div>
+        </div>
+        <div class="svc-box">
+            <div class="svc-ic"><i class="fas fa-shipping-fast"></i></div>
+            <div><h3>Fast Delivery</h3><p>Nationwide delivery across Nigeria</p></div>
+        </div>
+        <div class="svc-box">
+            <div class="svc-ic"><i class="fas fa-award"></i></div>
+            <div><h3>Trusted Results</h3><p>Hundreds of satisfied patients</p></div>
+        </div>
+    </div>
+</div>
+
+<!-- ── About Section (image + text) ── -->
+<section class="about-sec">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-img-wrap">
+                <!-- ABOUT IMAGE: Replace with your preferred image URL -->
+                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=700&q=80" alt="Herbal healing" class="about-img">
+                <div class="about-badge">
+                    <span class="abnum">500+</span>
+                    <span class="ablbl">Patients Healed</span>
+                </div>
+            </div>
+            <div class="about-right">
+                <span class="slbl">Who We Are</span>
+                <h2 class="stit">DR AFRID <span>Herbal Home</span></h2>
+                <div class="sdiv"></div>
+                <p class="sbody">At DR AFRID Herbal Home, we are dedicated to restoring health through the time-tested power of nature. Under the guidance of Dr. Afrid, we combine traditional herbal wisdom with a compassionate approach — treating the root cause, not just the symptoms.</p>
+                <p class="sbody">Based at <strong>No 1, Ubia Road, Uromi, Edo State</strong>, we serve patients locally and deliver our herbal remedies to all 36 states in Nigeria. Every formula is crafted with precision from the purest natural herbs available.</p>
+                <div class="about-hl">
+                    <div class="ahl"><i class="fas fa-check-circle"></i> 100% Natural Ingredients</div>
+                    <div class="ahl"><i class="fas fa-check-circle"></i> No Side Effects</div>
+                    <div class="ahl"><i class="fas fa-check-circle"></i> Nationwide Delivery</div>
+                    <div class="ahl"><i class="fas fa-check-circle"></i> Proven Track Record</div>
+                </div>
+                <a href="about.html" class="read-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Why Choose Us ── -->
+<section class="why-sec">
+    <div class="container">
+        <div style="text-align:center;">
+            <span class="slbl">Our Strengths</span>
+            <h2 class="stit">Why Patients <span>Choose Us</span></h2>
+            <div class="sdiv c"></div>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <!-- ICON 1: swap <i> for <img src="YOUR_ICON_URL"> if desired -->
+                <div class="why-icon"><i class="fas fa-leaf"></i></div>
+                <div class="why-title">Natural Herbs</div>
+                <p class="why-txt">Sourced from finest natural environments</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <div class="why-title">Expert Care</div>
+                <p class="why-txt">Personalised consultation every time</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="why-title">Safe &amp; Pure</div>
+                <p class="why-txt">No chemicals or additives ever</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-globe-africa"></i></div>
+                <div class="why-title">Nationwide</div>
+                <p class="why-txt">Delivery to all 36 states</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-clock"></i></div>
+                <div class="why-title">Quick Results</div>
+                <p class="why-txt">Fast-acting proven formulas</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-comments"></i></div>
+                <div class="why-title">24/7 Support</div>
+                <p class="why-txt">WhatsApp &amp; call anytime</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Conditions (image + tag grid) ── -->
+<section class="cond-sec">
+    <div class="container">
+        <div class="cond-inner">
+            <div>
+                <!-- CONDITIONS IMAGE: Replace with your preferred herbal/clinic image -->
+                <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&q=80" alt="Herbal remedies" class="cond-img">
+            </div>
+            <div class="cond-right">
+                <span class="slbl">What We Treat</span>
+                <h2 class="stit">Conditions We <span>Treat</span></h2>
+                <div class="sdiv"></div>
+                <div class="cond-tags">
+                    <div class="ctag">Diabetes</div>
+                    <div class="ctag">Hypertension</div>
+                    <div class="ctag">Fibroid</div>
+                    <div class="ctag">Ulcer</div>
+                    <div class="ctag">Kidney Problems</div>
+                    <div class="ctag">Liver Disease</div>
+                    <div class="ctag">Arthritis</div>
+                    <div class="ctag">STIs &amp; STDs</div>
+                    <div class="ctag">Infertility</div>
+                    <div class="ctag">Pile</div>
+                    <div class="ctag">Prostate</div>
+                    <div class="ctag">Weak Erection</div>
+                    <div class="ctag">Typhoid</div>
+                    <div class="ctag">Asthma</div>
+                    <div class="ctag">Stroke</div>
+                    <div class="ctag">Sickle Cell</div>
+                    <div class="ctag">Eye Problems</div>
+                    <div class="ctag">Skin Diseases</div>
+                    <div class="ctag">Obesity</div>
+                    <div class="ctag">Ovarian Cyst</div>
+                    <div class="ctag">Back Pain</div>
+                    <div class="ctag">Low Sperm Count</div>
+                    <div class="ctag">Memory Loss</div>
+                    <div class="ctag">Spiritual Cleanse</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Featured Products ── -->
+<section class="prod-sec">
+    <div class="container">
+        <span class="slbl">Our Offerings</span>
+        <h2 class="stit">Featured <span>Products</span></h2>
+        <div class="sdiv"></div>
+        <div class="prod-grid">
+            <div class="prod-card">
+                <!-- PRODUCT IMAGE 1: Replace src with your product image URL -->
+                <img src="https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?w=400&q=80" alt="Diabetes Control Blend">
+                <div class="prod-body">
+                    <div class="prod-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="prod-name">Diabetes Control Blend</div>
+                    <p class="prod-desc">Regulates blood sugar naturally.</p>
+                </div>
+            </div>
+            <div class="prod-card">
+                <!-- PRODUCT IMAGE 2: Replace src with your product image URL -->
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Fibroid Shrink Formula">
+                <div class="prod-body">
+                    <div class="prod-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="prod-name">Fibroid Shrink Formula</div>
+                    <p class="prod-desc">Proven to reduce fibroid growths.</p>
+                </div>
+            </div>
+            <div class="prod-card">
+                <!-- PRODUCT IMAGE 3: Replace src with your product image URL -->
+                <img src="https://images.unsplash.com/photo-1498579150354-977475b7ea0b?w=400&q=80" alt="Hypertension Relief">
+                <div class="prod-body">
+                    <div class="prod-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="prod-name">Hypertension Relief</div>
+                    <p class="prod-desc">Manages high blood pressure.</p>
+                </div>
+            </div>
+            <div class="prod-card">
+                <!-- PRODUCT IMAGE 4: Replace src with your product image URL -->
+                <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&q=80" alt="Fertility Booster">
+                <div class="prod-body">
+                    <div class="prod-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <div class="prod-name">Fertility Booster</div>
+                    <p class="prod-desc">Supports male &amp; female fertility.</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:32px;">
+            <a href="products.html" class="read-btn">View All Products <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- ── Doctor Strip (image + quote) ── -->
+<section class="doc-strip">
+    <div class="container">
+        <div class="doc-inner">
+            <div>
+                <!-- DOCTOR PHOTO: Replace src with Dr. Afrid's actual photo URL -->
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" alt="Dr. Afrid" class="doc-img">
+            </div>
+            <div>
+                <div class="doc-quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="doc-quote">"Nature provides everything our bodies need to heal. At DR AFRID Herbal Home, our mission is to guide every patient back to full health through the wisdom of plants — safely, effectively, and affordably. I have seen hundreds of patients recover from conditions the hospital said were incurable. Nature does not give up on us."</p>
+                <div class="doc-name">Dr. Afrid</div>
+                <div class="doc-role">Chief Herbalist &amp; Founder, DR AFRID Herbal Home</div>
+                <a href="about.html" class="doc-cta"><i class="fas fa-user-md"></i> Meet Dr. Afrid</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Testimonials (with photos) ── -->
+<section class="testi-sec">
+    <div class="container">
+        <span class="slbl">Patient Stories</span>
+        <h2 class="stit">What Our <span>Patients Say</span></h2>
+        <div class="sdiv"></div>
+        <div class="testi-grid">
+            <div class="tcard">
+                <!-- TESTIMONIAL IMAGE 1: Replace src with a real patient photo or keep placeholder -->
+                <img src="https://placehold.co/400x180/2d5a1b/ffffff?text=Patient+Photo" alt="Patient" class="tcard-img">
+                <div class="tcard-body">
+                    <div class="tcard-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="tcard-text">I had been battling diabetes for 7 years. After just 3 months of DR AFRID's herbal remedy, my blood sugar normalized. My doctor was shocked! God bless you Dr. Afrid!</p>
+                    <div class="tcard-author">
+                        <div>
+                            <div class="tcard-name">Adaeze M.</div>
+                            <div class="tcard-loc">Enugu State</div>
+                            <div class="tcard-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tcard">
+                <!-- TESTIMONIAL IMAGE 2: Replace src with a real patient photo or keep placeholder -->
+                <img src="https://placehold.co/400x180/8bc34a/ffffff?text=Patient+Photo" alt="Patient" class="tcard-img">
+                <div class="tcard-body">
+                    <div class="tcard-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="tcard-text">My wife had fibroid for 5 years and doctors wanted to operate. After 2 months on DR AFRID's remedy, it was completely gone. No surgery needed — amazing!</p>
+                    <div class="tcard-author">
+                        <div>
+                            <div class="tcard-name">Emmanuel O.</div>
+                            <div class="tcard-loc">Lagos State</div>
+                            <div class="tcard-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tcard">
+                <!-- TESTIMONIAL IMAGE 3: Replace src with a real patient photo or keep placeholder -->
+                <img src="https://placehold.co/400x180/162520/ffffff?text=Patient+Photo" alt="Patient" class="tcard-img">
+                <div class="tcard-body">
+                    <div class="tcard-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="tcard-text">I was told my kidney was permanently damaged and needed dialysis. After 4 months of DR AFRID's kidney herb, my creatinine levels returned to normal. Truly miraculous!</p>
+                    <div class="tcard-author">
+                        <div>
+                            <div class="tcard-name">Fatima K.</div>
+                            <div class="tcard-loc">Abuja FCT</div>
+                            <div class="tcard-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:30px;">
+            <a href="reviews.html" class="read-btn" style="background:#8bc34a;">Read More Reviews <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- ── Photo Gallery Strip ── -->
+<section class="gallery-strip">
+    <div class="container">
+        <div class="gallery-grid">
+            <!-- GALLERY IMAGE 1–4: Replace each src with your clinic / herb photos -->
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1542841791-1925b02a2bbb?w=400&q=80" alt="Herbal herbs"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=400&q=80" alt="Herbal preparation"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80" alt="Natural herbs"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&q=80" alt="Herbal medicine"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Newsletter ── -->
+<section class="newsletter">
+    <div class="container">
+        <div class="nl-inner">
+            <div class="nl-text">
+                <h3>Get Free Health Tips &amp; Updates</h3>
+                <p>Subscribe for herbal health tips and special offers</p>
+            </div>
+            <div class="nl-form">
+                <input type="email" class="nl-input" placeholder="Enter your email address">
+                <button class="nl-btn">Subscribe <i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Order Bar ── -->
+<div class="order-bar">
+    <a href="contact.html" class="order-big"><i class="fas fa-shopping-cart"></i> Order Your Herbal Remedy Now</a>
+</div>
+
+<!-- ── Footer ── -->
+<footer class="ftr">
+    <div class="container">
+        <div class="ftr-grid">
+            <div class="fb">
+                <!-- FOOTER LOGO: Replace src with your actual logo URL -->
+                <img src="https://placehold.co/155x40/8bc34a/ffffff?text=DR+AFRID" alt="DR AFRID Logo">
+                <h3>DR AFRID Herbal Home</h3>
+                <p>Your trusted partner for natural herbal healing. Restoring health through the power of nature.</p>
+                <div class="fsoc">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/2349153512788"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="fc">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Our Products</a></li>
+                    <li><a href="reviews.html"><i class="fas fa-chevron-right"></i> Reviews</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="fc">
+                <h4>Conditions Treated</h4>
+                <ul>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Diabetes</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Hypertension</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Fibroid</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Kidney Problems</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Infertility</a></li>
+                </ul>
+            </div>
+            <div class="fc">
+                <h4>Contact Info</h4>
+                <div class="fci"><i class="fas fa-map-marker-alt"></i><span>No 1, Ubia Road, Uromi, Edo State</span></div>
+                <div class="fci"><i class="fas fa-phone-alt"></i><a href="tel:09153512788">09153512788</a></div>
+                <div class="fci"><i class="fas fa-envelope"></i><a href="mailto:drafridherbalhome@gmail.com">drafridherbalhome@gmail.com</a></div>
+                <div class="fci"><i class="fab fa-whatsapp"></i><a href="https://wa.me/2349153512788">Chat on WhatsApp</a></div>
+            </div>
+        </div>
+        <div class="ftr-bot">
+            <p>&copy; 2025 DR AFRID Herbal Home. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color:#8bc34a;"></i> for natural healing</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ── WhatsApp Float ── -->
+<a href="https://wa.me/2349153512788" class="wa-float" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    const mt=document.getElementById('menuToggle'),md=document.getElementById('mobDrawer'),mo=document.getElementById('mobOverlay');
+    const open=()=>{mt.classList.add('open');md.classList.add('open');mo.classList.add('open');}
+    const close=()=>{mt.classList.remove('open');md.classList.remove('open');mo.classList.remove('open');}
+    mt.addEventListener('click',()=>md.classList.contains('open')?close():open());
+    mo.addEventListener('click',close);
+    window.addEventListener('scroll',()=>document.getElementById('mainHeader').classList.toggle('scrolled',scrollY>80));
+</script>
+</body>
+</html>
