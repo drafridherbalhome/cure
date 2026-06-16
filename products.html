@@ -14,8 +14,6 @@
         a{text-decoration:none;color:inherit;}
         ul{list-style:none;}
         .container{width:90%;max-width:1200px;margin:0 auto;}
-
-        /* Top Bar */
         .top-bar{background:#2d5a1b;color:white;padding:7px 0;font-size:13px;}
         .top-bar-content{display:flex;justify-content:space-between;align-items:center;width:90%;margin:0 auto;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
         .top-bar-content::-webkit-scrollbar{display:none;}
@@ -26,8 +24,6 @@
         .top-bar-social{display:flex;gap:10px;}
         .top-bar-social a{color:white;font-size:13px;transition:color .3s;}
         .top-bar-social a:hover{color:#a8d96c;}
-
-        /* Header */
         header{background:#162520;padding:14px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.2);}
         .header-container{display:flex;align-items:center;justify-content:space-between;width:90%;margin:0 auto;}
         .logo img{height:44px;width:auto;object-fit:contain;}
@@ -43,24 +39,15 @@
         .menu-toggle.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
         .menu-toggle.open span:nth-child(2){opacity:0;}
         .menu-toggle.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
-        
-        
-        
-        /* Hero */
         .hero{height:230px;background:linear-gradient(135deg,rgba(22,37,32,.78) 0%,rgba(45,90,27,.6) 100%),url('imgs/Oroki-Herbal-Mixture.jpg') no-repeat center center/cover;display:flex;align-items:center;justify-content:center;text-align:center;}
-        /* HERO BG: Replace the background-image URL above */
         .hero-content{width:90%;color:white;}
         .hero h1{font-size:clamp(26px,4vw,50px);margin-bottom:10px;font-weight:700;}
         .breadcrumb{display:flex;align-items:center;gap:8px;color:#a8d96c;font-size:14px;justify-content:center;}
         .breadcrumb a{color:rgba(255,255,255,.8);transition:color .3s;}
         .breadcrumb a:hover,.breadcrumb span{color:#8bc34a;}
         .breadcrumb i{font-size:10px;color:rgba(255,255,255,.5);}
-
-        /* Products Layout */
         .products-section{padding:45px 0 60px;}
         .products-container{display:flex;width:90%;max-width:1200px;margin:0 auto;gap:24px;flex-wrap:wrap;}
-
-        /* Sidebar */
         .sidebar{width:240px;flex-shrink:0;}
         .sidebar-widget{background:white;border-radius:8px;padding:20px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.06);}
         .search-wrap{position:relative;}
@@ -75,8 +62,6 @@
         .tag-cloud{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
         .tag{font-size:12px;padding:5px 10px;border-radius:4px;background:#f5f7f3;color:#555;cursor:pointer;transition:all .3s;border:1px solid #e8e8e8;}
         .tag:hover,.tag.active{background:#8bc34a;color:white;border-color:#8bc34a;}
-
-        /* Products Grid */
         .products-main{flex:1;min-width:280px;}
         .results-bar{background:white;padding:12px 16px;border-radius:4px;margin-bottom:16px;font-size:13px;color:#777;box-shadow:0 1px 6px rgba(0,0,0,.06);display:flex;justify-content:space-between;align-items:center;}
         .results-bar strong{color:#162520;}
@@ -88,6 +73,7 @@
         .product-img{width:100%;height:175px;object-fit:cover;display:block;transition:transform .4s;}
         .product-card:hover .product-img{transform:scale(1.05);}
         .product-badge{position:absolute;top:10px;left:10px;background:#8bc34a;color:white;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;}
+        .product-badge-spirit{background:#162520;}
         .product-body{padding:14px;}
         .product-rating{color:#f4b942;font-size:12px;margin-bottom:5px;}
         .product-name{font-size:14px;font-weight:600;color:#162520;margin-bottom:5px;line-height:1.3;}
@@ -95,12 +81,10 @@
         .no-products{text-align:center;padding:50px 20px;color:#999;font-size:16px;display:none;background:white;border-radius:8px;}
         .no-products.visible{display:block;}
         .cond-tags-pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:20px;}
-        .ctag-pg{background:white;border:1px solid #e0ead8;border-left:3px solid #8bc34a;padding:9px 13px;border-radius:4px;font-size:12.5px;color:#444;font-weight:500;transition:all .25s;cursor:default;}
+        .ctag-pg{background:white;border:1px solid #e0ead8;border-left:3px solid #8bc34a;padding:9px 13px;border-radius:4px;font-size:12.5px;color:#444;font-weight:500;transition:all .25s;}
         .ctag-pg:hover{background:#8bc34a;color:white;border-color:#8bc34a;}
         .ctag-pg-spirit{background:#162520;border-color:#8bc34a;color:#a8d96c;font-weight:600;}
         .ctag-pg-spirit:hover{background:#8bc34a;color:white;}
-
-        /* Product Modal */
         .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;padding:20px;overflow-y:auto;}
         .modal-overlay.active{display:flex;align-items:flex-start;justify-content:center;padding-top:40px;}
         .modal{background:white;border-radius:10px;max-width:780px;width:100%;position:relative;animation:modalIn .3s ease;}
@@ -109,7 +93,6 @@
         .modal-close:hover{background:#162520;transform:rotate(90deg);}
         .modal-body{display:grid;grid-template-columns:1fr 1.2fr;gap:0;}
         .modal-img{width:100%;height:280px;object-fit:cover;border-radius:10px 0 0 10px;}
-        /* MODAL IMAGE: Dynamically set via JS */
         .modal-info{padding:28px;}
         .modal-cat{color:#8bc34a;font-size:11.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
         .modal-title{font-size:clamp(18px,2.5vw,26px);font-weight:700;color:#162520;margin-bottom:10px;line-height:1.2;}
@@ -122,12 +105,8 @@
         .modal-cta:hover{background:#7ab33d;}
         .modal-cta2{display:inline-flex;align-items:center;gap:8px;background:#162520;color:white;padding:12px 18px;border-radius:4px;font-weight:600;font-size:14px;transition:all .3s;margin-left:8px;}
         .modal-cta2:hover{background:#0f1a16;}
-
-        /* WhatsApp Float */
         .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .3s;}
         .whatsapp-float:hover{transform:scale(1.1);}
-
-        /* Footer */
         .main-footer{text-align:center;padding:40px 0 0;background:#f5f7f3;}
         .order-btn-large{display:inline-flex;align-items:center;gap:10px;background:#8bc34a;color:white;padding:15px 34px;border-radius:4px;font-weight:700;font-size:17px;transition:all .3s;}
         .order-btn-large:hover{background:#7ab33d;}
@@ -150,14 +129,10 @@
         .footer-contact-item a:hover{color:#8bc34a;}
         .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;justify-content:space-between;align-items:center;color:#666;font-size:12.5px;flex-wrap:wrap;gap:8px;}
         .footer-bottom a{color:#8bc34a;}
-
         @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr;}}
         @media(max-width:900px){.sidebar{width:100%;}.products-container{flex-direction:column;}.modal-body{grid-template-columns:1fr;}.modal-img{height:220px;border-radius:10px 10px 0 0;}}
         @media(max-width:768px){nav{display:none;}.menu-toggle{display:flex;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}}
         @media(max-width:480px){.products-grid{grid-template-columns:1fr 1fr;}}
-        
-
-        /* ═══ MOBILE DROPDOWN NAV ═══ */
         .mobile-nav-overlay{display:none;position:fixed;inset:0;top:73px;background:rgba(0,0,0,.55);z-index:890;}
         .mobile-nav-overlay.open{display:block;}
         .mobile-nav-drawer{position:fixed;top:73px;left:0;width:100%;background:#162520;z-index:900;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1);box-shadow:0 10px 36px rgba(0,0,0,.5);}
@@ -174,7 +149,6 @@
 </head>
 <body>
 
-<!-- Top Bar -->
 <div class="top-bar">
     <div class="top-bar-content">
         <div class="contact-info-topbar">
@@ -190,11 +164,9 @@
     </div>
 </div>
 
-<!-- Header -->
 <header>
     <div class="header-container">
         <div class="logo">
-            <!-- LOGO: Replace src with your actual logo URL -->
             <img src="https://placehold.co/160x44/8bc34a/ffffff?text=DR+AFRID" alt="DR AFRID Herbal Home Logo">
         </div>
         <nav>
@@ -213,7 +185,6 @@
     </div>
 </header>
 
-<!-- Mobile Dropdown Nav -->
 <div class="mobile-nav-overlay" id="mobileOverlay"></div>
 <div class="mobile-nav-drawer" id="mobileDrawer">
     <ul class="mobile-nav-links">
@@ -226,18 +197,6 @@
     </ul>
 </div>
 
-
-<div class="mobile-nav-drawer" id="mobileDrawer">
-    <ul class="mobile-nav-links">
-        <li><a href="index.html"><i class="fas fa-home nav-icon"></i> Home</a></li>
-        <li><a href="about.html"><i class="fas fa-user-md nav-icon"></i> About Us</a></li>
-        <li><a href="products.html" style="color:#8bc34a;"><i class="fas fa-leaf nav-icon"></i> Products</a></li>
-        <li><a href="reviews.html"><i class="fas fa-star nav-icon"></i> Reviews</a></li>
-        <li><a href="contact.html"><i class="fas fa-envelope nav-icon"></i> Contact</a></li>
-        <li class="mob-order"><a href="contact.html"><i class="fas fa-shopping-cart nav-icon"></i> Order Now</a></li>
-    </ul>
-</div>
-<!-- Hero -->
 <section class="hero">
     <div class="hero-content">
         <h1>Our Products</h1>
@@ -249,10 +208,8 @@
     </div>
 </section>
 
-<!-- Products Section -->
 <section class="products-section">
     <div class="products-container">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-widget">
                 <div class="search-wrap">
@@ -262,12 +219,15 @@
             </div>
             <div class="sidebar-widget">
                 <div class="widget-title">Categories</div>
-                <div class="category-item active" data-cat="all">All Products <span class="count">20</span></div>
+                <div class="category-item active" data-cat="all">All Products <span class="count">56</span></div>
                 <div class="category-item" data-cat="blood">Blood &amp; Sugar <span class="count">4</span></div>
-                <div class="category-item" data-cat="reproductive">Reproductive Health <span class="count">4</span></div>
-                <div class="category-item" data-cat="organ">Organ Health <span class="count">4</span></div>
-                <div class="category-item" data-cat="immunity">Immunity &amp; Vitality <span class="count">4</span></div>
-                <div class="category-item" data-cat="pain">Pain &amp; Joints <span class="count">4</span></div>
+                <div class="category-item" data-cat="reproductive">Reproductive Health <span class="count">7</span></div>
+                <div class="category-item" data-cat="organ">Organ Health <span class="count">6</span></div>
+                <div class="category-item" data-cat="immunity">Immunity &amp; Vitality <span class="count">10</span></div>
+                <div class="category-item" data-cat="viral">Viral &amp; Infectious <span class="count">7</span></div>
+                <div class="category-item" data-cat="pain">Pain &amp; Joints <span class="count">5</span></div>
+                <div class="category-item" data-cat="neuro">Neurological <span class="count">7</span></div>
+                <div class="category-item" data-cat="spiritual">Spiritual Services <span class="count">10</span></div>
             </div>
             <div class="sidebar-widget">
                 <div class="widget-title">Quick Tags</div>
@@ -276,35 +236,208 @@
                     <span class="tag" data-tag="diabetes">Diabetes</span>
                     <span class="tag" data-tag="fibroid">Fibroid</span>
                     <span class="tag" data-tag="kidney">Kidney</span>
-                    <span class="tag" data-tag="fertility">Fertility</span>
+                    <span class="tag" data-tag="herpes">Herpes</span>
                     <span class="tag" data-tag="prostate">Prostate</span>
                     <span class="tag" data-tag="ulcer">Ulcer</span>
-                    <span class="tag" data-tag="arthritis">Arthritis</span>
+                    <span class="tag" data-tag="spiritual">Spiritual</span>
                 </div>
             </div>
             <div class="sidebar-widget" style="background:#162520;color:white;">
                 <p style="font-size:13px;color:#a8d96c;font-weight:600;margin-bottom:8px;"><i class="fas fa-phone-alt"></i> Need Help?</p>
-                <p style="font-size:13px;color:#ccc;line-height:1.6;">Call or WhatsApp Dr. Afrid directly for a free consultation on which product is right for you.</p>
-                <a href="https://wa.me/2349153512788" style="display:inline-flex;align-items:center;gap:6px;background:#8bc34a;color:white;padding:9px 16px;border-radius:4px;font-size:13px;font-weight:600;margin-top:12px;transition:all .3s;">
+                <p style="font-size:13px;color:#ccc;line-height:1.6;">Call or WhatsApp Dr. Afrid for a free consultation on which product is right for you.</p>
+                <a href="https://wa.me/2349153512788" style="display:inline-flex;align-items:center;gap:6px;background:#8bc34a;color:white;padding:9px 16px;border-radius:4px;font-size:13px;font-weight:600;margin-top:12px;transition:all .3s;" target="_blank">
                     <i class="fab fa-whatsapp"></i> Chat Now
                 </a>
             </div>
         </aside>
 
-        <!-- Products Grid -->
         <div class="products-main">
             <div class="results-bar">
-                <span>Showing <strong id="resultCount">20</strong> products</span>
+                <span>Showing <strong id="resultCount">67</strong> products</span>
                 <span style="font-size:12px;color:#8bc34a;"><i class="fas fa-leaf"></i> 100% Natural</span>
             </div>
             <div class="products-grid" id="productsGrid">
 
-                <!-- PRODUCT CARDS -->
-                <!-- Each product-img src: Replace with your actual product image URL -->
+                <!-- ★ PRIORITY / FEATURED CONDITIONS (11) — always first -->
+                <div class="product-card visible" data-cat="blood" data-tags="cardiovascular heart disease blood pressure cholesterol"
+                    data-img="imgs/herbal-pharmacy.jpeg" data-name="Cardiovascular Disease Herb"
+                    data-desc="The leading cause of death worldwide. Coronary heart disease cannot be reversed, but our herbal formula is highly effective at managing the condition — supporting healthy blood vessels, reducing arterial plaque, lowering bad cholesterol, and improving heart function naturally."
+                    data-features="Supports healthy heart function|Reduces arterial plaque|Lowers bad LDL cholesterol|Improves circulation"
+                    data-cat-label="Blood &amp; Sugar">
+                    <div class="product-img-wrap">
+                        <img src="imgs/herbal-pharmacy.jpeg" alt="Cardiovascular Herb" class="product-img">
+                        <span class="product-badge" style="background:#c0392b;">Featured</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Cardiovascular Disease Herb</div>
+                        <div class="product-cat">Blood &amp; Sugar</div>
+                    </div>
+                </div>
 
+                <div class="product-card visible" data-cat="immunity" data-tags="copd lungs breathing respiratory"
+                    data-img="imgs/Traditional_Medicine.jpg" data-name="COPD Respiratory Herb"
+                    data-desc="Chronic Obstructive Pulmonary Disease is a progressive respiratory illness that damages airways. While irreversible, our herbal remedy opens airways, clears mucus, reduces bronchial inflammation, improves oxygen intake, and dramatically eases breathing difficulties."
+                    data-features="Opens airways in COPD|Reduces lung inflammation|Clears thick mucus|Improves oxygen intake"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="imgs/Traditional_Medicine.jpg" alt="COPD Herb" class="product-img">
+                        <span class="product-badge" style="background:#c0392b;">Featured</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">COPD Respiratory Herb</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="neuro" data-tags="alzheimer dementia memory neuro"
+                    data-img="imgs/Oroki-Herbal-Mixture.jpg" data-name="Alzheimer's Memory Herb"
+                    data-desc="Alzheimer's Disease is a severe neurodegenerative condition that causes dementia and memory loss. Our herbal formulation focuses on slowing cognitive decline, protecting brain cells, improving memory function, and managing the behavioural symptoms of Alzheimer's."
+                    data-features="Slows cognitive decline|Protects brain cells|Improves memory function|Manages behavioural symptoms"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/Oroki-Herbal-Mixture.jpg" alt="Alzheimer Herb" class="product-img">
+                        <span class="product-badge" style="background:#c0392b;">Featured</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Alzheimer's Memory Herb</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="blood" data-tags="diabetes blood sugar insulin type2"
+                    data-img="imgs/images%20(1).jpg" data-name="Diabetes Mellitus Control"
+                    data-desc="Diabetes Mellitus is a chronic metabolic condition where the body cannot effectively process sugar. Our herbal formula helps regulate blood sugar, improves insulin sensitivity, supports pancreatic function, and is proven effective for both Type 1 and Type 2 diabetes."
+                    data-features="Regulates blood sugar levels|Improves insulin sensitivity|Supports pancreatic function|Type 1 &amp; Type 2 effective"
+                    data-cat-label="Blood &amp; Sugar">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(1).jpg" alt="Diabetes Herb" class="product-img">
+                        <span class="product-badge" style="background:#c0392b;">Featured</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Diabetes Mellitus Control</div>
+                        <div class="product-cat">Blood &amp; Sugar</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="immunity" data-tags="cancer tumour immunity anti-cancer"
+                    data-img="imgs/images%20(2).jpg" data-name="Cancer Treatment Support"
+                    data-desc="While early-stage cancers may be curable, advanced or metastatic cancers lack a known permanent cure. Our powerful anti-tumour herbal formula targets and shrinks cancer cells, boosts immune response, alleviates chemotherapy side effects, and helps halt the spread of cancer."
+                    data-features="Targets &amp; shrinks cancer cells|Boosts immune response|Alleviates chemo side effects|Halts cancer spread"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(2).jpg" alt="Cancer Support Herb" class="product-img">
+                        <span class="product-badge" style="background:#c0392b;">Featured</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Cancer Treatment Support</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="viral" data-tags="hiv aids viral immunity cd4"
+                    data-img="imgs/images%20(3).jpg" data-name="HIV / AIDS Herbal Support"
+                    data-desc="HIV/AIDS is a viral infection that attacks the immune system. Though lifelong, our herbal support formula manages the condition to near-undetectable levels, boosts CD4 counts, reduces viral load, and significantly improves quality of life alongside ART therapy."
+                    data-features="Raises CD4 cell count|Reduces HIV viral load|Boosts overall immunity|Improves quality of life"
+                    data-cat-label="Viral &amp; Infectious">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(3).jpg" alt="HIV Herb" class="product-img">
+                        <span class="product-badge" style="background:#c0392b;">Featured</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">HIV / AIDS Herbal Support</div>
+                        <div class="product-cat">Viral &amp; Infectious</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="neuro" data-tags="parkinsons tremor movement neuro"
+                    data-img="imgs/images%20(4).jpg" data-name="Parkinson's Disease Herb"
+                    data-desc="Parkinson's Disease is a progressive neurological disorder impacting movement, balance, and muscle control. Our herbal remedy helps alleviate tremors, reduces rigidity, improves muscle coordination, and supports brain health to slow disease progression."
+                    data-features="Alleviates tremors|Reduces muscle rigidity|Improves motor coordination|Supports brain health"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(4).jpg" alt="Parkinson's Herb" class="product-img">
+                        <span class="product-badge" style="background:#c0392b;">Featured</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Parkinson's Disease Herb</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="immunity" data-tags="asthma airways breathing immunity lungs"
+                    data-img="imgs/images%20(5).jpg" data-name="Asthma Airway Relief Herb"
+                    data-desc="Asthma is a chronic inflammatory condition that causes the airways to swell and narrow. Our herbal formula is highly effective at controlling symptoms — it opens swollen airways, reduces inflammation, prevents asthma attacks, and manages triggers for long-term relief."
+                    data-features="Opens swollen airways|Reduces bronchial inflammation|Prevents asthma attacks|Long-term symptom control"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(5).jpg" alt="Asthma Herb" class="product-img">
+                        <span class="product-badge" style="background:#c0392b;">Featured</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Asthma Airway Relief Herb</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="neuro" data-tags="multiple sclerosis ms autoimmune neuro"
+                    data-img="imgs/images%20(6).jpg" data-name="Multiple Sclerosis (MS) Herb"
+                    data-desc="Multiple Sclerosis is an autoimmune disease that disrupts communication between the brain and the body. Our herbal treatment helps manage relapses, reduce neurological inflammation, slow the progression of physical disability, and improve daily functioning."
+                    data-features="Manages MS relapses|Reduces neurological inflammation|Slows physical disability|Improves daily functioning"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(6).jpg" alt="Multiple Sclerosis Herb" class="product-img">
+                        <span class="product-badge" style="background:#c0392b;">Featured</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Multiple Sclerosis (MS) Herb</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="organ" data-tags="cystic fibrosis lungs genetic organ"
+                    data-img="imgs/images%20(7).jpg" data-name="Cystic Fibrosis Support Herb"
+                    data-desc="Cystic Fibrosis is a genetic disorder causing severe lung and digestive damage due to thick mucus build-up. Our herbal formulation helps thin and clear mucus, reduces respiratory infections, improves lung capacity, and supports overall quality of life."
+                    data-features="Thins and clears mucus|Reduces respiratory infections|Improves lung capacity|Supports digestive health"
+                    data-cat-label="Organ Health">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(7).jpg" alt="Cystic Fibrosis Herb" class="product-img">
+                        <span class="product-badge" style="background:#c0392b;">Featured</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Cystic Fibrosis Support Herb</div>
+                        <div class="product-cat">Organ Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="viral" data-tags="herpes hsv1 hsv2 oral genital viral"
+                    data-img="imgs/images%20(8).jpg" data-name="Herpes Complete Treatment"
+                    data-desc="Herpes (HSV-1 oral and HSV-2 genital) is a lifelong viral infection. Our complete herbal antiviral formula suppresses both HSV-1 and HSV-2, reduces outbreak frequency and severity, accelerates healing of sores, and works toward long-term virus suppression."
+                    data-features="Suppresses HSV-1 and HSV-2|Reduces outbreak frequency|Heals sores faster|Long-term virus suppression"
+                    data-cat-label="Viral &amp; Infectious">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(8).jpg" alt="Herpes Treatment" class="product-img">
+                        <span class="product-badge" style="background:#c0392b;">Featured</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Herpes Complete Treatment</div>
+                        <div class="product-cat">Viral &amp; Infectious</div>
+                    </div>
+                </div>
+
+                <!-- BLOOD & SUGAR (4) -->
                 <div class="product-card visible" data-cat="blood" data-tags="diabetes blood sugar"
-                    data-img="imgs/Traditional_Medicine.jpg"
-                    data-name="Diabetes Control Blend"
+                    data-img="imgs/Traditional_Medicine.jpg" data-name="Diabetes Control Blend"
                     data-desc="Our signature herbal formula carefully combines powerful herbs that help regulate blood sugar levels, improve insulin sensitivity, and support pancreatic health. Proven effective for both Type 1 and Type 2 diabetes management."
                     data-features="Regulates blood sugar|Supports insulin function|No harmful chemicals|Nationwide delivery available"
                     data-cat-label="Blood &amp; Sugar">
@@ -320,9 +453,8 @@
                 </div>
 
                 <div class="product-card visible" data-cat="blood" data-tags="hypertension blood pressure"
-                    data-img="imgs/images%20(1).jpg"
-                    data-name="Hypertension Relief Formula"
-                    data-desc="A powerful blend of herbs specifically selected to lower blood pressure naturally. Works to relax blood vessels, reduce stress hormones, and support cardiovascular health without the side effects of conventional drugs."
+                    data-img="imgs/images%20(1).jpg" data-name="Hypertension Relief Formula"
+                    data-desc="A powerful blend of herbs specifically selected to lower blood pressure naturally. Works to relax blood vessels, reduce stress hormones, and support cardiovascular health without side effects."
                     data-features="Lowers blood pressure naturally|Supports heart health|Reduces stress hormones|Safe for long-term use"
                     data-cat-label="Blood &amp; Sugar">
                     <div class="product-img-wrap">
@@ -337,8 +469,7 @@
                 </div>
 
                 <div class="product-card visible" data-cat="blood" data-tags="sickle cell blood"
-                    data-img="imgs/images%20(2).jpg"
-                    data-name="Sickle Cell Management Tonic"
+                    data-img="imgs/images%20(2).jpg" data-name="Sickle Cell Management Tonic"
                     data-desc="Specially formulated herbal tonic designed to manage sickle cell disease symptoms, reduce pain crises, and improve quality of life for sickle cell patients of all ages."
                     data-features="Reduces sickle cell crises|Boosts red blood cell production|Anti-inflammatory herbs|Suitable for all ages"
                     data-cat-label="Blood &amp; Sugar">
@@ -352,14 +483,13 @@
                     </div>
                 </div>
 
-                <div class="product-card visible" data-cat="blood" data-tags="cholesterol blood"
-                    data-img="imgs/Apothecary-bottles-tincture-bowl-pestle-mortar-herbs-medicine-scaled-600x600.jpg"
-                    data-name="Cholesterol Buster Herb"
-                    data-desc="Natural herbal remedy to reduce bad cholesterol (LDL), increase good cholesterol (HDL), and protect the arteries from plaque buildup. Works in harmony with your body's natural processes."
-                    data-features="Reduces LDL cholesterol|Increases HDL levels|Protects arteries|Supports liver function"
+                <div class="product-card visible" data-cat="blood" data-tags="cholesterol blood heart"
+                    data-img="imgs/images%20(3).jpg" data-name="Cholesterol Buster Herb"
+                    data-desc="Natural herbal remedy that reduces bad LDL cholesterol while boosting good HDL cholesterol. Supports healthy cardiovascular function and reduces risk of heart attack and stroke."
+                    data-features="Lowers bad LDL cholesterol|Raises good HDL cholesterol|Protects cardiovascular system|All-natural formulation"
                     data-cat-label="Blood &amp; Sugar">
                     <div class="product-img-wrap">
-                        <img src="imgs/Apothecary-bottles-tincture-bowl-pestle-mortar-herbs-medicine-scaled-600x600.jpg" alt="Cholesterol Buster" class="product-img">
+                        <img src="imgs/images%20(4).jpg" alt="Cholesterol Buster" class="product-img">
                     </div>
                     <div class="product-body">
                         <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -368,14 +498,14 @@
                     </div>
                 </div>
 
-                <div class="product-card visible" data-cat="reproductive" data-tags="fibroid reproductive female"
-                    data-img="imgs/images%20(3).jpg"
-                    data-name="Fibroid Shrink Formula"
-                    data-desc="Our most sought-after remedy for women suffering from uterine fibroids. This powerful herbal blend has helped hundreds of women shrink and eliminate fibroids without surgery."
-                    data-features="Shrinks uterine fibroids|Regulates menstrual cycle|No surgery needed|Safe for all women"
+                <!-- REPRODUCTIVE HEALTH (7) -->
+                <div class="product-card visible" data-cat="reproductive" data-tags="fibroid reproductive womb"
+                    data-img="imgs/images%20(4).jpg" data-name="Fibroid Shrink Formula"
+                    data-desc="A powerful herbal blend specifically targeted at shrinking uterine fibroids naturally, reducing heavy bleeding, relieving pelvic pain, and restoring reproductive health without surgery."
+                    data-features="Shrinks fibroids naturally|Reduces heavy bleeding|Relieves pelvic pain|Avoids surgery"
                     data-cat-label="Reproductive Health">
                     <div class="product-img-wrap">
-                        <img src="imgs/images%20(4).jpg" alt="Fibroid Shrink" class="product-img">
+                        <img src="imgs/images%20(5).jpg" alt="Fibroid Shrink" class="product-img">
                         <span class="product-badge">Popular</span>
                     </div>
                     <div class="product-body">
@@ -385,31 +515,28 @@
                     </div>
                 </div>
 
-                <div class="product-card visible" data-cat="reproductive" data-tags="fertility infertility reproductive"
-                    data-img="imgs/images%20(4).jpg"
-                    data-name="Fertility Booster (Male &amp; Female)"
-                    data-desc="A comprehensive herbal fertility formula suitable for both men and women. Improves sperm quality and motility in men, and enhances egg quality and hormonal balance in women."
-                    data-features="Boosts male and female fertility|Improves sperm count and motility|Balances reproductive hormones|Increases chances of conception"
+                <div class="product-card visible" data-cat="reproductive" data-tags="fertility reproductive infertility"
+                    data-img="imgs/images%20(5).jpg" data-name="Fertility Booster (M&amp;F)"
+                    data-desc="A dual-purpose fertility herbal blend for both men and women. Balances reproductive hormones, improves egg and sperm quality, and significantly increases chances of conception."
+                    data-features="Boosts male and female fertility|Balances reproductive hormones|Improves egg and sperm quality|No side effects"
                     data-cat-label="Reproductive Health">
                     <div class="product-img-wrap">
-                        <img src="imgs/images%20(5).jpg" alt="Fertility Booster" class="product-img">
-                        <span class="product-badge">Best Seller</span>
+                        <img src="imgs/images%20(6).jpg" alt="Fertility Booster" class="product-img">
                     </div>
                     <div class="product-body">
                         <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <div class="product-name">Fertility Booster (M/F)</div>
+                        <div class="product-name">Fertility Booster (M&amp;F)</div>
                         <div class="product-cat">Reproductive Health</div>
                     </div>
                 </div>
 
-                <div class="product-card visible" data-cat="reproductive" data-tags="prostate reproductive male"
-                    data-img="imgs/images%20(5).jpg"
-                    data-name="Prostate Care Herb"
-                    data-desc="Targeted herbal remedy for men suffering from enlarged prostate (BPH), prostate cancer, and related urinary problems. Reduces inflammation, shrinks the prostate, and restores normal urinary flow."
-                    data-features="Shrinks enlarged prostate|Improves urinary flow|Reduces prostate inflammation|Supports male sexual health"
+                <div class="product-card visible" data-cat="reproductive" data-tags="prostate reproductive men"
+                    data-img="imgs/images%20(6).jpg" data-name="Prostate Care Herb"
+                    data-desc="Effective herbal treatment for prostate enlargement (BPH), prostatitis, and early-stage prostate cancer. Reduces prostate size, improves urine flow, and relieves discomfort."
+                    data-features="Shrinks enlarged prostate|Improves urine flow|Relieves prostate pain|Anti-inflammatory properties"
                     data-cat-label="Reproductive Health">
                     <div class="product-img-wrap">
-                        <img src="imgs/images%20(6).jpg" alt="Prostate Care" class="product-img">
+                        <img src="imgs/images%20(7).jpg" alt="Prostate Care" class="product-img">
                     </div>
                     <div class="product-body">
                         <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -418,31 +545,75 @@
                     </div>
                 </div>
 
-                <div class="product-card visible" data-cat="reproductive" data-tags="weak erection reproductive male sexual"
-                    data-img="imgs/images%20(6).jpg"
-                    data-name="Manhood Power Formula"
-                    data-desc="A potent herbal blend for men dealing with weak erection, premature ejaculation, and low libido. Restores confidence and sexual performance through 100% natural ingredients."
-                    data-features="Treats weak erection|Stops premature ejaculation|Boosts libido naturally|Safe with no side effects"
+                <div class="product-card visible" data-cat="reproductive" data-tags="weak erection manhood reproductive"
+                    data-img="imgs/images%20(7).jpg" data-name="Manhood Power Formula"
+                    data-desc="A potent herbal aphrodisiac and sexual health tonic that restores erection strength, boosts libido, increases stamina, and treats premature ejaculation for a fulfilling intimate life."
+                    data-features="Restores firm erections|Boosts libido and stamina|Treats premature ejaculation|100% natural herbs"
                     data-cat-label="Reproductive Health">
                     <div class="product-img-wrap">
-                        <img src="imgs/images%20(7).jpg" alt="Manhood Power" class="product-img">
+                        <img src="imgs/images%20(8).jpg" alt="Manhood Power" class="product-img">
+                        <span class="product-badge">Best Seller</span>
                     </div>
                     <div class="product-body">
-                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <div class="product-name">Manhood Power Formula</div>
                         <div class="product-cat">Reproductive Health</div>
                     </div>
                 </div>
 
-                <div class="product-card visible" data-cat="organ" data-tags="kidney organ"
-                    data-img="imgs/images%20(7).jpg"
-                    data-name="Kidney Cleanse &amp; Repair"
-                    data-desc="A deeply cleansing herbal formula that flushes toxins from the kidneys, repairs damaged kidney tissue, and restores optimal kidney function. Effective for chronic kidney disease, kidney stones, and kidney infections."
-                    data-features="Cleanses and repairs kidneys|Dissolves kidney stones|Reduces creatinine levels|Restores kidney function"
+                <div class="product-card visible" data-cat="reproductive" data-tags="ovarian cyst reproductive women"
+                    data-img="imgs/images%20(8).jpg" data-name="Ovarian Cyst Remedy"
+                    data-desc="Natural herbal formula that dissolves ovarian cysts, reduces pelvic pain, regulates menstrual cycles, and restores hormonal balance in women suffering from PCOS and ovarian cysts."
+                    data-features="Dissolves ovarian cysts|Reduces pelvic pain|Regulates menstrual cycle|Restores hormonal balance"
+                    data-cat-label="Reproductive Health">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(9).jpg" alt="Ovarian Cyst Remedy" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Ovarian Cyst Remedy</div>
+                        <div class="product-cat">Reproductive Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="reproductive" data-tags="low sperm count reproductive men"
+                    data-img="imgs/images%20(9).jpg" data-name="Low Sperm Count Booster"
+                    data-desc="Clinically-researched herbal formula that dramatically boosts sperm count, improves sperm motility and morphology, and enhances overall male reproductive health for successful conception."
+                    data-features="Increases sperm count|Improves sperm motility|Enhances sperm morphology|Boosts male fertility"
+                    data-cat-label="Reproductive Health">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(10).jpg" alt="Sperm Count Booster" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Low Sperm Count Booster</div>
+                        <div class="product-cat">Reproductive Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="reproductive" data-tags="infertility reproductive"
+                    data-img="imgs/images%20(10).jpg" data-name="Female Infertility Cure"
+                    data-desc="Comprehensive herbal treatment addressing all causes of female infertility including blocked fallopian tubes, hormonal imbalance, polycystic ovaries, and endometriosis."
+                    data-features="Unblocks fallopian tubes|Balances female hormones|Treats endometriosis|Promotes conception"
+                    data-cat-label="Reproductive Health">
+                    <div class="product-img-wrap">
+                        <img src="imgs/Traditional_Medicine.jpg" alt="Female Infertility Cure" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Female Infertility Cure</div>
+                        <div class="product-cat">Reproductive Health</div>
+                    </div>
+                </div>
+
+                <!-- ORGAN HEALTH (6) -->
+                <div class="product-card visible" data-cat="organ" data-tags="kidney organ health"
+                    data-img="imgs/images%20(11).jpg" data-name="Kidney Cleanse &amp; Repair"
+                    data-desc="Deep-cleansing herbal remedy that flushes toxins from the kidneys, dissolves kidney stones, repairs damaged kidney tissue, and helps restore kidney function in patients with chronic kidney disease."
+                    data-features="Flushes kidney toxins|Dissolves kidney stones|Repairs kidney tissue|Improves kidney function"
                     data-cat-label="Organ Health">
                     <div class="product-img-wrap">
-                        <img src="imgs/images%20(8).jpg" alt="Kidney Cleanse" class="product-img">
-                        <span class="product-badge">Popular</span>
+                        <img src="imgs/images%20(11).jpg" alt="Kidney Cleanse" class="product-img">
                     </div>
                     <div class="product-body">
                         <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -451,30 +622,28 @@
                     </div>
                 </div>
 
-                <div class="product-card visible" data-cat="organ" data-tags="liver organ"
-                    data-img="imgs/Oroki-Herbal-Mixture.jpg"
-                    data-name="Liver Detox &amp; Repair Herb"
-                    data-desc="A comprehensive herbal remedy for liver disease, hepatitis, fatty liver, and liver damage. Works to detoxify, regenerate, and protect liver cells for long-lasting liver health."
-                    data-features="Repairs liver cells|Treats hepatitis naturally|Reduces liver enzymes|Supports bile production"
+                <div class="product-card visible" data-cat="organ" data-tags="liver organ health hepatitis"
+                    data-img="imgs/images%20(12).jpg" data-name="Liver Detox &amp; Repair"
+                    data-desc="A comprehensive liver detox and repair formula that eliminates liver toxins, heals liver damage, treats hepatitis B and C, fights fatty liver disease, and restores optimal liver function."
+                    data-features="Eliminates liver toxins|Heals liver damage|Treats hepatitis B&amp;C|Fights fatty liver disease"
                     data-cat-label="Organ Health">
                     <div class="product-img-wrap">
-                        <img src="imgs/images%20(9).jpg" alt="Liver Detox" class="product-img">
+                        <img src="imgs/images%20(12).jpg" alt="Liver Detox" class="product-img">
                     </div>
                     <div class="product-body">
                         <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <div class="product-name">Liver Detox &amp; Repair Herb</div>
+                        <div class="product-name">Liver Detox &amp; Repair</div>
                         <div class="product-cat">Organ Health</div>
                     </div>
                 </div>
 
                 <div class="product-card visible" data-cat="organ" data-tags="ulcer stomach organ"
-                    data-img="imgs/images%20(8).jpg"
-                    data-name="Ulcer Cure Formula"
-                    data-desc="Powerful herbal remedy specifically formulated to heal stomach ulcers, duodenal ulcers, and gastritis. Soothes the stomach lining, eliminates H. pylori bacteria, and prevents recurrence."
-                    data-features="Heals stomach ulcers fast|Kills H. pylori bacteria|Soothes stomach lining|Prevents ulcer recurrence"
+                    data-img="imgs/images%20(13).jpg" data-name="Ulcer Cure Formula"
+                    data-desc="Potent herbal remedy that heals stomach and duodenal ulcers, eliminates H. pylori bacteria, soothes the stomach lining, and provides fast relief from ulcer pain and acid reflux."
+                    data-features="Heals stomach ulcers|Kills H. pylori bacteria|Soothes stomach lining|Relieves acid reflux"
                     data-cat-label="Organ Health">
                     <div class="product-img-wrap">
-                        <img src="imgs/images%20(10).jpg" alt="Ulcer Cure" class="product-img">
+                        <img src="imgs/images%20(13).jpg" alt="Ulcer Cure" class="product-img">
                     </div>
                     <div class="product-body">
                         <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -483,25 +652,54 @@
                     </div>
                 </div>
 
-                <div class="product-card visible" data-cat="organ" data-tags="pile hemorrhoids organ"
-                    data-img="imgs/images%20(9).jpg"
-                    data-name="Pile &amp; Hemorrhoid Treatment"
-                    data-desc="Effective herbal remedy for internal and external hemorrhoids (piles). Reduces swelling, stops bleeding, relieves pain, and shrinks hemorrhoids naturally without surgery."
-                    data-features="Treats internal and external piles|Stops rectal bleeding|Reduces inflammation|Prevents recurrence"
+                <div class="product-card visible" data-cat="organ" data-tags="pile haemorrhoids organ"
+                    data-img="imgs/images%20(14).jpg" data-name="Pile &amp; Haemorrhoid Treatment"
+                    data-desc="Highly effective herbal treatment that shrinks haemorrhoids, stops rectal bleeding, relieves itching and pain, and completely cures both internal and external piles without surgery."
+                    data-features="Shrinks haemorrhoids fast|Stops rectal bleeding|Relieves itching and pain|No surgery needed"
                     data-cat-label="Organ Health">
                     <div class="product-img-wrap">
-                        <img src="imgs/images%20(11).jpg" alt="Pile Treatment" class="product-img">
+                        <img src="imgs/images%20(14).jpg" alt="Pile Treatment" class="product-img">
                     </div>
                     <div class="product-body">
-                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                        <div class="product-name">Pile &amp; Hemorrhoid Treatment</div>
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Pile &amp; Haemorrhoid Treatment</div>
                         <div class="product-cat">Organ Health</div>
                     </div>
                 </div>
 
+                <div class="product-card visible" data-cat="organ" data-tags="hepatitis b liver organ"
+                    data-img="imgs/images%20(15).jpg" data-name="Hepatitis B Cure Herb"
+                    data-desc="A powerful anti-viral herbal formulation that suppresses the Hepatitis B virus, repairs liver damage caused by the virus, and works to clear the virus from the bloodstream over time."
+                    data-features="Suppresses Hepatitis B virus|Repairs liver damage|Clears virus from blood|Safe and natural"
+                    data-cat-label="Organ Health">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(15).jpg" alt="Hepatitis B Cure" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Hepatitis B Cure Herb</div>
+                        <div class="product-cat">Organ Health</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="organ" data-tags="kidney chronic kidney disease organ"
+                    data-img="imgs/images%20(16).jpg" data-name="Chronic Kidney Disease Herb"
+                    data-desc="Specialised herbal formula for advanced chronic kidney disease (CKD). Slows kidney disease progression, improves GFR, reduces creatinine levels, and supports residual kidney function."
+                    data-features="Slows CKD progression|Improves kidney GFR|Reduces creatinine levels|Supports kidney function"
+                    data-cat-label="Organ Health">
+                    <div class="product-img-wrap">
+                        <img src="imgs/herbal_medicines_and_benefits_732x549_thumb-732x549.avif" alt="CKD Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Chronic Kidney Disease Herb</div>
+                        <div class="product-cat">Organ Health</div>
+                    </div>
+                </div>
+
+                <!-- IMMUNITY & VITALITY (10) -->
                 <div class="product-card visible" data-cat="immunity" data-tags="immunity general health"
-                    data-img="imgs/images%20(10).jpg"
-                    data-name="Immunity Booster Pack"
+                    data-img="imgs/images%20(10).jpg" data-name="Immunity Booster Pack"
                     data-desc="A synergistic blend of immune-strengthening herbs that fortify your body's natural defenses. Ideal for those who fall sick frequently or want to maintain peak health year-round."
                     data-features="Strengthens immune system|Fights infections naturally|Boosts energy and vitality|Suitable for all ages"
                     data-cat-label="Immunity &amp; Vitality">
@@ -515,9 +713,8 @@
                     </div>
                 </div>
 
-                <div class="product-card visible" data-cat="immunity" data-tags="asthma immunity lungs"
-                    data-img="imgs/images%20(11).jpg"
-                    data-name="Asthma &amp; Breathing Relief"
+                <div class="product-card visible" data-cat="immunity" data-tags="asthma copd immunity lungs"
+                    data-img="imgs/images%20(11).jpg" data-name="Asthma &amp; Breathing Relief"
                     data-desc="A soothing herbal remedy that opens up the airways, reduces bronchial inflammation, and relieves asthma symptoms. Works for both childhood and adult asthma with no harmful steroids."
                     data-features="Opens airways naturally|Reduces bronchial inflammation|Relieves asthma attacks|No harmful steroids"
                     data-cat-label="Immunity &amp; Vitality">
@@ -532,9 +729,8 @@
                 </div>
 
                 <div class="product-card visible" data-cat="immunity" data-tags="typhoid immunity fever"
-                    data-img="imgs/images%20(12).jpg"
-                    data-name="Typhoid Fever Fighter"
-                    data-desc="Potent herbal formula that attacks the Salmonella typhi bacteria responsible for typhoid fever. Fast-acting and effective, with none of the antibiotic resistance risks of conventional treatment."
+                    data-img="imgs/images%20(12).jpg" data-name="Typhoid Fever Fighter"
+                    data-desc="Potent herbal formula that attacks the Salmonella typhi bacteria responsible for typhoid fever. Fast-acting and effective, with none of the antibiotic resistance risks."
                     data-features="Kills typhoid bacteria|Reduces fever fast|Boosts recovery speed|No antibiotic resistance"
                     data-cat-label="Immunity &amp; Vitality">
                     <div class="product-img-wrap">
@@ -547,9 +743,8 @@
                     </div>
                 </div>
 
-                <div class="product-card visible" data-cat="immunity" data-tags="skin immunity"
-                    data-img="imgs/images%20(13).jpg"
-                    data-name="Skin Clear &amp; Glow Herb"
+                <div class="product-card visible" data-cat="immunity" data-tags="skin immunity psoriasis vitiligo"
+                    data-img="imgs/images%20(13).jpg" data-name="Skin Clear &amp; Glow Herb"
                     data-desc="A purifying herbal blend that treats skin conditions from the inside out. Effective for eczema, psoriasis, acne, ringworm, and general skin diseases. Leaves skin clear, smooth, and glowing."
                     data-features="Treats eczema and psoriasis|Clears acne naturally|Brightens skin tone|Anti-fungal properties"
                     data-cat-label="Immunity &amp; Vitality">
@@ -563,9 +758,206 @@
                     </div>
                 </div>
 
+                <div class="product-card visible" data-cat="immunity" data-tags="copd lungs immunity breathing"
+                    data-img="imgs/images%20(14).jpg" data-name="COPD Lung Repair Herb"
+                    data-desc="Powerful herbal remedy for Chronic Obstructive Pulmonary Disease (COPD). Opens airways, reduces inflammation, clears mucus, improves oxygen intake, and slows lung tissue damage."
+                    data-features="Opens airways in COPD|Reduces lung inflammation|Clears mucus effectively|Improves oxygen intake"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(16).jpg" alt="COPD Relief" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">COPD Lung Repair Herb</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="immunity" data-tags="eye glaucoma immunity vision"
+                    data-img="imgs/herbal_medicines_and_benefits_732x549_thumb-732x549.avif" data-name="Eye &amp; Glaucoma Herb"
+                    data-desc="Specially formulated herbal eye remedy that improves vision, reduces intraocular pressure in glaucoma patients, treats cataracts, and supports overall eye health and clarity."
+                    data-features="Reduces glaucoma pressure|Improves vision clarity|Treats cataracts naturally|Protects retinal health"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="imgs/herbal_medicines_and_benefits_732x549_thumb-732x549.avif" alt="Eye Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Eye &amp; Glaucoma Herb</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="immunity" data-tags="cancer immunity tumour"
+                    data-img="imgs/Oroki-Herbal-Mixture.jpg" data-name="Cancer Support Herb"
+                    data-desc="Powerful anti-tumour herbal formulation that supports cancer treatment, fights cancer cells, boosts immune response, and alleviates side effects of chemotherapy. Works for various cancer types."
+                    data-features="Fights cancer cells naturally|Boosts immune response|Alleviates chemo side effects|Anti-tumour properties"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="imgs/Traditional_Medicine.jpg" alt="Cancer Support Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Cancer Support Herb</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="immunity" data-tags="lupus immunity autoimmune"
+                    data-img="imgs/herbal-pharmacy.jpeg" data-name="Lupus Treatment Herb"
+                    data-desc="Specialised herbal blend that regulates the overactive immune system in lupus, reduces inflammation, eases joint and skin symptoms, and improves quality of life for lupus patients."
+                    data-features="Regulates overactive immunity|Reduces lupus inflammation|Eases joint and skin symptoms|Improves quality of life"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(1).jpg" alt="Lupus Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Lupus Treatment Herb</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="immunity" data-tags="psoriasis skin immunity"
+                    data-img="imgs/images%20(2).jpg" data-name="Psoriasis Skin Remedy"
+                    data-desc="An effective herbal skin remedy targeting psoriasis from within. Reduces red, scaly patches, stops skin cell over-production, soothes itching, and clears the skin over weeks of consistent use."
+                    data-features="Clears psoriasis patches|Stops skin cell overproduction|Soothes itching fast|Works from inside out"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(2).jpg" alt="Psoriasis Remedy" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Psoriasis Skin Remedy</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="immunity" data-tags="vitiligo skin immunity"
+                    data-img="imgs/images%20(3).jpg" data-name="Vitiligo Treatment Herb"
+                    data-desc="Targeted herbal therapy for vitiligo that stimulates melanin production, helps restore skin pigmentation in white patches, and slows the spread of depigmentation over the body."
+                    data-features="Stimulates melanin production|Restores skin pigmentation|Slows vitiligo spread|All-natural safe remedy"
+                    data-cat-label="Immunity &amp; Vitality">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(4).jpg" alt="Vitiligo Treatment" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Vitiligo Treatment Herb</div>
+                        <div class="product-cat">Immunity &amp; Vitality</div>
+                    </div>
+                </div>
+
+                <!-- VIRAL & INFECTIOUS (7) -->
+                <div class="product-card visible" data-cat="viral" data-tags="herpes hsv1 oral viral"
+                    data-img="imgs/images%20(5).jpg" data-name="HSV-1 Oral Herpes Remedy"
+                    data-desc="A potent antiviral herbal formula targeting HSV-1 (oral herpes / cold sores). Reduces outbreak frequency, heals sores faster, suppresses the virus, and strengthens immunity against recurrence."
+                    data-features="Suppresses HSV-1 virus|Heals cold sores fast|Reduces outbreak frequency|Strengthens immunity"
+                    data-cat-label="Viral &amp; Infectious">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(5).jpg" alt="HSV-1 Remedy" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">HSV-1 Oral Herpes Remedy</div>
+                        <div class="product-cat">Viral &amp; Infectious</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="viral" data-tags="herpes hsv2 genital viral"
+                    data-img="imgs/images%20(6).jpg" data-name="HSV-2 Genital Herpes Cure"
+                    data-desc="Powerful herbal antiviral treatment for genital herpes (HSV-2). Clears outbreaks quickly, suppresses viral activity, reduces transmission risk, and works toward long-term virus suppression."
+                    data-features="Clears genital herpes outbreaks|Suppresses HSV-2 virus|Reduces transmission risk|Long-term viral suppression"
+                    data-cat-label="Viral &amp; Infectious">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(7).jpg" alt="HSV-2 Cure" class="product-img">
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">HSV-2 Genital Herpes Cure</div>
+                        <div class="product-cat">Viral &amp; Infectious</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="viral" data-tags="shingles vzv viral herpes"
+                    data-img="imgs/images%20(8).jpg" data-name="Shingles (VZV) Herb"
+                    data-desc="Herbal remedy for shingles (Varicella-Zoster Virus). Dries out the rash fast, provides powerful pain relief, prevents post-herpetic neuralgia, and clears the outbreak within days."
+                    data-features="Dries shingles rash fast|Powerful pain relief|Prevents nerve pain|Clears outbreak quickly"
+                    data-cat-label="Viral &amp; Infectious">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(8).jpg" alt="Shingles Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Shingles (VZV) Herb</div>
+                        <div class="product-cat">Viral &amp; Infectious</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="viral" data-tags="chickenpox viral immunity"
+                    data-img="imgs/images%20(9).jpg" data-name="Chickenpox Relief Herb"
+                    data-desc="Fast-acting herbal formula that calms chickenpox symptoms, dries out blisters, reduces fever, relieves intense itching, and speeds up full recovery from the varicella virus."
+                    data-features="Dries blisters quickly|Relieves intense itching|Reduces fever fast|Speeds up recovery"
+                    data-cat-label="Viral &amp; Infectious">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(9).jpg" alt="Chickenpox Relief" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Chickenpox Relief Herb</div>
+                        <div class="product-cat">Viral &amp; Infectious</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="viral" data-tags="cmv cytomegalovirus viral"
+                    data-img="imgs/images%20(10).jpg" data-name="CMV / Cytomegalovirus Herb"
+                    data-desc="Antiviral herbal treatment targeting Cytomegalovirus (CMV). Suppresses viral replication, strengthens immune defenses against CMV, and relieves associated symptoms including fatigue and swollen glands."
+                    data-features="Suppresses CMV replication|Strengthens immune defenses|Relieves CMV symptoms|Safe herbal formula"
+                    data-cat-label="Viral &amp; Infectious">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(11).jpg" alt="CMV Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">CMV / Cytomegalovirus Herb</div>
+                        <div class="product-cat">Viral &amp; Infectious</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="viral" data-tags="hiv aids viral immunity"
+                    data-img="imgs/images%20(12).jpg" data-name="HIV / AIDS Support Herb"
+                    data-desc="A powerful immune-boosting herbal formulation for HIV/AIDS patients that strengthens the immune system, raises CD4 counts, reduces viral load, and improves overall health and vitality."
+                    data-features="Boosts CD4 cell count|Reduces HIV viral load|Strengthens overall immunity|Improves health and vitality"
+                    data-cat-label="Viral &amp; Infectious">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(12).jpg" alt="HIV Support Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">HIV / AIDS Support Herb</div>
+                        <div class="product-cat">Viral &amp; Infectious</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="viral" data-tags="sti std viral sexual"
+                    data-img="imgs/images%20(13).jpg" data-name="STIs &amp; STDs Cleanse"
+                    data-desc="Comprehensive herbal cleanse targeting sexually transmitted infections including gonorrhea, syphilis, chlamydia, and other STDs. Clears infections naturally and restores reproductive health."
+                    data-features="Treats gonorrhea and syphilis|Clears chlamydia naturally|Restores reproductive health|Confidential treatment"
+                    data-cat-label="Viral &amp; Infectious">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(14).jpg" alt="STIs Cleanse" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">STIs &amp; STDs Cleanse</div>
+                        <div class="product-cat">Viral &amp; Infectious</div>
+                    </div>
+                </div>
+
+                <!-- PAIN & JOINTS (5) -->
                 <div class="product-card visible" data-cat="pain" data-tags="arthritis pain joints"
-                    data-img="imgs/herbal_medicines_and_benefits_732x549_thumb-732x549.avif"
-                    data-name="Arthritis &amp; Joint Relief"
+                    data-img="imgs/herbal_medicines_and_benefits_732x549_thumb-732x549.avif" data-name="Arthritis &amp; Joint Relief"
                     data-desc="Powerful anti-inflammatory herbal blend that reduces joint pain, swelling, and stiffness associated with arthritis, rheumatism, and gout. Restores mobility and comfort naturally."
                     data-features="Reduces joint inflammation|Relieves arthritis pain|Improves joint mobility|Anti-rheumatic herbs"
                     data-cat-label="Pain &amp; Joints">
@@ -581,8 +973,7 @@
                 </div>
 
                 <div class="product-card visible" data-cat="pain" data-tags="back pain spine"
-                    data-img="imgs/images%20(14).jpg"
-                    data-name="Back Pain Relief Herb"
+                    data-img="imgs/images%20(14).jpg" data-name="Back Pain Relief Herb"
                     data-desc="Targeted herbal remedy for chronic back pain, sciatica, and spinal problems. Works to reduce nerve inflammation, relax back muscles, and rebuild spinal disc health."
                     data-features="Relieves chronic back pain|Treats sciatica|Reduces nerve inflammation|Muscle relaxant herbs"
                     data-cat-label="Pain &amp; Joints">
@@ -597,8 +988,7 @@
                 </div>
 
                 <div class="product-card visible" data-cat="pain" data-tags="stroke brain"
-                    data-img="imgs/images%20(15).jpg"
-                    data-name="Stroke Recovery Tonic"
+                    data-img="imgs/images%20(15).jpg" data-name="Stroke Recovery Tonic"
                     data-desc="A specialized herbal formula designed to support stroke recovery. Improves blood flow to the brain, repairs nerve cells, and helps restore physical and cognitive function after a stroke."
                     data-features="Improves brain blood flow|Supports nerve repair|Aids physical recovery|Boosts cognitive function"
                     data-cat-label="Pain &amp; Joints">
@@ -613,8 +1003,7 @@
                 </div>
 
                 <div class="product-card visible" data-cat="pain" data-tags="obesity weight loss"
-                    data-img="imgs/images%20(16).jpg"
-                    data-name="Weight Loss Herbal Pack"
+                    data-img="imgs/images%20(16).jpg" data-name="Weight Loss Herbal Pack"
                     data-desc="A safe, natural herbal weight management formula that boosts metabolism, burns fat, suppresses appetite, and supports healthy, sustainable weight loss without crash dieting."
                     data-features="Boosts metabolism naturally|Burns body fat effectively|Suppresses appetite safely|No harmful stimulants"
                     data-cat-label="Pain &amp; Joints">
@@ -628,10 +1017,323 @@
                     </div>
                 </div>
 
+                <div class="product-card visible" data-cat="pain" data-tags="rheumatoid arthritis pain joints"
+                    data-img="imgs/images%20(1).jpg" data-name="Rheumatoid Arthritis Herb"
+                    data-desc="Targeted herbal remedy for rheumatoid arthritis that calms the overactive immune response causing joint damage, reduces swelling and stiffness, and relieves morning joint pain significantly."
+                    data-features="Calms immune overreaction|Reduces joint swelling|Relieves morning stiffness|Anti-inflammatory action"
+                    data-cat-label="Pain &amp; Joints">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(1).jpg" alt="Rheumatoid Arthritis Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Rheumatoid Arthritis Herb</div>
+                        <div class="product-cat">Pain &amp; Joints</div>
+                    </div>
+                </div>
+
+                <!-- NEUROLOGICAL (7) -->
+                <div class="product-card visible" data-cat="neuro" data-tags="memory loss brain neuro"
+                    data-img="imgs/images%20(2).jpg" data-name="Memory &amp; Brain Booster"
+                    data-desc="A brain-nourishing herbal tonic that improves memory, enhances concentration, sharpens mental clarity, and slows cognitive decline associated with memory loss, Alzheimer's, and aging."
+                    data-features="Improves memory and recall|Enhances concentration|Sharpens mental clarity|Slows cognitive decline"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(3).jpg" alt="Memory Booster" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Memory &amp; Brain Booster</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="neuro" data-tags="ocd anxiety neuro mental"
+                    data-img="imgs/images%20(4).jpg" data-name="OCD &amp; Anxiety Herb"
+                    data-desc="Calming herbal formulation for obsessive-compulsive disorder (OCD) and anxiety. Reduces intrusive thoughts, calms the nervous system, lowers anxiety levels, and promotes emotional balance."
+                    data-features="Reduces intrusive OCD thoughts|Calms nervous system|Lowers anxiety levels|Promotes emotional balance"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(5).jpg" alt="OCD Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">OCD &amp; Anxiety Herb</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="neuro" data-tags="multiple sclerosis ms neuro"
+                    data-img="imgs/images%20(6).jpg" data-name="Multiple Sclerosis (MS) Herb"
+                    data-desc="Herbal support formula for multiple sclerosis patients. Reduces nerve inflammation, slows disease progression, improves mobility, and manages MS fatigue and muscle spasms."
+                    data-features="Reduces nerve inflammation|Slows MS progression|Improves mobility|Manages MS fatigue"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(6).jpg" alt="MS Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Multiple Sclerosis (MS) Herb</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="neuro" data-tags="parkinsons brain neuro"
+                    data-img="imgs/images%20(7).jpg" data-name="Parkinson's Disease Herb"
+                    data-desc="Neuro-protective herbal formula for Parkinson's disease. Supports dopamine production, reduces tremors, improves motor control, and slows neurological degeneration."
+                    data-features="Supports dopamine production|Reduces tremors|Improves motor control|Slows neurological decline"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(8).jpg" alt="Parkinson's Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Parkinson's Disease Herb</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="neuro" data-tags="alzheimers brain neuro memory"
+                    data-img="imgs/images%20(9).jpg" data-name="Alzheimer's Brain Herb"
+                    data-desc="Herbal neuro-protective formula specifically targeting Alzheimer's disease. Improves memory recall, slows plaque buildup in the brain, enhances cognitive function, and supports brain health."
+                    data-features="Improves memory recall|Slows brain plaque buildup|Enhances cognitive function|Protects brain cells"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(9).jpg" alt="Alzheimer's Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Alzheimer's Brain Herb</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="neuro" data-tags="epilepsy seizure neuro brain"
+                    data-img="imgs/images%20(10).jpg" data-name="Epilepsy &amp; Seizure Control"
+                    data-desc="Powerful anti-convulsant herbal formula that reduces seizure frequency, calms over-stimulated brain activity, and helps patients with epilepsy achieve better seizure control without sedation."
+                    data-features="Reduces seizure frequency|Calms brain over-stimulation|Improves seizure control|No sedation side effects"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(10).jpg" alt="Epilepsy Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Epilepsy &amp; Seizure Control</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="neuro" data-tags="depression mental neuro mood"
+                    data-img="imgs/images%20(11).jpg" data-name="Depression &amp; Mood Herb"
+                    data-desc="Natural herbal antidepressant that lifts mood, restores emotional balance, reduces feelings of hopelessness, improves sleep quality, and helps patients overcome depression without side effects."
+                    data-features="Lifts mood naturally|Restores emotional balance|Improves sleep quality|No antidepressant side effects"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(12).jpg" alt="Depression Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Depression &amp; Mood Herb</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
+                <!-- SPIRITUAL SERVICES (10) -->
+                <div class="product-card visible" data-cat="spiritual" data-tags="spiritual bring back ex love"
+                    data-img="imgs/images%20(13).jpg" data-name="Bring Back Ex Spiritual Herb"
+                    data-desc="Powerful spiritual herbs and rituals used by DR AFRID to reunite separated lovers, bring back an ex-partner, and restore love within days. Confidential and highly effective."
+                    data-features="Reunites separated lovers|Brings back ex quickly|Restores broken love|100% confidential"
+                    data-cat-label="Spiritual Services">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(13).jpg" alt="Bring Back Ex" class="product-img">
+                        <span class="product-badge product-badge-spirit">Spiritual</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Bring Back Ex Spiritual Herb</div>
+                        <div class="product-cat">Spiritual Services</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="spiritual" data-tags="spiritual marriage restoration"
+                    data-img="imgs/images%20(14).jpg" data-name="Marriage Restoration Herb"
+                    data-desc="Spiritual herbs and marriage restoration rituals to stop divorce, remove third parties, rekindle love between husband and wife, and restore a broken marriage to its former strength."
+                    data-features="Stops divorce proceedings|Removes third parties|Rekindles marital love|Restores family unity"
+                    data-cat-label="Spiritual Services">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(14).jpg" alt="Marriage Restoration" class="product-img">
+                        <span class="product-badge product-badge-spirit">Spiritual</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Marriage Restoration Herb</div>
+                        <div class="product-cat">Spiritual Services</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="spiritual" data-tags="spiritual remove juju curses"
+                    data-img="imgs/images%20(15).jpg" data-name="Remove Juju / Curses Herb"
+                    data-desc="DR AFRID's spiritual cleansing herbs and rituals to identify, break, and permanently reverse any juju, generational curses, or spiritual attacks placed on you or your family."
+                    data-features="Breaks juju and curses|Reverses spiritual attacks|Cleanses ancestral curses|Permanent protection"
+                    data-cat-label="Spiritual Services">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(15).jpg" alt="Remove Juju" class="product-img">
+                        <span class="product-badge product-badge-spirit">Spiritual</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Remove Juju / Curses Herb</div>
+                        <div class="product-cat">Spiritual Services</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="spiritual" data-tags="spiritual good luck fortune money"
+                    data-img="imgs/images%20(16).jpg" data-name="Good Luck &amp; Fortune Herb"
+                    data-desc="Open doors of favour, success, and financial blessing with DR AFRID's fortune herbs. Attract prosperity, remove financial bad luck, and position yourself for unexpected blessings."
+                    data-features="Attracts money and favour|Removes financial bad luck|Opens doors of success|Brings unexpected blessings"
+                    data-cat-label="Spiritual Services">
+                    <div class="product-img-wrap">
+                        <img src="imgs/herbal_medicines_and_benefits_732x549_thumb-732x549.avif" alt="Good Luck Herb" class="product-img">
+                        <span class="product-badge product-badge-spirit">Spiritual</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Good Luck &amp; Fortune Herb</div>
+                        <div class="product-cat">Spiritual Services</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="spiritual" data-tags="spiritual business breakthrough"
+                    data-img="imgs/herbal-pharmacy.jpeg" data-name="Business Breakthrough Herb"
+                    data-desc="Attract customers, seal business deals, protect your business from spiritual enemies, and achieve lasting breakthrough in your business using DR AFRID's powerful business success herbs."
+                    data-features="Attracts customers and deals|Protects from spiritual enemies|Breaks business stagnation|Achieves lasting growth"
+                    data-cat-label="Spiritual Services">
+                    <div class="product-img-wrap">
+                        <img src="imgs/Oroki-Herbal-Mixture.jpg" alt="Business Breakthrough" class="product-img">
+                        <span class="product-badge product-badge-spirit">Spiritual</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Business Breakthrough Herb</div>
+                        <div class="product-cat">Spiritual Services</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="spiritual" data-tags="spiritual protection shield"
+                    data-img="imgs/Traditional_Medicine.jpg" data-name="Spiritual Protection Herb"
+                    data-desc="Powerful protective herbs and spiritual rituals to shield you and your family from evil eyes, witchcraft, spiritual manipulation, and all forms of dark forces. A spiritual armour."
+                    data-features="Shields from evil eyes|Breaks witchcraft attacks|Protects entire family|Strong spiritual armour"
+                    data-cat-label="Spiritual Services">
+                    <div class="product-img-wrap">
+                        <img src="imgs/herbal-pharmacy.jpeg" alt="Spiritual Protection" class="product-img">
+                        <span class="product-badge product-badge-spirit">Spiritual</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Spiritual Protection Herb</div>
+                        <div class="product-cat">Spiritual Services</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="spiritual" data-tags="spiritual attract life partner love"
+                    data-img="imgs/images%20(1).jpg" data-name="Attract a Life Partner Herb"
+                    data-desc="If you are struggling to find a good husband or wife, DR AFRID's love attraction herbs and spiritual consultation will open the right doors, attract your God-ordained partner to you."
+                    data-features="Attracts the right partner|Opens doors of love|Ends years of loneliness|Brings marriage opportunity"
+                    data-cat-label="Spiritual Services">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(2).jpg" alt="Attract Partner Herb" class="product-img">
+                        <span class="product-badge product-badge-spirit">Spiritual</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Attract a Life Partner Herb</div>
+                        <div class="product-cat">Spiritual Services</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="spiritual" data-tags="spiritual cleansing detox"
+                    data-img="imgs/images%20(3).jpg" data-name="Full Spiritual Cleansing Herb"
+                    data-desc="A complete spiritual detox to clear your body, home, and destiny from every form of spiritual pollution, ancestral curses, and generational blockages. Start fresh with a clean spiritual slate."
+                    data-features="Clears all spiritual pollution|Breaks ancestral curses|Removes generational blockages|Complete spiritual reset"
+                    data-cat-label="Spiritual Services">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(4).jpg" alt="Spiritual Cleansing" class="product-img">
+                        <span class="product-badge product-badge-spirit">Spiritual</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Full Spiritual Cleansing Herb</div>
+                        <div class="product-cat">Spiritual Services</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="spiritual" data-tags="spiritual enemy defeat court"
+                    data-img="imgs/images%20(5).jpg" data-name="Enemy Defeat Herb"
+                    data-desc="Face enemies, court battles, workplace rivalries, or family persecution with spiritual strength. DR AFRID's victory herbs shift favour to your side and confuse the plans of your enemies."
+                    data-features="Defeats spiritual enemies|Wins court cases|Shifts favour to your side|Confuses enemy plans"
+                    data-cat-label="Spiritual Services">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(5).jpg" alt="Enemy Defeat Herb" class="product-img">
+                        <span class="product-badge product-badge-spirit">Spiritual</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Enemy Defeat Herb</div>
+                        <div class="product-cat">Spiritual Services</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="spiritual" data-tags="spiritual dream disturbance sleep"
+                    data-img="imgs/images%20(6).jpg" data-name="Dream Disturbance Remedy"
+                    data-desc="Troubled by bad dreams, sleep paralysis, night terrors, or spiritual visitations at night? DR AFRID's protective herbs will restore your peace, protect your sleep, and banish the darkness."
+                    data-features="Stops bad dreams and nightmares|Ends sleep paralysis|Restores peaceful sleep|Banishes spiritual night attacks"
+                    data-cat-label="Spiritual Services">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(7).jpg" alt="Dream Disturbance Remedy" class="product-img">
+                        <span class="product-badge product-badge-spirit">Spiritual</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Dream Disturbance Remedy</div>
+                        <div class="product-cat">Spiritual Services</div>
+                    </div>
+                </div>
+
+                <!-- NEUROLOGICAL EXTRAS: Autism & Neuropathy -->
+                <div class="product-card visible" data-cat="neuro" data-tags="autism neuro children brain"
+                    data-img="imgs/images%20(8).jpg" data-name="Autism Support Herb"
+                    data-desc="Gentle herbal support formula for children and adults with autism spectrum disorder. Improves communication, reduces repetitive behaviours, calms sensory overload, and supports brain development."
+                    data-features="Improves communication|Reduces repetitive behaviours|Calms sensory overload|Gentle on children"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(8).jpg" alt="Autism Support" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="product-name">Autism Support Herb</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
+                <div class="product-card visible" data-cat="neuro" data-tags="neuropathy nerve pain neuro"
+                    data-img="imgs/images%20(9).jpg" data-name="Neuropathy Nerve Repair"
+                    data-desc="Herbal formula that repairs damaged peripheral nerves, relieves burning and tingling sensations caused by neuropathy, restores nerve signal transmission, and reduces chronic nerve pain."
+                    data-features="Repairs damaged nerves|Relieves burning sensation|Restores nerve signals|Reduces chronic nerve pain"
+                    data-cat-label="Neurological">
+                    <div class="product-img-wrap">
+                        <img src="imgs/images%20(9).jpg" alt="Neuropathy Herb" class="product-img">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="product-name">Neuropathy Nerve Repair</div>
+                        <div class="product-cat">Neurological</div>
+                    </div>
+                </div>
+
             </div><!-- /.products-grid -->
             <div class="no-products" id="noProducts">No products found. Please try a different search or filter.</div>
         </div>
-    </div>
+    </div><!-- /.products-container -->
 </section>
 
 <!-- Product Modal -->
@@ -639,7 +1341,6 @@
     <div class="modal">
         <button class="modal-close" id="modalClose">&times;</button>
         <div class="modal-body">
-            <!-- MODAL IMAGE: Set dynamically via JS from data-img attribute -->
             <img src="" alt="" class="modal-img" id="modalImg">
             <div class="modal-info">
                 <div class="modal-cat" id="modalCat"></div>
@@ -657,35 +1358,25 @@
 <!-- Conditions We Treat Section -->
 <section style="padding:65px 0 70px;background:white;">
     <div style="width:90%;max-width:1200px;margin:0 auto;">
-
         <div style="text-align:center;margin-bottom:10px;">
             <span style="color:#8bc34a;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:8px;">What We Treat</span>
             <h2 style="font-size:clamp(22px,2.8vw,36px);color:#162520;font-weight:700;margin-bottom:10px;">Conditions We <span style="color:#8bc34a;">Treat</span></h2>
             <div style="width:46px;height:3px;background:#8bc34a;border-radius:2px;margin:0 auto 16px;"></div>
-            <p style="color:#666;font-size:14px;line-height:1.8;max-width:660px;margin:0 auto 10px;">DR AFRID treats all conditions below using natural herbal remedies and spiritual knowledge. <strong style="color:#162520;">Click any condition</strong> to instantly message DR AFRID on WhatsApp or Email and place your order.</p>
+            <p style="color:#666;font-size:14px;line-height:1.8;max-width:660px;margin:0 auto 10px;">DR AFRID treats all conditions below using natural herbal remedies and spiritual knowledge. <strong style="color:#162520;">Click any condition</strong> to instantly message DR AFRID on WhatsApp and place your order.</p>
         </div>
-
-        <!-- Click-to-order instruction bar -->
         <div style="background:#f0f7e6;border:1.5px solid #c5e39b;border-radius:8px;padding:13px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
             <div style="width:36px;height:36px;background:#8bc34a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-hand-pointer" style="color:white;font-size:15px;"></i></div>
-            <div>
-                <div style="font-size:13.5px;font-weight:700;color:#162520;margin-bottom:3px;">How to Order — It's Simple!</div>
-                <div style="font-size:12.5px;color:#555;">Click any condition tag below → WhatsApp opens with a ready message → Send it → DR AFRID responds within minutes.</div>
-            </div>
+            <div><div style="font-size:13.5px;font-weight:700;color:#162520;margin-bottom:3px;">How to Order — It's Simple!</div><div style="font-size:12.5px;color:#555;">Click any condition tag below → WhatsApp opens with a ready message → Send it → DR AFRID responds within minutes.</div></div>
             <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;">
                 <a href="https://wa.me/2349153512788" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;white-space:nowrap;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 <a href="mailto:drafridherbalhome@gmail.com" style="display:inline-flex;align-items:center;gap:6px;background:#162520;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;white-space:nowrap;"><i class="fas fa-envelope"></i> Email</a>
             </div>
         </div>
-
-        <!-- Legend -->
         <div style="margin-bottom:16px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
             <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#555;"><span style="display:inline-block;width:14px;height:14px;background:white;border:1px solid #e0ead8;border-left:3px solid #8bc34a;border-radius:2px;"></span> Herbal / Medical</div>
             <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#555;"><span style="display:inline-block;width:14px;height:14px;background:#162520;border:1px solid #8bc34a;border-radius:2px;"></span> Spiritual Services</div>
             <div style="font-size:12px;color:#8bc34a;font-weight:600;margin-left:auto;"><i class="fas fa-mouse-pointer"></i> Click any tag to order</div>
         </div>
-
-        <!-- Herbal conditions grid -->
         <div class="cond-tags-pg">
             <a class="ctag-pg" href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20herbal%20treatment%20for%20HSV-1%20(Oral%20Herpes%20/%20Cold%20Sores).%20Please%20advise%20me%20on%20how%20to%20order." target="_blank">HSV-1 Oral Herpes <i class="fab fa-whatsapp" style="font-size:10px;opacity:.7;"></i></a>
             <a class="ctag-pg" href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20herbal%20treatment%20for%20HSV-2%20(Genital%20Herpes).%20Please%20advise%20me%20on%20how%20to%20order." target="_blank">HSV-2 Genital Herpes <i class="fab fa-whatsapp" style="font-size:10px;opacity:.7;"></i></a>
@@ -733,7 +1424,6 @@
             <a class="ctag-pg" href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20herbal%20treatment%20for%20Neuropathy.%20Please%20advise%20me%20on%20how%20to%20order." target="_blank">Neuropathy <i class="fab fa-whatsapp" style="font-size:10px;opacity:.7;"></i></a>
             <a class="ctag-pg" href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20herbal%20treatment%20for%20Depression.%20Please%20advise%20me%20on%20how%20to%20order." target="_blank">Depression <i class="fab fa-whatsapp" style="font-size:10px;opacity:.7;"></i></a>
             <a class="ctag-pg" href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20herbal%20treatment%20for%20Rheumatoid%20Arthritis.%20Please%20advise%20me%20on%20how%20to%20order." target="_blank">Rheumatoid Arthritis <i class="fab fa-whatsapp" style="font-size:10px;opacity:.7;"></i></a>
-            <!-- Spiritual services -->
             <a class="ctag-pg ctag-pg-spirit" href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20spiritual%20help%20to%20Bring%20Back%20My%20Ex.%20Please%20advise%20me." target="_blank"><i class="fas fa-star" style="font-size:9px;margin-right:4px;"></i>Bring Back Ex <i class="fab fa-whatsapp" style="font-size:10px;opacity:.7;"></i></a>
             <a class="ctag-pg ctag-pg-spirit" href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20spiritual%20help%20for%20Marriage%20Restoration.%20Please%20advise%20me." target="_blank"><i class="fas fa-star" style="font-size:9px;margin-right:4px;"></i>Marriage Restoration <i class="fab fa-whatsapp" style="font-size:10px;opacity:.7;"></i></a>
             <a class="ctag-pg ctag-pg-spirit" href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20help%20to%20Remove%20Juju%20%2F%20Curses.%20Please%20advise%20me." target="_blank"><i class="fas fa-star" style="font-size:9px;margin-right:4px;"></i>Remove Juju / Curses <i class="fab fa-whatsapp" style="font-size:10px;opacity:.7;"></i></a>
@@ -745,125 +1435,15 @@
             <a class="ctag-pg ctag-pg-spirit" href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20spiritual%20help%20to%20Defeat%20Enemies.%20Please%20advise%20me." target="_blank"><i class="fas fa-star" style="font-size:9px;margin-right:4px;"></i>Enemy Defeat <i class="fab fa-whatsapp" style="font-size:10px;opacity:.7;"></i></a>
             <a class="ctag-pg ctag-pg-spirit" href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20spiritual%20help%20for%20Dream%20Disturbance.%20Please%20advise%20me." target="_blank"><i class="fas fa-star" style="font-size:9px;margin-right:4px;"></i>Dream Disturbance <i class="fab fa-whatsapp" style="font-size:10px;opacity:.7;"></i></a>
         </div>
-
-        <!-- Bottom order strip -->
         <div style="margin-top:30px;background:#162520;border-radius:8px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
             <div>
                 <div style="color:#8bc34a;font-weight:700;font-size:15px;margin-bottom:5px;"><i class="fas fa-leaf"></i> Don't see your condition? Contact us directly!</div>
                 <div style="color:rgba(255,255,255,.75);font-size:13px;">DR AFRID treats many more conditions. Call or WhatsApp: <strong style="color:#8bc34a;">+2349153512788</strong> &nbsp;|&nbsp; Email: <strong style="color:#8bc34a;">drafridherbalhome@gmail.com</strong></div>
             </div>
             <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20help%20with%20a%20condition%20not%20listed%20on%20your%20website.%20Please%20advise%20me." target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#25D366;color:white;padding:11px 22px;border-radius:4px;font-weight:700;font-size:13.5px;white-space:nowrap;"><i class="fab fa-whatsapp"></i> WhatsApp Order</a>
-                <a href="mailto:drafridherbalhome@gmail.com?subject=Order%20Enquiry%20-%20DR%20AFRID%20Herbal%20Home&body=Hello%20Dr.%20Afrid%2C%0A%0AI%20would%20like%20to%20order%20a%20herbal%20remedy.%20My%20condition%20is%3A%0A%0A(describe%20your%20condition)%0A%0APlease%20advise%20me%20on%20next%20steps.%0A%0AThank%20you." style="display:inline-flex;align-items:center;gap:7px;background:#8bc34a;color:white;padding:11px 22px;border-radius:4px;font-weight:700;font-size:13.5px;white-space:nowrap;"><i class="fas fa-envelope"></i> Email Order</a>
+                <a href="https://wa.me/2349153512788" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#25D366;color:white;padding:11px 22px;border-radius:4px;font-weight:700;font-size:13.5px;white-space:nowrap;"><i class="fab fa-whatsapp"></i> WhatsApp Order</a>
+                <a href="mailto:drafridherbalhome@gmail.com" style="display:inline-flex;align-items:center;gap:7px;background:#8bc34a;color:white;padding:11px 22px;border-radius:4px;font-weight:700;font-size:13.5px;white-space:nowrap;"><i class="fas fa-envelope"></i> Email Order</a>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Spiritual Services Section -->
-<section style="padding:70px 0;background:#f5f7f3;">
-    <div style="width:90%;max-width:1200px;margin:0 auto;">
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
-            <span style="color:#8bc34a;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;">Spiritual Services</span>
-        </div>
-        <h2 style="font-size:clamp(22px,2.8vw,34px);color:#162520;font-weight:700;margin-bottom:6px;">DR AFRID <span style="color:#8bc34a;">Spiritual Help</span></h2>
-        <div style="width:46px;height:3px;background:#8bc34a;border-radius:2px;margin-bottom:14px;"></div>
-        <p style="color:#666;font-size:14px;line-height:1.8;max-width:700px;margin-bottom:36px;">Beyond herbal medicine, DR AFRID possesses powerful spiritual knowledge passed down through generations. If your problem has a spiritual root — whether in love, marriage, business, or personal protection — DR AFRID can help. Call or WhatsApp <strong>+2349153512788</strong> for a private, confidential consultation.</p>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;">
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-heart"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Bring Back Ex / Lost Lover</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">Powerful spiritual herbs and rituals to reunite you with your ex-partner, spouse, or lost love — within days, not months.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20help%20to%20bring%20back%20my%20ex." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-home"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Marriage Restoration</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">Restore broken marriages, stop divorce, remove third parties, and rekindle love between husband and wife using time-tested spiritual herbs.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20help%20to%20restore%20my%20marriage." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-ban"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Remove Juju / Spiritual Attack</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">If enemies have used dark forces against you, DR AFRID will identify, break, and reverse any juju, curse, or spiritual attack placed on you.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20help%20to%20remove%20a%20spiritual%20attack." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-star"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Good Luck &amp; Fortune</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">Open doors of favour, success, and financial blessing. DR AFRID's fortune herbs and spiritual rituals attract prosperity and remove bad luck.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20help%20with%20good%20luck%20and%20fortune." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-briefcase"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Business Protection &amp; Growth</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">Protect your business from spiritual enemies, attract customers, seal business deals, and ensure lasting business success with DR AFRID's herbs.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20spiritual%20help%20for%20my%20business." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-shield-alt"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Spiritual Protection</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">Powerful spiritual protection herbs and rituals to shield you and your family from harm, evil eyes, witchcraft, and spiritual manipulation.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20spiritual%20protection." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-user-friends"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Attract a Life Partner</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">If you are struggling to find a good husband or wife, DR AFRID's love attraction herbs and spiritual consultation will open the right doors for you.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20help%20to%20attract%20a%20life%20partner." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-child"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Spiritual Barrenness / Child Blessing</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">Some cases of barrenness have spiritual roots. DR AFRID combines herbal fertility treatment with spiritual cleansing to address what medicine cannot see.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20help%20for%20spiritual%20barrenness." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-moon"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Dream Disturbance &amp; Night Terrors</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">Troubled by bad dreams, night terrors, sleep paralysis, or spiritual visitations at night? DR AFRID's protective herbs will restore your peace and sleep.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20help%20for%20dream%20disturbances." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-graduation-cap"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Exam Success &amp; Job Favour</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">Prepare spiritually for exams, job interviews, court cases, or any major decision. DR AFRID's favour and success herbs have helped thousands succeed.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20help%20for%20exam%20success%20or%20job%20favour." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-fire"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Enemy Defeat &amp; Court Cases</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">Face your enemies, court battles, or workplace rivalries with spiritual strength. DR AFRID's justice and victory herbs shift favour to your side.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20help%20to%20defeat%20enemies%20or%20win%20a%20court%20case." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-            <div style="background:white;border-radius:8px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:3px solid #8bc34a;transition:transform .3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="width:50px;height:50px;background:#8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;margin-bottom:14px;"><i class="fas fa-spa"></i></div>
-                <div style="font-size:15px;font-weight:700;color:#162520;margin-bottom:8px;">Full Spiritual Cleansing</div>
-                <p style="font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;">A complete spiritual detox to clear your body, home, and destiny from every form of spiritual pollution, ancestral curses, and generational blockages.</p>
-                <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20a%20full%20spiritual%20cleansing." style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;transition:background .3s;" target="_blank"><i class="fab fa-whatsapp"></i> Consult Now</a>
-            </div>
-
-        </div>
-
-        <div style="margin-top:32px;background:#162520;border-radius:8px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-            <div>
-                <div style="color:#8bc34a;font-weight:700;font-size:15px;margin-bottom:5px;"><i class="fas fa-lock"></i> 100% Confidential Consultations</div>
-                <div style="color:rgba(255,255,255,.75);font-size:13px;">All spiritual consultations are strictly private. Call or WhatsApp DR AFRID directly: <strong style="color:#8bc34a;">+2349153512788</strong></div>
-            </div>
-            <a href="https://wa.me/2349153512788?text=Hello%20Dr.%20Afrid%2C%20I%20need%20a%20spiritual%20consultation." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#8bc34a;color:white;padding:12px 24px;border-radius:4px;font-weight:700;font-size:14px;white-space:nowrap;"><i class="fab fa-whatsapp"></i> Start Consultation</a>
         </div>
     </div>
 </section>
@@ -924,91 +1504,111 @@
 <a href="https://wa.me/2349153512788" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-    // Mobile nav
-    const menuToggle=document.getElementById('menuToggle'),mobileDrawer=document.getElementById('mobileDrawer'),mobileOverlay=document.getElementById('mobileOverlay');
-    menuToggle.addEventListener('click',()=>{const o=mobileDrawer.classList.contains('open');menuToggle.classList.toggle('open',!o);mobileDrawer.classList.toggle('open',!o);mobileOverlay.classList.toggle('open',!o);});
-    mobileOverlay.addEventListener('click',()=>{menuToggle.classList.remove('open');mobileDrawer.classList.remove('open');mobileOverlay.classList.remove('open');});
-
-    // Filter by category
-    document.querySelectorAll('.category-item').forEach(item=>{
-        item.addEventListener('click',function(){
-            document.querySelectorAll('.category-item').forEach(i=>i.classList.remove('active'));
-            this.classList.add('active');
-            filterProducts(this.dataset.cat,'all');
-        });
-    });
-
-    // Filter by tag
-    document.querySelectorAll('.tag').forEach(tag=>{
-        tag.addEventListener('click',function(){
-            document.querySelectorAll('.tag').forEach(t=>t.classList.remove('active'));
-            this.classList.add('active');
-            filterProducts('all',this.dataset.tag==='all'?'all':this.dataset.tag);
-        });
-    });
-
-    // Search
-    document.getElementById('searchInput').addEventListener('input',function(){
-        const q=this.value.toLowerCase();
-        let count=0;
-        document.querySelectorAll('.product-card').forEach(card=>{
-            const n=card.dataset.name.toLowerCase();
-            const t=card.dataset.tags.toLowerCase();
-            const show=!q||n.includes(q)||t.includes(q);
-            card.classList.toggle('visible',show);
-            if(show)count++;
-        });
-        document.getElementById('resultCount').textContent=count;
-        document.getElementById('noProducts').classList.toggle('visible',count===0);
-    });
-
-    function filterProducts(cat,tag){
-        let count=0;
-        document.querySelectorAll('.product-card').forEach(card=>{
-            const catMatch=cat==='all'||card.dataset.cat===cat;
-            const tagMatch=tag==='all'||card.dataset.tags.includes(tag);
-            const show=catMatch&&tagMatch;
-            card.classList.toggle('visible',show);
-            if(show)count++;
-        });
-        document.getElementById('resultCount').textContent=count;
-        document.getElementById('noProducts').classList.toggle('visible',count===0);
-    }
-
-    // Modal
-    const modal=document.getElementById('productModal');
-    document.querySelectorAll('.product-card').forEach(card=>{
-        card.addEventListener('click',function(){
-            document.getElementById('modalImg').src=this.dataset.img;
-            document.getElementById('modalImg').alt=this.dataset.name;
-            document.getElementById('modalTitle').textContent=this.dataset.name;
-            document.getElementById('modalCat').innerHTML=this.dataset.catLabel||'';
-            document.getElementById('modalDesc').textContent=this.dataset.desc;
-            const features=this.dataset.features.split('|');
-            const ul=document.getElementById('modalFeatures');
-            ul.innerHTML='';
-            features.forEach(f=>{const li=document.createElement('li');li.innerHTML=`<i class="fas fa-check-circle"></i> ${f}`;ul.appendChild(li);});
-            modal.classList.add('active');
-            document.body.style.overflow='hidden';
-        });
-    });
-    function closeModal(){modal.classList.remove('active');document.body.style.overflow='';}
-    document.getElementById('modalClose').addEventListener('click',closeModal);
-    modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
-</script>
-
-
-<script>
 (function(){
   var T=document.getElementById('menuToggle');
   var D=document.getElementById('mobileDrawer');
   var O=document.getElementById('mobileOverlay');
   if(!T||!D||!O)return;
-  function open_(){T.classList.add('open');D.classList.add('open');O.classList.add('open');document.body.style.overflow='hidden';}
-  function close_(){T.classList.remove('open');D.classList.remove('open');O.classList.remove('open');document.body.style.overflow='';}
-  T.addEventListener('click',function(){D.classList.contains('open')?close_():open_();});
-  O.addEventListener('click',close_);
-  D.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close_);});
+  function openMenu(){T.classList.add('open');D.classList.add('open');O.classList.add('open');document.body.style.overflow='hidden';}
+  function closeMenu(){T.classList.remove('open');D.classList.remove('open');O.classList.remove('open');document.body.style.overflow='';}
+  T.addEventListener('click',function(){D.classList.contains('open')?closeMenu():openMenu();});
+  O.addEventListener('click',closeMenu);
+  D.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+})();
+
+(function(){
+  var cards=document.querySelectorAll('.product-card');
+  var cats=document.querySelectorAll('.category-item');
+  var tags=document.querySelectorAll('.tag');
+  var searchInput=document.getElementById('searchInput');
+  var resultCount=document.getElementById('resultCount');
+  var noProducts=document.getElementById('noProducts');
+
+  function updateCount(){
+    var visible=[].filter.call(cards,function(c){return c.classList.contains('visible');});
+    resultCount.textContent=visible.length;
+    noProducts.classList.toggle('visible',visible.length===0);
+  }
+
+  function filterByCat(cat){
+    cards.forEach(function(c){
+      var show=cat==='all'||c.dataset.cat===cat;
+      c.classList.toggle('visible',show);
+    });
+    updateCount();
+  }
+
+  cats.forEach(function(item){
+    item.addEventListener('click',function(){
+      cats.forEach(function(x){x.classList.remove('active');});
+      item.classList.add('active');
+      filterByCat(item.dataset.cat);
+      searchInput.value='';
+      tags.forEach(function(t){t.classList.remove('active');});
+      tags[0].classList.add('active');
+    });
+  });
+
+  tags.forEach(function(tag){
+    tag.addEventListener('click',function(){
+      tags.forEach(function(t){t.classList.remove('active');});
+      tag.classList.add('active');
+      var t=tag.dataset.tag;
+      if(t==='all'){filterByCat('all');cats.forEach(function(x){x.classList.remove('active');});cats[0].classList.add('active');return;}
+      cards.forEach(function(c){
+        var show=c.dataset.tags&&c.dataset.tags.indexOf(t)!==-1;
+        c.classList.toggle('visible',show);
+      });
+      updateCount();
+    });
+  });
+
+  if(searchInput){
+    searchInput.addEventListener('input',function(){
+      var q=this.value.toLowerCase().trim();
+      if(!q){filterByCat('all');cats.forEach(function(x){x.classList.remove('active');});cats[0].classList.add('active');return;}
+      cards.forEach(function(c){
+        var n=(c.dataset.name||'').toLowerCase();
+        var tg=(c.dataset.tags||'').toLowerCase();
+        var d=(c.dataset.desc||'').toLowerCase();
+        c.classList.toggle('visible',n.indexOf(q)!==-1||tg.indexOf(q)!==-1||d.indexOf(q)!==-1);
+      });
+      updateCount();
+    });
+  }
+
+  var modal=document.getElementById('productModal');
+  var modalClose=document.getElementById('modalClose');
+  var modalImg=document.getElementById('modalImg');
+  var modalCat=document.getElementById('modalCat');
+  var modalTitle=document.getElementById('modalTitle');
+  var modalDesc=document.getElementById('modalDesc');
+  var modalFeatures=document.getElementById('modalFeatures');
+
+  cards.forEach(function(card){
+    card.addEventListener('click',function(){
+      modalImg.src=card.dataset.img||'imgs/Oroki-Herbal-Mixture.jpg';
+      modalImg.alt=card.dataset.name||'';
+      modalCat.textContent=card.dataset.catLabel||card.dataset.cat||'';
+      modalTitle.textContent=card.dataset.name||'';
+      modalDesc.textContent=card.dataset.desc||'';
+      modalFeatures.innerHTML='';
+      if(card.dataset.features){
+        card.dataset.features.split('|').forEach(function(f){
+          var li=document.createElement('li');
+          li.innerHTML='<i class="fas fa-check-circle"></i> '+f;
+          modalFeatures.appendChild(li);
+        });
+      }
+      modal.classList.add('active');
+      document.body.style.overflow='hidden';
+    });
+  });
+
+  function closeModal(){modal.classList.remove('active');document.body.style.overflow='';}
+  if(modalClose)modalClose.addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 })();
 </script>
 </body>
