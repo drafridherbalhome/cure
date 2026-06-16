@@ -356,17 +356,6 @@
     </ul>
 </div>
 
-<!-- ── Mobile Nav ── -->
-<div class="mobile-nav-drawer" id="mobileDrawer">
-    <ul class="mobile-nav-links">
-        <li><a href="index.html" style="color:#8bc34a;"><i class="fas fa-home nav-icon"></i> Home</a></li>
-        <li><a href="about.html"><i class="fas fa-user-md nav-icon"></i> About Us</a></li>
-        <li><a href="products.html"><i class="fas fa-leaf nav-icon"></i> Products</a></li>
-        <li><a href="reviews.html"><i class="fas fa-star nav-icon"></i> Reviews</a></li>
-        <li><a href="contact.html"><i class="fas fa-envelope nav-icon"></i> Contact</a></li>
-        <li class="mob-order"><a href="contact.html"><i class="fas fa-shopping-cart nav-icon"></i> Order Now</a></li>
-    </ul>
-</div>
 
 <!-- ── Hero ── -->
 <!-- HERO BG: change the URL in .hero background CSS to your own image -->
@@ -925,40 +914,20 @@
 
 
 <script>
-    (function(){
-        var toggle=document.getElementById('menuToggle');
-        var drawer=document.getElementById('mobileDrawer');
-        var overlay=document.getElementById('mobileOverlay');
-        if(!toggle||!drawer||!overlay) return;
-        function openMenu(){toggle.classList.add('open');drawer.classList.add('open');overlay.classList.add('open');}
-        function closeMenu(){toggle.classList.remove('open');drawer.classList.remove('open');overlay.classList.remove('open');}
-        toggle.addEventListener('click',function(){drawer.classList.contains('open')?closeMenu():openMenu();});
-        overlay.addEventListener('click',closeMenu);
-        drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
-    })();
-
-    // Keep scroll header effect
-    var hdr=document.getElementById('mainHeader');
-    if(hdr){window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>80);});}
-</script>
-
-<script>
-var hdr=document.getElementById('mainHeader');
-if(hdr){window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>80);});}
-</script>
-
-<script>
 (function(){
   var T=document.getElementById('menuToggle');
   var D=document.getElementById('mobileDrawer');
   var O=document.getElementById('mobileOverlay');
   if(!T||!D||!O)return;
-  function open_(){T.classList.add('open');D.classList.add('open');O.classList.add('open');document.body.style.overflow='hidden';}
-  function close_(){T.classList.remove('open');D.classList.remove('open');O.classList.remove('open');document.body.style.overflow='';}
-  T.addEventListener('click',function(){D.classList.contains('open')?close_():open_();});
-  O.addEventListener('click',close_);
-  D.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close_);});
+  function openMenu(){T.classList.add('open');D.classList.add('open');O.classList.add('open');document.body.style.overflow='hidden';}
+  function closeMenu(){T.classList.remove('open');D.classList.remove('open');O.classList.remove('open');document.body.style.overflow='';}
+  T.addEventListener('click',function(){D.classList.contains('open')?closeMenu():openMenu();});
+  O.addEventListener('click',closeMenu);
+  D.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
 })();
+
+var hdr=document.getElementById('mainHeader');
+if(hdr){window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>80);});}
 </script>
 </body>
 </html>
