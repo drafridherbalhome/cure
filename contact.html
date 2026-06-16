@@ -14,8 +14,6 @@
         a{text-decoration:none;color:inherit;}
         ul{list-style:none;}
         .container{width:90%;max-width:1200px;margin:0 auto;}
-
-        /* Top Bar */
         .top-bar{background:#2d5a1b;color:white;padding:7px 0;font-size:13px;}
         .top-bar-content{display:flex;justify-content:space-between;align-items:center;width:90%;margin:0 auto;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
         .top-bar-content::-webkit-scrollbar{display:none;}
@@ -25,8 +23,6 @@
         .top-bar-social{display:flex;gap:10px;}
         .top-bar-social a{color:white;font-size:13px;transition:color .3s;}
         .top-bar-social a:hover{color:#a8d96c;}
-
-        /* Header */
         header{background:#162520;padding:14px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.2);}
         .header-container{display:flex;align-items:center;justify-content:space-between;width:90%;margin:0 auto;}
         .logo img{height:44px;width:auto;object-fit:contain;}
@@ -42,26 +38,17 @@
         .menu-toggle.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
         .menu-toggle.open span:nth-child(2){opacity:0;}
         .menu-toggle.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
-        
-        
-        
-        /* Hero */
         .hero{height:230px;background:linear-gradient(135deg,rgba(22,37,32,.78) 0%,rgba(45,90,27,.6) 100%),url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1920&q=80') no-repeat center center/cover;display:flex;align-items:center;justify-content:center;text-align:center;}
-        /* HERO BG: Replace background-image URL above */
         .hero-content{width:90%;color:white;}
         .hero h1{font-size:clamp(26px,4vw,50px);margin-bottom:10px;font-weight:700;}
         .breadcrumb{display:flex;align-items:center;gap:8px;color:#a8d96c;font-size:14px;justify-content:center;}
         .breadcrumb a{color:rgba(255,255,255,.8);transition:color .3s;}
         .breadcrumb a:hover,.breadcrumb span{color:#8bc34a;}
         .breadcrumb i{font-size:10px;color:rgba(255,255,255,.5);}
-
-        /* Section Labels */
         .section-label{color:#8bc34a;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;display:block;}
         .section-title{font-size:clamp(22px,2.8vw,34px);color:#162520;margin-bottom:14px;font-weight:700;line-height:1.25;}
         .section-title span{color:#8bc34a;}
         .section-divider{width:48px;height:3px;background:#8bc34a;margin:0 0 22px;border-radius:2px;}
-
-        /* Quick Contact Cards */
         .quick-contact{background:#f5f7f3;padding:50px 0;}
         .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:10px;}
         .quick-card{background:white;border-radius:8px;padding:24px 20px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.07);border-bottom:3px solid #8bc34a;transition:transform .3s,box-shadow .3s;}
@@ -71,17 +58,13 @@
         .quick-value{font-size:clamp(13px,1.2vw,15px);color:#162520;font-weight:600;line-height:1.5;}
         .quick-value a{color:#162520;transition:color .3s;}
         .quick-value a:hover{color:#8bc34a;}
-
-        /* Main Contact Section */
         .contact-section{padding:60px 0;}
         .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start;}
-        .contact-info-col{}
         .hours-title{font-size:clamp(18px,2vw,24px);font-weight:700;color:#162520;margin-bottom:16px;}
         .hours-list{margin-bottom:28px;}
         .hours-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f0f0f0;font-size:13.5px;}
         .hours-day{font-weight:600;color:#333;}
         .hours-time{color:#8bc34a;font-weight:500;}
-        .hours-closed{color:#e74c3c;}
         .info-links{display:flex;flex-direction:column;gap:12px;margin-top:10px;}
         .info-link{display:flex;align-items:center;gap:14px;font-size:14px;color:#555;transition:color .3s;}
         .info-link:hover{color:#8bc34a;}
@@ -89,8 +72,6 @@
         .social-row{display:flex;gap:10px;margin-top:20px;}
         .social-btn{width:40px;height:40px;background:rgba(139,195,74,.1);border:1.5px solid #8bc34a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#8bc34a;font-size:16px;transition:all .3s;}
         .social-btn:hover{background:#8bc34a;color:white;}
-
-        /* Contact Form */
         .contact-form-col{background:#f5f7f3;border-radius:8px;padding:32px;position:relative;overflow:hidden;}
         .contact-form-col::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:rgba(139,195,74,.15);border-radius:50%;}
         .form-title{font-size:clamp(18px,2vw,24px);font-weight:700;color:#162520;margin-bottom:6px;}
@@ -113,24 +94,16 @@
         .btn-reset:hover{background:#f0f0f0;}
         .btn-submit{padding:11px 28px;background:#8bc34a;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:600;font-size:13.5px;font-family:'Poppins',sans-serif;transition:all .3s;display:inline-flex;align-items:center;gap:8px;}
         .btn-submit:hover{background:#7ab33d;}
-
-        /* Map Section */
         .map-section{padding:0 0 60px;}
         .map-embed{width:100%;height:350px;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);}
         .map-embed iframe{width:100%;height:100%;border:none;}
-
-        /* WhatsApp CTA */
         .whatsapp-cta{background:#25D366;padding:50px 0;text-align:center;}
         .whatsapp-cta h2{font-size:clamp(20px,3vw,32px);color:white;font-weight:700;margin-bottom:10px;}
         .whatsapp-cta p{color:rgba(255,255,255,.9);font-size:15px;margin-bottom:24px;}
         .wa-btn{display:inline-flex;align-items:center;gap:10px;background:white;color:#25D366;padding:14px 34px;border-radius:4px;font-weight:700;font-size:16px;transition:all .3s;}
         .wa-btn:hover{background:#162520;color:white;}
-
-        /* WhatsApp Float */
         .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .3s;}
         .whatsapp-float:hover{transform:scale(1.1);}
-
-        /* Footer */
         .main-footer{text-align:center;padding:40px 0 0;background:#f5f7f3;}
         .order-btn-large{display:inline-flex;align-items:center;gap:10px;background:#8bc34a;color:white;padding:15px 34px;border-radius:4px;font-weight:700;font-size:17px;transition:all .3s;}
         .order-btn-large:hover{background:#7ab33d;}
@@ -153,17 +126,13 @@
         .footer-contact-item a:hover{color:#8bc34a;}
         .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;justify-content:space-between;align-items:center;color:#666;font-size:12.5px;flex-wrap:wrap;gap:8px;}
         .footer-bottom a{color:#8bc34a;}
-
         @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr;}.quick-grid{grid-template-columns:repeat(2,1fr);}}
         @media(max-width:768px){
             nav{display:none;}.menu-toggle{display:flex;}
             .contact-grid{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}.form-group.full{grid-column:span 1;}.form-buttons{grid-column:span 1;}
             .footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}
         }
-        @media(max-width:480px){.quick-grid{grid-template-columns:1fr 1fr;}.top-bar-content{flex-direction:column;align-items:flex-start;gap:6px;}}
-        
-
-        /* ═══ MOBILE DROPDOWN NAV ═══ */
+        @media(max-width:480px){.quick-grid{grid-template-columns:1fr 1fr;}}
         .mobile-nav-overlay{display:none;position:fixed;inset:0;top:73px;background:rgba(0,0,0,.55);z-index:890;}
         .mobile-nav-overlay.open{display:block;}
         .mobile-nav-drawer{position:fixed;top:73px;left:0;width:100%;background:#162520;z-index:900;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1);box-shadow:0 10px 36px rgba(0,0,0,.5);}
@@ -180,7 +149,6 @@
 </head>
 <body>
 
-<!-- Top Bar -->
 <div class="top-bar">
     <div class="top-bar-content">
         <div class="contact-info-topbar">
@@ -196,11 +164,9 @@
     </div>
 </div>
 
-<!-- Header -->
 <header>
     <div class="header-container">
         <div class="logo">
-            <!-- LOGO: Replace src with your actual logo URL -->
             <img src="https://placehold.co/160x44/8bc34a/ffffff?text=DR+AFRID" alt="DR AFRID Herbal Home Logo">
         </div>
         <nav>
@@ -219,7 +185,6 @@
     </div>
 </header>
 
-<!-- Mobile Dropdown Nav -->
 <div class="mobile-nav-overlay" id="mobileOverlay"></div>
 <div class="mobile-nav-drawer" id="mobileDrawer">
     <ul class="mobile-nav-links">
@@ -232,18 +197,6 @@
     </ul>
 </div>
 
-
-<div class="mobile-nav-drawer" id="mobileDrawer">
-    <ul class="mobile-nav-links">
-        <li><a href="index.html"><i class="fas fa-home nav-icon"></i> Home</a></li>
-        <li><a href="about.html"><i class="fas fa-user-md nav-icon"></i> About Us</a></li>
-        <li><a href="products.html"><i class="fas fa-leaf nav-icon"></i> Products</a></li>
-        <li><a href="reviews.html"><i class="fas fa-star nav-icon"></i> Reviews</a></li>
-        <li><a href="contact.html" style="color:#8bc34a;"><i class="fas fa-envelope nav-icon"></i> Contact</a></li>
-        <li class="mob-order"><a href="contact.html"><i class="fas fa-shopping-cart nav-icon"></i> Order Now</a></li>
-    </ul>
-</div>
-<!-- Hero -->
 <section class="hero">
     <div class="hero-content">
         <h1>Contact Us</h1>
@@ -255,7 +208,6 @@
     </div>
 </section>
 
-<!-- Quick Contact Cards -->
 <section class="quick-contact">
     <div class="container">
         <div class="quick-grid">
@@ -283,17 +235,14 @@
     </div>
 </section>
 
-<!-- Main Contact Section -->
 <section class="contact-section">
     <div class="container">
         <div class="contact-grid">
-            <!-- Info Column -->
             <div class="contact-info-col">
                 <span class="section-label">Get in Touch</span>
                 <h2 class="section-title">We're Here to <span>Help You Heal</span></h2>
                 <div class="section-divider"></div>
                 <p style="color:#666;font-size:14px;line-height:1.85;margin-bottom:28px;">Contact DR AFRID Herbal Home for a free consultation with Dr. Afrid. Whether you prefer to call, WhatsApp, email, or visit us in person at our Uromi office, we are always ready to help you find the right herbal solution for your health needs.</p>
-
                 <div class="hours-title">Opening Hours</div>
                 <div class="hours-list">
                     <div class="hours-item"><span class="hours-day">Monday</span><span class="hours-time">8:00 AM – 8:00 PM</span></div>
@@ -304,7 +253,6 @@
                     <div class="hours-item"><span class="hours-day">Saturday</span><span class="hours-time">8:00 AM – 8:00 PM</span></div>
                     <div class="hours-item"><span class="hours-day">Sunday</span><span class="hours-time">10:00 AM – 6:00 PM</span></div>
                 </div>
-
                 <div class="info-links">
                     <a href="tel:+2349153512788" class="info-link">
                         <div class="info-link-icon"><i class="fas fa-phone-alt"></i></div>
@@ -323,7 +271,6 @@
                         <div><strong>Visit Us</strong><br><span style="font-size:13px;">No 1, Ubia Road, Uromi, Edo State</span></div>
                     </div>
                 </div>
-
                 <div class="social-row">
                     <a href="#" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://wa.me/2349153512788" class="social-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -331,8 +278,6 @@
                     <a href="#" class="social-btn" title="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-
-            <!-- Form Column -->
             <div class="contact-form-col">
                 <div class="form-title">Send Us a Message</div>
                 <div class="form-subtitle">Fill in the form below and we'll get back to you as soon as possible.</div>
@@ -358,23 +303,27 @@
                         <label class="form-label">Health Condition / Product of Interest</label>
                         <select class="form-control form-select" id="condition">
                             <option value="">-- Select condition --</option>
-                            <option>Diabetes</option>
-                            <option>Hypertension</option>
-                            <option>Fibroid</option>
-                            <option>Kidney Problems</option>
-                            <option>Liver Disease</option>
-                            <option>Infertility (Male/Female)</option>
-                            <option>Prostate Problems</option>
-                            <option>Arthritis &amp; Joint Pain</option>
-                            <option>STIs &amp; STDs</option>
-                            <option>Sickle Cell</option>
-                            <option>Ulcer</option>
-                            <option>Pile</option>
-                            <option>Asthma</option>
-                            <option>Stroke Recovery</option>
-                            <option>Skin Diseases</option>
-                            <option>Weight Loss</option>
-                            <option>Other</option>
+                            <option>HSV-1 (Oral Herpes)</option><option>HSV-2 (Genital Herpes)</option>
+                            <option>Shingles (VZV)</option><option>Chickenpox</option><option>CMV / Cytomegalovirus</option>
+                            <option>COPD</option><option>Chronic Kidney Disease</option><option>Diabetes</option>
+                            <option>Hypertension</option><option>Fibroid</option><option>Ulcer</option>
+                            <option>Kidney Disease</option><option>Liver Disease</option><option>Arthritis</option>
+                            <option>STIs &amp; STDs</option><option>Infertility (Male/Female)</option><option>Pile</option>
+                            <option>Prostate Problems</option><option>Weak Erection</option><option>Typhoid</option>
+                            <option>Asthma</option><option>Stroke</option><option>Sickle Cell</option>
+                            <option>Eye / Glaucoma</option><option>Skin Diseases</option><option>Obesity</option>
+                            <option>Ovarian Cyst</option><option>Back Pain</option><option>Low Sperm Count</option>
+                            <option>Memory Loss</option><option>Hepatitis B</option><option>HIV / AIDS</option>
+                            <option>Herpes (HSV)</option><option>OCD</option><option>Multiple Sclerosis</option>
+                            <option>Cancer</option><option>Lupus</option><option>Parkinson's</option>
+                            <option>Alzheimer's</option><option>Epilepsy / Seizure</option><option>Autism</option>
+                            <option>Psoriasis</option><option>Vitiligo</option><option>Neuropathy</option>
+                            <option>Depression</option><option>Rheumatoid Arthritis</option>
+                            <option>Bring Back Ex</option><option>Marriage Restoration</option>
+                            <option>Remove Juju / Curses</option><option>Good Luck &amp; Fortune</option>
+                            <option>Business Breakthrough</option><option>Spiritual Protection</option>
+                            <option>Attract a Life Partner</option><option>Full Spiritual Cleansing</option>
+                            <option>Enemy Defeat</option><option>Dream Disturbance</option><option>Other</option>
                         </select>
                     </div>
                     <div class="form-group full">
@@ -399,22 +348,14 @@
     </div>
 </section>
 
-<!-- Map Section -->
 <section class="map-section">
     <div class="container">
         <div class="map-embed">
-            <!-- GOOGLE MAP: Replace this iframe src with your actual Google Maps embed URL for "No 1, Ubia Road, Uromi, Edo State" -->
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63302.88!2d6.3273!3d6.7238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10473e3df!2sUromi%2C+Edo+State%2C+Nigeria!5e0!3m2!1sen!2sng!4v1"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63302.88!2d6.3273!3d6.7238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10473e3df!2sUromi%2C+Edo+State%2C+Nigeria!5e0!3m2!1sen!2sng!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </section>
 
-<!-- WhatsApp CTA -->
 <section class="whatsapp-cta">
     <div class="container">
         <h2><i class="fab fa-whatsapp"></i> Prefer to Chat on WhatsApp?</h2>
@@ -425,7 +366,6 @@
     </div>
 </section>
 
-<!-- Footer -->
 <div class="main-footer">
     <a href="contact.html" class="order-btn-large"><i class="fas fa-shopping-cart"></i>&nbsp; Order Your Herbal Remedy Now</a>
 </div>
@@ -480,21 +420,32 @@
 
 <a href="https://wa.me/2349153512788" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-
-
-
 <script>
 (function(){
   var T=document.getElementById('menuToggle');
   var D=document.getElementById('mobileDrawer');
   var O=document.getElementById('mobileOverlay');
   if(!T||!D||!O)return;
-  function open_(){T.classList.add('open');D.classList.add('open');O.classList.add('open');document.body.style.overflow='hidden';}
-  function close_(){T.classList.remove('open');D.classList.remove('open');O.classList.remove('open');document.body.style.overflow='';}
-  T.addEventListener('click',function(){D.classList.contains('open')?close_():open_();});
-  O.addEventListener('click',close_);
-  D.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close_);});
+  function openMenu(){T.classList.add('open');D.classList.add('open');O.classList.add('open');document.body.style.overflow='hidden';}
+  function closeMenu(){T.classList.remove('open');D.classList.remove('open');O.classList.remove('open');document.body.style.overflow='';}
+  T.addEventListener('click',function(){D.classList.contains('open')?closeMenu():openMenu();});
+  O.addEventListener('click',closeMenu);
+  D.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
 })();
+</script>
+<script>
+function resetForm(){document.getElementById('firstName').value='';document.getElementById('lastName').value='';document.getElementById('phone').value='';document.getElementById('email').value='';document.getElementById('condition').value='';document.getElementById('message').value='';document.getElementById('alertMsg').className='alert-msg';}
+function submitForm(){
+  var fn=document.getElementById('firstName').value.trim();
+  var ph=document.getElementById('phone').value.trim();
+  var msg=document.getElementById('alertMsg');
+  if(!fn||!ph){msg.className='alert-msg error';msg.textContent='Please fill in your name and phone number.';return;}
+  var cond=document.getElementById('condition').value;
+  var note=document.getElementById('message').value.trim();
+  var waMsg=encodeURIComponent('Hello Dr. Afrid, my name is '+fn+'. I would like to enquire about: '+(cond||'your herbal remedies')+'. '+(note?'Additional details: '+note:'')+'My contact: '+ph);
+  window.open('https://wa.me/2349153512788?text='+waMsg,'_blank');
+  msg.className='alert-msg success';msg.textContent='Redirecting you to WhatsApp to complete your enquiry!';
+}
 </script>
 </body>
 </html>
