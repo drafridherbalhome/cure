@@ -271,19 +271,14 @@
             .svc-box h3{font-size:10px;}
         }
 
-        /* ── Media Slider: keep 2 panels side-by-side on all screens ── */
-        #mediaShowcase .ms-slide>div{min-width:0!important;flex:1 1 0!important;}
-        @media(max-width:600px){
-            #mediaShowcase{padding:36px 0!important;}
-            #mediaShowcase .ms-slide{gap:8px!important;}
-            #mediaShowcase .ms-video,
-            #mediaShowcase .ms-slide img{height:180px!important;}
-            #msPrev{left:-14px!important;width:36px!important;height:36px!important;font-size:14px!important;}
-            #msNext{right:-14px!important;width:36px!important;height:36px!important;font-size:14px!important;}
+        /* ── Media Grid: 4 panels visible at once ── */
+        @media(max-width:900px){
+            #mediaShowcase .ms-grid{grid-template-columns:repeat(2,1fr)!important;}
         }
-        @media(max-width:400px){
-            #mediaShowcase .ms-video,
-            #mediaShowcase .ms-slide img{height:140px!important;}
+        @media(max-width:500px){
+            #mediaShowcase{padding:36px 0!important;}
+            #mediaShowcase .ms-grid{grid-template-columns:1fr!important;gap:10px!important;}
+            #mediaShowcase video,#mediaShowcase img{height:200px!important;}
         }
         
 
@@ -394,8 +389,8 @@
     </div>
 </div>
 
-<!-- ── Media Showcase Slider ── -->
-<section id="mediaShowcase" style="background:#162520;padding:60px 0;overflow:hidden;">
+<!-- ── Media Showcase Grid ── -->
+<section id="mediaShowcase" style="background:#162520;padding:60px 0;">
     <div style="width:92%;max-width:1200px;margin:0 auto;">
         <div style="text-align:center;margin-bottom:36px;">
             <span style="color:#a8d96c;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:8px;">See For Yourself</span>
@@ -403,61 +398,105 @@
             <div style="width:46px;height:3px;background:#8bc34a;border-radius:2px;margin:0 auto;"></div>
         </div>
 
-        <!-- Slider wrapper -->
-        <div style="position:relative;">
+        <!-- 4-panel grid: all items visible at once -->
+        <div class="ms-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
 
-            <!-- Slides container -->
-            <div id="msTrack" style="display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);will-change:transform;">
-
-                <!-- Slide 1: image + video -->
-                <div class="ms-slide" style="min-width:100%;display:flex;gap:16px;flex-wrap:wrap;">
-                    <div style="flex:1;min-width:280px;border-radius:10px;overflow:hidden;background:#1e3328;box-shadow:0 6px 28px rgba(0,0,0,.45);">
-                        <img src="vid/82c9589e-7279-407d-a25b-45f28d9a4cbd.jpg" alt="DR AFRID Herbal Home" style="width:100%;height:340px;object-fit:cover;display:block;">
-                    </div>
-                    <div style="flex:1;min-width:280px;border-radius:10px;overflow:hidden;background:#1e3328;box-shadow:0 6px 28px rgba(0,0,0,.45);position:relative;">
-                        <video class="ms-video" style="width:100%;height:340px;object-fit:cover;display:block;" autoplay muted loop playsinline>
-                            <source src="vid/WhatsApp%20Video%202026-06-16%20at%2010.11.29%20AM.mp4" type="video/mp4">
-                        </video>
-                        <div class="ms-play-btn" style="display:none;"></div>
-                    </div>
+            <!-- Panel 1: image -->
+            <div style="border-radius:10px;overflow:hidden;background:#1e3328;box-shadow:0 6px 28px rgba(0,0,0,.45);">
+                <img src="vid/82c9589e-7279-407d-a25b-45f28d9a4cbd.jpg" alt="DR AFRID Herbal Home" style="width:100%;height:260px;object-fit:cover;display:block;">
+                <div style="padding:12px 14px;">
+                    <p style="color:#a8d96c;font-size:11.5px;font-weight:600;margin:0 0 3px;"><i class="fas fa-leaf"></i> DR AFRID Herbal Home</p>
+                    <p style="color:#ccc;font-size:11px;margin:0;">Natural herbal solutions for lasting health</p>
                 </div>
+            </div>
 
-                <!-- Slide 2: two videos -->
-                <div class="ms-slide" style="min-width:100%;display:flex;gap:16px;flex-wrap:wrap;">
-                    <div style="flex:1;min-width:280px;border-radius:10px;overflow:hidden;background:#1e3328;box-shadow:0 6px 28px rgba(0,0,0,.45);position:relative;">
-                        <video class="ms-video" style="width:100%;height:340px;object-fit:cover;display:block;" autoplay muted loop playsinline>
-                            <source src="vid/WhatsApp%20Video%202026-06-16%20at%2010.11.30%20AM%20(1).mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div style="flex:1;min-width:280px;border-radius:10px;overflow:hidden;background:#1e3328;box-shadow:0 6px 28px rgba(0,0,0,.45);position:relative;">
-                        <video class="ms-video" style="width:100%;height:340px;object-fit:cover;display:block;" autoplay muted loop playsinline>
-                            <source src="vid/WhatsApp%20Video%202026-06-16%20at%2010.11.30%20AM.mp4" type="video/mp4">
-                        </video>
-                    </div>
+            <!-- Panel 2: Video 1 (plays first) -->
+            <div style="border-radius:10px;overflow:hidden;background:#1e3328;box-shadow:0 6px 28px rgba(0,0,0,.45);position:relative;">
+                <video id="msVid0" style="width:100%;height:260px;object-fit:cover;display:block;" muted playsinline>
+                    <source src="vid/WhatsApp%20Video%202026-06-16%20at%2010.11.29%20AM.mp4" type="video/mp4">
+                </video>
+                <div class="ms-now-playing" id="msNow0" style="position:absolute;top:10px;left:10px;background:#8bc34a;color:white;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.5px;display:none;"><i class="fas fa-play" style="font-size:8px;"></i> Playing</div>
+                <div style="padding:12px 14px;">
+                    <p style="color:#a8d96c;font-size:11.5px;font-weight:600;margin:0 0 3px;"><i class="fas fa-video"></i> Patient Testimony</p>
+                    <p style="color:#ccc;font-size:11px;margin:0;">Real results from real patients</p>
                 </div>
+            </div>
 
-            </div><!-- /msTrack -->
+            <!-- Panel 3: Video 2 -->
+            <div style="border-radius:10px;overflow:hidden;background:#1e3328;box-shadow:0 6px 28px rgba(0,0,0,.45);position:relative;">
+                <video id="msVid1" style="width:100%;height:260px;object-fit:cover;display:block;" muted playsinline>
+                    <source src="vid/WhatsApp%20Video%202026-06-16%20at%2010.11.30%20AM%20(1).mp4" type="video/mp4">
+                </video>
+                <div class="ms-now-playing" id="msNow1" style="position:absolute;top:10px;left:10px;background:#8bc34a;color:white;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.5px;display:none;"><i class="fas fa-play" style="font-size:8px;"></i> Playing</div>
+                <div style="padding:12px 14px;">
+                    <p style="color:#a8d96c;font-size:11.5px;font-weight:600;margin:0 0 3px;"><i class="fas fa-video"></i> Herbal Treatment</p>
+                    <p style="color:#ccc;font-size:11px;margin:0;">See our herbal preparation process</p>
+                </div>
+            </div>
 
-            <!-- Prev arrow -->
-            <button id="msPrev" onclick="msNav(-1)" style="position:absolute;top:50%;left:-22px;transform:translateY(-50%);width:46px;height:46px;background:#8bc34a;border:none;border-radius:50%;color:white;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.4);transition:background .2s;z-index:10;" onmouseover="this.style.background='#a5d654'" onmouseout="this.style.background='#8bc34a'">
-                <i class="fas fa-chevron-left"></i>
-            </button>
+            <!-- Panel 4: Video 3 -->
+            <div style="border-radius:10px;overflow:hidden;background:#1e3328;box-shadow:0 6px 28px rgba(0,0,0,.45);position:relative;">
+                <video id="msVid2" style="width:100%;height:260px;object-fit:cover;display:block;" muted playsinline>
+                    <source src="vid/WhatsApp%20Video%202026-06-16%20at%2010.11.30%20AM.mp4" type="video/mp4">
+                </video>
+                <div class="ms-now-playing" id="msNow2" style="position:absolute;top:10px;left:10px;background:#8bc34a;color:white;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.5px;display:none;"><i class="fas fa-play" style="font-size:8px;"></i> Playing</div>
+                <div style="padding:12px 14px;">
+                    <p style="color:#a8d96c;font-size:11.5px;font-weight:600;margin:0 0 3px;"><i class="fas fa-video"></i> Consultation</p>
+                    <p style="color:#ccc;font-size:11px;margin:0;">Dr. Afrid in a live consultation</p>
+                </div>
+            </div>
 
-            <!-- Next arrow -->
-            <button id="msNext" onclick="msNav(1)" style="position:absolute;top:50%;right:-22px;transform:translateY(-50%);width:46px;height:46px;background:#8bc34a;border:none;border-radius:50%;color:white;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.4);transition:background .2s;z-index:10;" onmouseover="this.style.background='#a5d654'" onmouseout="this.style.background='#8bc34a'">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+        </div><!-- /4-panel grid -->
 
-        </div><!-- /relative wrapper -->
-
-        <!-- Dots -->
-        <div style="text-align:center;margin-top:22px;display:flex;align-items:center;justify-content:center;gap:10px;">
-            <button class="ms-dot" id="msDot0" onclick="msGoTo(0)" style="width:12px;height:12px;border-radius:50%;border:none;background:#8bc34a;cursor:pointer;padding:0;transition:transform .2s,background .2s;transform:scale(1.3);"></button>
-            <button class="ms-dot" id="msDot1" onclick="msGoTo(1)" style="width:12px;height:12px;border-radius:50%;border:none;background:rgba(255,255,255,.3);cursor:pointer;padding:0;transition:transform .2s,background .2s;"></button>
+        <!-- Progress dots showing which video is active -->
+        <div style="text-align:center;margin-top:18px;display:flex;align-items:center;justify-content:center;gap:8px;">
+            <span style="color:#a8d96c;font-size:11px;margin-right:6px;">Now playing:</span>
+            <div id="msProgDot0" style="width:10px;height:10px;border-radius:50%;background:#8bc34a;transition:transform .2s;transform:scale(1.4);"></div>
+            <div id="msProgDot1" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.25);transition:transform .2s;"></div>
+            <div id="msProgDot2" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.25);transition:transform .2s;"></div>
         </div>
 
     </div><!-- /container -->
 </section>
+
+<script>
+(function(){
+    var vids = [
+        document.getElementById('msVid0'),
+        document.getElementById('msVid1'),
+        document.getElementById('msVid2')
+    ];
+    var nows = [
+        document.getElementById('msNow0'),
+        document.getElementById('msNow1'),
+        document.getElementById('msNow2')
+    ];
+    var dots = [
+        document.getElementById('msProgDot0'),
+        document.getElementById('msProgDot1'),
+        document.getElementById('msProgDot2')
+    ];
+
+    function playAt(i) {
+        vids.forEach(function(v, idx) {
+            if (idx !== i) { v.pause(); v.currentTime = 0; }
+            nows[idx].style.display = idx === i ? 'block' : 'none';
+            dots[idx].style.background = idx === i ? '#8bc34a' : 'rgba(255,255,255,.25)';
+            dots[idx].style.transform = idx === i ? 'scale(1.4)' : 'scale(1)';
+        });
+        vids[i].play().catch(function(){});
+    }
+
+    vids.forEach(function(v, i) {
+        v.addEventListener('ended', function() {
+            playAt((i + 1) % vids.length);
+        });
+    });
+
+    // Start first video on page load
+    window.addEventListener('load', function() { playAt(0); });
+})();
+</script>
 
 
 
