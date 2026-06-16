@@ -42,16 +42,9 @@
         .menu-toggle.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
         .menu-toggle.open span:nth-child(2){opacity:0;}
         .menu-toggle.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
-        .mobile-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1050;opacity:0;transition:opacity .3s;}
-        .mobile-nav-overlay.open{opacity:1;}
-        .mobile-nav-drawer{position:fixed;top:0;right:0;height:100%;width:min(80vw,300px);background:#162520;z-index:1100;padding:70px 28px 28px;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;}
-        .mobile-nav-drawer.open{transform:translateX(0);}
-        .mobile-nav-links{display:flex;flex-direction:column;}
-        .mobile-nav-links li{border-bottom:1px solid rgba(255,255,255,.07);}
-        .mobile-nav-links a{display:block;color:white;font-size:15px;font-weight:500;padding:13px 0;transition:color .3s,padding-left .3s;}
-        .mobile-nav-links a:hover{color:#8bc34a;padding-left:6px;}
-        .mobile-nav-links li:nth-child(5) a{color:#8bc34a;}
-
+        
+        
+        
         /* Hero */
         .hero{height:230px;background:linear-gradient(135deg,rgba(22,37,32,.78) 0%,rgba(45,90,27,.6) 100%),url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1920&q=80') no-repeat center center/cover;display:flex;align-items:center;justify-content:center;text-align:center;}
         /* HERO BG: Replace background-image URL above */
@@ -163,11 +156,26 @@
 
         @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr;}.quick-grid{grid-template-columns:repeat(2,1fr);}}
         @media(max-width:768px){
-            nav{display:none;}.menu-toggle{display:flex;}.mobile-nav-overlay{display:block;}
+            nav{display:none;}.menu-toggle{display:flex;}
             .contact-grid{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}.form-group.full{grid-column:span 1;}.form-buttons{grid-column:span 1;}
             .footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}
         }
         @media(max-width:480px){.quick-grid{grid-template-columns:1fr 1fr;}.top-bar-content{flex-direction:column;align-items:flex-start;gap:6px;}}
+        
+
+        /* ═══ MOBILE DROPDOWN NAV ═══ */
+        .mobile-nav-overlay{display:none;position:fixed;inset:0;top:73px;background:rgba(0,0,0,.55);z-index:890;}
+        .mobile-nav-overlay.open{display:block;}
+        .mobile-nav-drawer{position:fixed;top:73px;left:0;width:100%;background:#162520;z-index:900;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1);box-shadow:0 10px 36px rgba(0,0,0,.5);}
+        .mobile-nav-drawer.open{max-height:560px;}
+        .mobile-nav-links{display:flex;flex-direction:column;padding:8px 0 18px;}
+        .mobile-nav-links li{border-bottom:1px solid rgba(255,255,255,.08);}
+        .mobile-nav-links a{display:flex;align-items:center;gap:13px;color:rgba(255,255,255,.92);font-size:15.5px;font-weight:500;padding:15px 6%;transition:color .25s,background .25s;}
+        .mobile-nav-links a i.mnav-ic{width:20px;text-align:center;color:#8bc34a;font-size:14px;}
+        .mobile-nav-links a:hover{color:#8bc34a;background:rgba(139,195,74,.09);}
+        .mobile-nav-links .mnav-active a{color:#8bc34a;}
+        .mobile-nav-links .mnav-order a{background:rgba(139,195,74,.14);color:#8bc34a!important;font-weight:700!important;border-top:1px solid rgba(139,195,74,.2);}
+        .mobile-nav-links .mnav-order a:hover{background:rgba(139,195,74,.25);}
     </style>
 </head>
 <body>
@@ -211,19 +219,30 @@
     </div>
 </header>
 
-<!-- Mobile Nav -->
+<!-- Mobile Dropdown Nav -->
 <div class="mobile-nav-overlay" id="mobileOverlay"></div>
 <div class="mobile-nav-drawer" id="mobileDrawer">
     <ul class="mobile-nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="contact.html" style="color:#8bc34a;font-weight:700;">Order Now</a></li>
+        <li><a href="index.html"><i class="fas fa-home mnav-ic"></i>Home</a></li>
+        <li><a href="about.html"><i class="fas fa-user-md mnav-ic"></i>About Us</a></li>
+        <li><a href="products.html"><i class="fas fa-leaf mnav-ic"></i>Products</a></li>
+        <li><a href="reviews.html"><i class="fas fa-star mnav-ic"></i>Reviews</a></li>
+        <li class="mnav-active"><a href="contact.html"><i class="fas fa-envelope mnav-ic"></i>Contact</a></li>
+        <li class="mnav-order"><a href="contact.html"><i class="fas fa-shopping-cart mnav-ic"></i>Order Now</a></li>
     </ul>
 </div>
 
+
+<div class="mobile-nav-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-links">
+        <li><a href="index.html"><i class="fas fa-home nav-icon"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-user-md nav-icon"></i> About Us</a></li>
+        <li><a href="products.html"><i class="fas fa-leaf nav-icon"></i> Products</a></li>
+        <li><a href="reviews.html"><i class="fas fa-star nav-icon"></i> Reviews</a></li>
+        <li><a href="contact.html" style="color:#8bc34a;"><i class="fas fa-envelope nav-icon"></i> Contact</a></li>
+        <li class="mob-order"><a href="contact.html"><i class="fas fa-shopping-cart nav-icon"></i> Order Now</a></li>
+    </ul>
+</div>
 <!-- Hero -->
 <section class="hero">
     <div class="hero-content">
@@ -461,35 +480,21 @@
 
 <a href="https://wa.me/2349153512788" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
+
+
+
 <script>
-    const menuToggle=document.getElementById('menuToggle'),mobileDrawer=document.getElementById('mobileDrawer'),mobileOverlay=document.getElementById('mobileOverlay');
-    menuToggle.addEventListener('click',()=>{const o=mobileDrawer.classList.contains('open');menuToggle.classList.toggle('open',!o);mobileDrawer.classList.toggle('open',!o);mobileOverlay.classList.toggle('open',!o);});
-    mobileOverlay.addEventListener('click',()=>{menuToggle.classList.remove('open');mobileDrawer.classList.remove('open');mobileOverlay.classList.remove('open');});
-
-    function submitForm(){
-        const fn=document.getElementById('firstName').value.trim();
-        const ln=document.getElementById('lastName').value.trim();
-        const ph=document.getElementById('phone').value.trim();
-        const msg=document.getElementById('alertMsg');
-        if(!fn||!ln||!ph){
-            msg.className='alert-msg error';
-            msg.textContent='Please fill in all required fields (First Name, Last Name, Phone Number).';
-            msg.style.display='block';
-            return;
-        }
-        msg.className='alert-msg success';
-        msg.textContent='Thank you! Your message has been received. Dr. Afrid will contact you shortly.';
-        msg.style.display='block';
-        setTimeout(()=>{msg.style.display='none';resetForm();},5000);
-    }
-
-    function resetForm(){
-        ['firstName','lastName','phone','email','condition','message'].forEach(id=>{
-            const el=document.getElementById(id);
-            if(el)el.value='';
-        });
-        document.getElementById('alertMsg').style.display='none';
-    }
+(function(){
+  var T=document.getElementById('menuToggle');
+  var D=document.getElementById('mobileDrawer');
+  var O=document.getElementById('mobileOverlay');
+  if(!T||!D||!O)return;
+  function open_(){T.classList.add('open');D.classList.add('open');O.classList.add('open');document.body.style.overflow='hidden';}
+  function close_(){T.classList.remove('open');D.classList.remove('open');O.classList.remove('open');document.body.style.overflow='';}
+  T.addEventListener('click',function(){D.classList.contains('open')?close_():open_();});
+  O.addEventListener('click',close_);
+  D.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close_);});
+})();
 </script>
 </body>
 </html>
