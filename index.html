@@ -45,15 +45,8 @@
         .menu-toggle.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
         .menu-toggle.open span:nth-child(2){opacity:0;}
         .menu-toggle.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
-        .mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1050;opacity:0;transition:opacity .3s;}
-        .mob-overlay.open{opacity:1;}
-        .mob-drawer{position:fixed;top:0;right:0;height:100%;width:min(80vw,290px);background:#162520;z-index:1100;padding:68px 26px 26px;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;}
-        .mob-drawer.open{transform:translateX(0);}
-        .mob-links li{border-bottom:1px solid rgba(255,255,255,.07);}
-        .mob-links a{display:block;color:white;font-size:15px;font-weight:500;padding:13px 0;transition:color .3s;}
-        .mob-links a:hover{color:#8bc34a;}
-        .mob-links li:first-child a{color:#8bc34a;}
-
+        
+        
         /* ── Hero ── */
         /* HERO BG: Replace URL below with your own hero image */
         .hero{min-height:100vh;background:linear-gradient(160deg,rgba(22,37,32,.85) 0%,rgba(22,37,32,.5) 100%),url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1920&q=80') no-repeat center/cover;display:flex;align-items:center;position:relative;overflow:hidden;}
@@ -235,7 +228,7 @@
         @media(max-width:768px){
             nav{display:none;}
             .menu-toggle{display:flex;}
-            .mob-overlay{display:block;}
+            
             .about-grid{grid-template-columns:1fr;}
             .about-badge{right:10px;bottom:-10px;}
             .doc-inner{grid-template-columns:1fr;}
@@ -292,6 +285,21 @@
             #mediaShowcase .ms-video,
             #mediaShowcase .ms-slide img{height:140px!important;}
         }
+        
+
+        /* ═══ MOBILE DROPDOWN NAV ═══ */
+        .mobile-nav-overlay{display:none;position:fixed;inset:0;top:73px;background:rgba(0,0,0,.55);z-index:890;}
+        .mobile-nav-overlay.open{display:block;}
+        .mobile-nav-drawer{position:fixed;top:73px;left:0;width:100%;background:#162520;z-index:900;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1);box-shadow:0 10px 36px rgba(0,0,0,.5);}
+        .mobile-nav-drawer.open{max-height:560px;}
+        .mobile-nav-links{display:flex;flex-direction:column;padding:8px 0 18px;}
+        .mobile-nav-links li{border-bottom:1px solid rgba(255,255,255,.08);}
+        .mobile-nav-links a{display:flex;align-items:center;gap:13px;color:rgba(255,255,255,.92);font-size:15.5px;font-weight:500;padding:15px 6%;transition:color .25s,background .25s;}
+        .mobile-nav-links a i.mnav-ic{width:20px;text-align:center;color:#8bc34a;font-size:14px;}
+        .mobile-nav-links a:hover{color:#8bc34a;background:rgba(139,195,74,.09);}
+        .mobile-nav-links .mnav-active a{color:#8bc34a;}
+        .mobile-nav-links .mnav-order a{background:rgba(139,195,74,.14);color:#8bc34a!important;font-weight:700!important;border-top:1px solid rgba(139,195,74,.2);}
+        .mobile-nav-links .mnav-order a:hover{background:rgba(139,195,74,.25);}
     </style>
 </head>
 <body>
@@ -335,16 +343,28 @@
     </div>
 </header>
 
+<!-- Mobile Dropdown Nav -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<div class="mobile-nav-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-links">
+        <li class="mnav-active"><a href="index.html"><i class="fas fa-home mnav-ic"></i>Home</a></li>
+        <li><a href="about.html"><i class="fas fa-user-md mnav-ic"></i>About Us</a></li>
+        <li><a href="products.html"><i class="fas fa-leaf mnav-ic"></i>Products</a></li>
+        <li><a href="reviews.html"><i class="fas fa-star mnav-ic"></i>Reviews</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope mnav-ic"></i>Contact</a></li>
+        <li class="mnav-order"><a href="contact.html"><i class="fas fa-shopping-cart mnav-ic"></i>Order Now</a></li>
+    </ul>
+</div>
+
 <!-- ── Mobile Nav ── -->
-<div class="mob-overlay" id="mobOverlay"></div>
-<div class="mob-drawer" id="mobDrawer">
-    <ul class="mob-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="contact.html" style="color:#8bc34a;font-weight:700;">Order Now &rarr;</a></li>
+<div class="mobile-nav-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-links">
+        <li><a href="index.html" style="color:#8bc34a;"><i class="fas fa-home nav-icon"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-user-md nav-icon"></i> About Us</a></li>
+        <li><a href="products.html"><i class="fas fa-leaf nav-icon"></i> Products</a></li>
+        <li><a href="reviews.html"><i class="fas fa-star nav-icon"></i> Reviews</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope nav-icon"></i> Contact</a></li>
+        <li class="mob-order"><a href="contact.html"><i class="fas fa-shopping-cart nav-icon"></i> Order Now</a></li>
     </ul>
 </div>
 
@@ -464,59 +484,7 @@
     </div><!-- /container -->
 </section>
 
-<script>
-(function(){
-    var msIdx = 0, msTotal = 2;
-    var track = document.getElementById('msTrack');
 
-    function msStopAllVideos() {
-        document.querySelectorAll('#msTrack .ms-video').forEach(function(v) {
-            v.pause();
-            v.currentTime = 0;
-        });
-        document.querySelectorAll('#msTrack .ms-play-btn').forEach(function(b) {
-            b.style.display = 'flex';
-        });
-    }
-
-    function msUpdateUI() {
-        track.style.transform = 'translateX(-' + (msIdx * 100) + '%)';
-        document.querySelectorAll('.ms-dot').forEach(function(d, i) {
-            d.style.background = i === msIdx ? '#8bc34a' : 'rgba(255,255,255,.3)';
-            d.style.transform  = i === msIdx ? 'scale(1.3)' : 'scale(1)';
-        });
-        var prev = document.getElementById('msPrev');
-        var next = document.getElementById('msNext');
-        prev.style.opacity = msIdx === 0 ? '0.4' : '1';
-        next.style.opacity = msIdx === msTotal - 1 ? '0.4' : '1';
-    }
-
-    window.msNav = function(dir) {
-        var next = msIdx + dir;
-        if (next < 0 || next >= msTotal) return;
-        msStopAllVideos();
-        msIdx = next;
-        msUpdateUI();
-    };
-
-    window.msGoTo = function(i) {
-        if (i === msIdx) return;
-        msStopAllVideos();
-        msIdx = i;
-        msUpdateUI();
-    };
-
-    window.msPlayVideo = function(btn) {
-        var wrapper = btn.parentElement;
-        var vid = wrapper.querySelector('.ms-video');
-        btn.style.display = 'none';
-        vid.play();
-        vid.addEventListener('ended', function() { btn.style.display = 'flex'; }, { once: true });
-    };
-
-    msUpdateUI();
-})();
-</script>
 
 
 <!-- ── About Section (image + text) ── -->
@@ -606,6 +574,13 @@
                 <h2 class="stit">Conditions We <span>Treat</span></h2>
                 <div class="sdiv"></div>
                 <div class="cond-tags">
+                    <div class="ctag">HSV-1 (Oral Herpes)</div>
+                    <div class="ctag">HSV-2 (Genital Herpes)</div>
+                    <div class="ctag">Shingles (VZV)</div>
+                    <div class="ctag">Chickenpox</div>
+                    <div class="ctag">CMV / Cytomegalovirus</div>
+                    <div class="ctag">COPD</div>
+                    <div class="ctag">Chronic Kidney Disease</div>
                     <div class="ctag">Diabetes</div>
                     <div class="ctag">Hypertension</div>
                     <div class="ctag">Fibroid</div>
@@ -745,8 +720,8 @@
                     <p class="tcard-text">I had been battling diabetes for 7 years. After just 3 months of DR AFRID's herbal remedy, my blood sugar normalized. My doctor was shocked! God bless you Dr. Afrid!</p>
                     <div class="tcard-author">
                         <div>
-                            <div class="tcard-name">Adaeze M.</div>
-                            <div class="tcard-loc">Enugu State</div>
+                            <div class="tcard-name">Sarah M.</div>
+                            <div class="tcard-loc">London, UK</div>
                             <div class="tcard-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         </div>
                     </div>
@@ -760,8 +735,8 @@
                     <p class="tcard-text">My wife had fibroid for 5 years and doctors wanted to operate. After 2 months on DR AFRID's remedy, it was completely gone. No surgery needed — amazing!</p>
                     <div class="tcard-author">
                         <div>
-                            <div class="tcard-name">Emmanuel O.</div>
-                            <div class="tcard-loc">Lagos State</div>
+                            <div class="tcard-name">James T.</div>
+                            <div class="tcard-loc">Texas, USA</div>
                             <div class="tcard-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         </div>
                     </div>
@@ -775,8 +750,8 @@
                     <p class="tcard-text">I was told my kidney was permanently damaged and needed dialysis. After 4 months of DR AFRID's kidney herb, my creatinine levels returned to normal. Truly miraculous!</p>
                     <div class="tcard-author">
                         <div>
-                            <div class="tcard-name">Fatima K.</div>
-                            <div class="tcard-loc">Abuja FCT</div>
+                            <div class="tcard-name">Rachel B.</div>
+                            <div class="tcard-loc">Sydney, Australia</div>
                             <div class="tcard-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         </div>
                     </div>
@@ -948,13 +923,42 @@
     <i class="fab fa-whatsapp"></i>
 </a>
 
+
 <script>
-    const mt=document.getElementById('menuToggle'),md=document.getElementById('mobDrawer'),mo=document.getElementById('mobOverlay');
-    const open=()=>{mt.classList.add('open');md.classList.add('open');mo.classList.add('open');}
-    const close=()=>{mt.classList.remove('open');md.classList.remove('open');mo.classList.remove('open');}
-    mt.addEventListener('click',()=>md.classList.contains('open')?close():open());
-    mo.addEventListener('click',close);
-    window.addEventListener('scroll',()=>document.getElementById('mainHeader').classList.toggle('scrolled',scrollY>80));
+    (function(){
+        var toggle=document.getElementById('menuToggle');
+        var drawer=document.getElementById('mobileDrawer');
+        var overlay=document.getElementById('mobileOverlay');
+        if(!toggle||!drawer||!overlay) return;
+        function openMenu(){toggle.classList.add('open');drawer.classList.add('open');overlay.classList.add('open');}
+        function closeMenu(){toggle.classList.remove('open');drawer.classList.remove('open');overlay.classList.remove('open');}
+        toggle.addEventListener('click',function(){drawer.classList.contains('open')?closeMenu():openMenu();});
+        overlay.addEventListener('click',closeMenu);
+        drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+    })();
+
+    // Keep scroll header effect
+    var hdr=document.getElementById('mainHeader');
+    if(hdr){window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>80);});}
+</script>
+
+<script>
+var hdr=document.getElementById('mainHeader');
+if(hdr){window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>80);});}
+</script>
+
+<script>
+(function(){
+  var T=document.getElementById('menuToggle');
+  var D=document.getElementById('mobileDrawer');
+  var O=document.getElementById('mobileOverlay');
+  if(!T||!D||!O)return;
+  function open_(){T.classList.add('open');D.classList.add('open');O.classList.add('open');document.body.style.overflow='hidden';}
+  function close_(){T.classList.remove('open');D.classList.remove('open');O.classList.remove('open');document.body.style.overflow='';}
+  T.addEventListener('click',function(){D.classList.contains('open')?close_():open_();});
+  O.addEventListener('click',close_);
+  D.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close_);});
+})();
 </script>
 </body>
 </html>
